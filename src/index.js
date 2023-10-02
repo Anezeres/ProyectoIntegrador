@@ -8,7 +8,7 @@ const root = createRoot(document.getElementById("root"))
 
 root.render(
     <>
-        <Canvas camera={{ position: [0, 0, 5] }}>
+        <Canvas camera={{ position: [-1, 4, 7] }}>
             <Experience/>
         </Canvas>
     </>
