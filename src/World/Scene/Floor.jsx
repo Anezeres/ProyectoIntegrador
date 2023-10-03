@@ -3,17 +3,16 @@ import { useRef } from "react";
 import { BoxHelper } from "three";
 
 
-const Cuarto = (props) => {
+const Floor = (props, textures) => {
   const { nodes, materials } = useGLTF("/assets/Models/Cuarto/Cuarto2.glb");
 
   const bedRef = useRef();
 
+  console.log(textures)
+
 
   return (
     <group {...props} dispose={null}>
-
-      {/* Este es el suelo */}
-
       <mesh 
         castShadow
         receiveShadow
@@ -22,22 +21,16 @@ const Cuarto = (props) => {
         scale={[4, 0.2, 4]}
       />
 
-      {/*  Hasta Acá el suelo */}
+            <mesh rotation-x={-Math.PI/2} scale={0.4} position={[0, 0.215, 0]}>
+                <planeGeometry args={[20, 20, 20]}/>
+                <meshBasicMaterial {...props.textures} />
+            </mesh>
 
-
-      {/* Paredes*/}
-      {/* <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Wall.geometry}
-        material={materials.White}
-        
-      /> */}
     </group>
   );
 }
 
-export default Cuarto;
+export default Floor;
 useGLTF.preload("/assets/Models/Cuarto/Cuarto2.glb")
 
 
