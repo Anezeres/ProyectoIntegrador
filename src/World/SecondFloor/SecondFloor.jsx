@@ -1,17 +1,19 @@
-import Escalera from "../SecondFloor/Escalera";
-import Objetos from "../SecondFloor/Objetos";
-import Platform from "./Platform";
-import Walls from "./Walls";
+
+import CuartoXander from "./CuartoXander/CuartoXander";
+import Corredor from "./Corredor/Corredor";
+import CuartoAbuela from "./CuartoAbuela/CuartoAbuela";
+import CuartoPadres from "./CuartoPadres/CuartoPadres";
+
+
 
 const SecondFloor = () => {
 
     return (
-        <>
-
-            <Platform/>
-            <Walls/>
-            <Escalera/>
-            <Objetos position={[0,0,0]} scale={1.3}/>
+        <>  
+            <CuartoXander/>
+            <Corredor/>
+            <CuartoAbuela/>
+            <CuartoPadres/>
 
         </>
     )

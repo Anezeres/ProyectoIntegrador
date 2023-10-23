@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 
-const Pantalla = () => {
+const Pantalla = (props) => {
 
     const PantalleModel = useGLTF("/assets/Models/Pantalla/scene.gltf");
     const PantalleRef = useRef();
@@ -9,7 +9,7 @@ const Pantalla = () => {
 
 
     return(
-        <mesh ref={PantalleRef} position={[-3.9,2,0]} scale={0.1} rotation-y={Math.PI/2}>
+        <mesh ref={PantalleRef} {...props} scale={0.1} rotation-y={Math.PI/2}>
             <primitive object={PantalleModel.scene}/>
         </mesh>
     );

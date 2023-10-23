@@ -8,12 +8,10 @@ const Floor = (props, textures) => {
 
   const bedRef = useRef();
 
-  console.log(textures)
-
 
   return (
     <group {...props} dispose={null}>
-      <mesh 
+      <mesh
         castShadow
         receiveShadow
         geometry={nodes.Floor.geometry}
@@ -21,10 +19,10 @@ const Floor = (props, textures) => {
         scale={[4, 0.2, 4]}
       />
 
-            <mesh rotation-x={-Math.PI/2} scale={0.4} position={[0, 0.215, 0]}>
-                <planeGeometry args={[20, 20, 20]}/>
-                <meshBasicMaterial {...props.textures} />
-            </mesh>
+      <mesh rotation-x={-Math.PI / 2} scale={0.4} position={[0, 0.215, 0]}>
+        <planeGeometry args={[20, 20, 20]} />
+        <meshBasicMaterial {...props.textures} />
+      </mesh>
 
     </group>
   );

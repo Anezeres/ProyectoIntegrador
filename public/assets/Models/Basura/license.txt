@@ -1,0 +1,11 @@
+Model Information:
+* title:	lt1_botes-de-basura
+* source:	https://sketchfab.com/3d-models/lt1-botes-de-basura-cd2208455dfc462c835245b3d3100ec4
+* author:	Xavi21 (https://sketchfab.com/Xavi21)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "lt1_botes-de-basura" (https://sketchfab.com/3d-models/lt1-botes-de-basura-cd2208455dfc462c835245b3d3100ec4) by Xavi21 (https://sketchfab.com/Xavi21) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

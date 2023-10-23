@@ -1,7 +1,7 @@
 import { useTexture } from "@react-three/drei";
-import Floor from "../Scene/Floor";
+import Floor from "../../Scene/Floor";
 
-const Platform = () => {
+const PlatformAbuela = () => {
 
     const PATH = "/assets/Textures/Wood/"
 
@@ -13,15 +13,7 @@ const Platform = () => {
     })
 
     const floorPositions = [
-        [0, 0, 0],
-        [8, 0, 0],
-        [-8, 0, 0],
-        [-8, 0, -8],
-        [8, 0, -8],
         [8, 0, 8],
-        [-8, 0, 8],
-        [-16, 0, -8],
-        [16, 0, -8],
         [16, 0, 8],
         ];
 
@@ -53,4 +45,4 @@ const Platform = () => {
 
 }
 
-export default Platform;
+export default PlatformAbuela;
