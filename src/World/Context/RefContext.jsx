@@ -1,9 +1,16 @@
 import React, { createContext, useRef, useState } from "react";
 import { refContext } from "./refContext";
 import { MathUtils } from 'three';
+import { useThree } from "@react-three/fiber";
 
 
 const RefContext = ({ children }) => {
+
+    const { camera } = useThree();
+
+    const handleCameraPositionChange = (newPosition) => {
+        setCameraPosition(newPosition);
+      };
 
     function moveObjectToPositionSmoothly(objectRef, targetPosition, duration, onMoveComplete, shouldDestroy = false) {
         if (objectRef.current) {
@@ -66,7 +73,8 @@ const RefContext = ({ children }) => {
             value={
                 {
                     moveObjectToPositionSmoothly,
-                    abrirPuerta
+                    abrirPuerta,
+                    camera
                 }
             }
         >

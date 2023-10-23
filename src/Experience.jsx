@@ -12,14 +12,14 @@ const Experience = () => {
     return (
         <>
             <RefContext>
-                <OrbitControls makeDefault />
+                
                 <ambientLight intensity={0.5} />
                 <directionalLight position={[10, 10, 5]} intensity={2} />
                 {/* <Fondo /> */}
                 {/* <Cuarto rotation-y={-Math.PI}/> */}
                 {/* <Sotano /> */}
                 <SecondFloor/>
-                <axesHelper args={[5]} position-y={0} />
+                <axesHelper args={[5]} position={[-8, 0, 8]} />
             </RefContext>
         </>
     )

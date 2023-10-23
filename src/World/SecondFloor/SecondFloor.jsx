@@ -10,10 +10,11 @@ const SecondFloor = () => {
 
     return (
         <>  
-            <CuartoXander/>
-            <Corredor/>
+            {/* <CuartoXander/> */}
+            {/* <Corredor/> */}
             <CuartoAbuela/>
-            <CuartoPadres/>
+            
+            {/* <CuartoPadres/> */}
 
         </>
     )
