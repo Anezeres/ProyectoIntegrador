@@ -1,0 +1,11 @@
+Model Information:
+* title:	Silla Gamer Lowpoly
+* source:	https://sketchfab.com/3d-models/silla-gamer-lowpoly-e2f5bdbd48904194ba16279444c5534f
+* author:	mr.kstein00 (https://sketchfab.com/mr.kstein00)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Silla Gamer Lowpoly" (https://sketchfab.com/3d-models/silla-gamer-lowpoly-e2f5bdbd48904194ba16279444c5534f) by mr.kstein00 (https://sketchfab.com/mr.kstein00) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

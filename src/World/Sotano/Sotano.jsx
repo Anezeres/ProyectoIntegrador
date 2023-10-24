@@ -27,7 +27,7 @@ const Sotano = () => {
             {/* <Decoraciones position={[0,1,1]}/> */}
             <Objetos position={[0,0,0]} scale={1.3}/>
             <Escalera/>
-            <Pantalla/>
+            <Pantalla position={[-3.9,2,0]}/>
             <Panel/>
         </>
     )

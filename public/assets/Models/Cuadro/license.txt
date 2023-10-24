@@ -1,0 +1,11 @@
+Model Information:
+* title:	Lilith (John Collier)
+* source:	https://sketchfab.com/3d-models/lilith-john-collier-e2c3a3020d364589a1f4890ef5eddd50
+* author:	dimoni (https://sketchfab.com/dimoni)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Lilith (John Collier)" (https://sketchfab.com/3d-models/lilith-john-collier-e2c3a3020d364589a1f4890ef5eddd50) by dimoni (https://sketchfab.com/dimoni) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,7 +1,7 @@
 import { useGLTF } from "@react-three/drei";
 import { useRef } from "react";
 
-const Panel = () => {
+const Panel = (props) => {
 
     const PanelModel = useGLTF("/assets/Models/Panel/scene.gltf");
     const PanelRef = useRef();
@@ -9,7 +9,7 @@ const Panel = () => {
 
 
     return(
-        <mesh ref={PanelRef} position={[-1,1.5,-3]} scale={1.3} >
+        <mesh ref={PanelRef} position={[-1,1.5,-3]} {...props} scale={1.3} >
             <primitive object={PanelModel.scene}/>
         </mesh>
     );
@@ -18,4 +18,3 @@ const Panel = () => {
 }
 
 export default Panel;
-useGLTF.preload("/assets/Models/Panel/scene.gltf")

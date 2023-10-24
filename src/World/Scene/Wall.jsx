@@ -13,10 +13,6 @@ const Wall = (props) => {
 
 
 
-    const propsTexture = useTexture({
-        map: PATH + 'wallColor.jpg'
-    })
-
 
     return (
         <group {...props} dispose={null}>

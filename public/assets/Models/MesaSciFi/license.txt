@@ -1,0 +1,11 @@
+Model Information:
+* title:	Furniture - Galactonauta (Game)
+* source:	https://sketchfab.com/3d-models/furniture-galactonauta-game-02921ede89854b8e8942458763a9901a
+* author:	Tavo Passos (https://sketchfab.com/tavo_passos)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Furniture - Galactonauta (Game)" (https://sketchfab.com/3d-models/furniture-galactonauta-game-02921ede89854b8e8942458763a9901a) by Tavo Passos (https://sketchfab.com/tavo_passos) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

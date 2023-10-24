@@ -6,17 +6,15 @@ const exampleConversation = [
 	{
 		name: "Xander",
 		lines:
-			"Mi abuela no puede enterarse de esto. Debo encontrar la forma de ayudarla sin que se preocupe",
+			"Son las 6pm, tengo hambre, y no he podido comer nada desde el desayuno.\n¿Qué hay de comer?",
 	},
 	{
-		name: "Aria",
-		lines:
-			"No te preocupes, yo me encargo de todo. Solo debes concentrarte en tu abuela",
+		name: "Abuela",
+		lines: "Mijo! baje a comer sancocho.",
 	},
 	{
-		name: "Raven",
-		lines:
-			"Niño, me agrada tu abuela, pero no puedo hacer nada. No tengo el dinero para pagar la operación",
+		name: "Xander",
+		lines: "Oh no, no me gusta el sancocho, ¿Cómo podré librarme del sancocho?",
 	},
 ];
 
@@ -25,12 +23,10 @@ export default function App() {
 	const [currentLine, setCurrentLine] = useState("");
 	const [currentName, setCurrentName] = useState("");
 	function setNextStep() {
+		setCurrentStep((currentStep) => currentStep + 1);
 		if (currentStep === exampleConversation.length - 1) {
 			setCurrentStep(0);
-			return;
 		}
-
-		setCurrentStep((currentStep) => currentStep + 1);
 	}
 	useEffect(() => {
 		setCurrentName(exampleConversation[currentStep].name);
