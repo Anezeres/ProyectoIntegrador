@@ -3,6 +3,7 @@ import CuartoXander from "./CuartoXander/CuartoXander";
 import Corredor from "./Corredor/Corredor";
 import CuartoAbuela from "./CuartoAbuela/CuartoAbuela";
 import CuartoPadres from "./CuartoPadres/CuartoPadres";
+import { Physics } from "@react-three/rapier";
 
 
 
@@ -10,11 +11,13 @@ const SecondFloor = () => {
 
     return (
         <>  
-            {/* <CuartoXander/> */}
-            {/* <Corredor/> */}
-            <CuartoAbuela/>
             
-            {/* <CuartoPadres/> */}
+                <CuartoXander/>
+                {/* <Corredor/> */}
+                {/* <CuartoAbuela/> */}
+                
+                {/* <CuartoPadres/> */}
+            
 
         </>
     )

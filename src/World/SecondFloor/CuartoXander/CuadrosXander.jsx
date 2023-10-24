@@ -1,6 +1,7 @@
 import { useGLTF, useTexture } from "@react-three/drei";
 import { useRef } from "react";
-import Cuadro from "../../Scene/Cuadro";
+import Cuadro from "./Cuadro";
+
 
 const CuadrosXander = () => {
 

@@ -1,5 +1,6 @@
 import { useTexture } from "@react-three/drei";
 import Floor from "../../Scene/Floor";
+import { RigidBody } from "@react-three/rapier";
 
 const PlatformCorredor = () => {
 
@@ -21,7 +22,9 @@ const PlatformCorredor = () => {
         ];
 
         const floors = floorPositions.map((position, index) => (
-            <Floor key={index} rotation-y={-Math.PI} position={position} textures={propsTexture}/>
+            <RigidBody type="fixed">
+                <Floor key={index} rotation-y={-Math.PI} position={position} textures={propsTexture}/>
+            </RigidBody>
             ));
         
         const textureMeshes = floorPositions.map((position, index) => (

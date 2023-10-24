@@ -9,7 +9,7 @@ const MesaControl = () => {
 
 
     return(
-        <mesh ref={MesaControlRef} position={[-12,0,-8.5]} scale={0.18} rotation-y={Math.PI}>
+        <mesh ref={MesaControlRef} position={[-12,0.6,-8.5]} scale={0.18} rotation-y={Math.PI}>
             <primitive object={MesaControlModel.scene}/>
         </mesh>
     );

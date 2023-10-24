@@ -10,6 +10,11 @@ import { useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { refContext } from "../../Context/refContext";
 import { useContext } from "react";
+import Cuadro from "./Cuadro";
+import SillaG from "./SillaG";
+import Monitor from "./Monitor";
+import Laptop from "./Laptop";
+import ObjetosMoverXander from "./ObjetosMoverXander";
 
 
 const CuartoXander = () => {
@@ -34,8 +39,12 @@ const CuartoXander = () => {
             <Basura/>
             <MesaControl/>
             <ObjetosXander position={[0,0,0]} scale={1.3}/>
+            <ObjetosMoverXander position={[0,0,0]} scale={1.3}/>
             <WallsXander/>
             <CuadrosXander/>
+            <SillaG/>
+            <Monitor/>
+            <Laptop/>
             <PlatformXander/>
         </>
     )

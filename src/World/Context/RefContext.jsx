@@ -8,6 +8,10 @@ const RefContext = ({ children }) => {
 
     const { camera } = useThree();
 
+    const xanderRef = useRef();
+    const abuelaRef = useRef();
+    const xanderBodyRef = useRef();
+
     const handleCameraPositionChange = (newPosition) => {
         setCameraPosition(newPosition);
       };
@@ -74,7 +78,10 @@ const RefContext = ({ children }) => {
                 {
                     moveObjectToPositionSmoothly,
                     abrirPuerta,
-                    camera
+                    camera,
+                    xanderRef,
+                    xanderBodyRef,
+                    abuelaRef
                 }
             }
         >

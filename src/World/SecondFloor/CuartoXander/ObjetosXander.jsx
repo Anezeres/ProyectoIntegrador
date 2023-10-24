@@ -25,15 +25,12 @@ const ObjetosXander = (props) => {
     }
 
     const abrirPuertaXander = abrirPuerta(puertaXanderRef);
-    const abrirPuertaPadres = abrirPuerta(puertaPadreRef);
-    const abrirPuertaAbuela = abrirPuerta(puertaAbuelaRef);
-    const abrirPuertaSotano = abrirPuerta(puertaSotanoRef);
 
     /* [0, 1, 0] */
 
     return (
         <group {...props} dispose={null} >
-            
+
 
             <group position={[-6, 0, -3]}> {/* Cuarto Xander  */}
                 <mesh  /* rotation-y={Math.PI/2} */
@@ -59,7 +56,7 @@ const ObjetosXander = (props) => {
             {/* Fin Puerta */}
 
 
-            <group scale={2} position={[-8.5,0.3,-8.6]}>
+            <group scale={2} position={[-8.3, 0.3, -8.6]}>
                 {/* Ropa */}
                 <mesh
                     castShadow
@@ -70,7 +67,7 @@ const ObjetosXander = (props) => {
                 />
 
             </group>
-            
+
 
 
             <group scale={1.6} rotation-y={Math.PI / 2} position={[-12, 0, -12.3]}>
@@ -103,10 +100,61 @@ const ObjetosXander = (props) => {
                 />
             </group>
 
+            <group position={[-18.7, 0, -6]} scale={1.5}>
+                {/* Closet Azul*/}
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.closet_002.geometry}
+                    material={materials.Material}
+                    position={[4.828, 0, -1.815]}
+                />
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.closet_002.geometry}
+                    material={materials.Material}
+                    position={[5.24, 0, -1.815]}
+                />
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.closet_002.geometry}
+                    material={materials.Material}
+                    position={[5.65, 0, -1.815]}
+                />
+            </group>
 
+            {/* Maceta */}
+            <group position={[-15, 0.79, -6.5]} scale={1.5}>
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.flower_001.geometry}
+                    material={materials.Material}
+                    position={[0.035, 0.003, 2.026]}
+                />
+            </group>
+            <group position={[-15, 0.79, -9.4]} scale={1.5}>
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.flower_001.geometry}
+                    material={materials.Material}
+                    position={[0.035, 0.003, 2.026]}
+                />
+            </group>
 
-
-
+            <group rotation-y={-Math.PI / 2} position={[-14.2, 0.2, -5.6]} scale={1.3}>
+                {/* Silla Verde */}
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.kitchen_chair_001.geometry}
+                    material={materials.Material}
+                    position={[0, 0, 0]}
+                />
+            </group>
 
         </group>
     );
