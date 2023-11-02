@@ -1,21 +1,12 @@
-import { useGLTF } from "@react-three/drei";
-import { useRef } from "react";
 import Xander from "./Xander";
-import { Physics } from "@react-three/rapier";
 import Abuela from "./Abuela";
 
 const Personajes = () => {
 
-
-    
-
-
     return(
         <>
-            
-            <Xander/>
-            <Abuela/>
-           
+            <Xander scale={1.5} position={[-10, 0.25, -6]}/>
+            <Abuela scale={1.5} position={[-15, 0.25, -6]}/>
         </>
     );
 
