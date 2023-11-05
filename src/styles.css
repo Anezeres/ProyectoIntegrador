@@ -4,17 +4,25 @@
 html,
 body,
 #root{
-    position: fixed;
+   
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: black;
 }
+
+html {
+	
+		scroll-behavior: smooth;
+	  
+}
 canvas{
     touch-action: none;
 }
-
+h1 {
+	color: white;
+}
 
 .app-container {
 	position: relative; /* Añade posición relativa al contenedor principal */
@@ -34,7 +42,52 @@ canvas{
 	left: 0;
 	width: 100%;
 	height: 80%; /* El canvas ahora ocupa todo el contenedor */
-	background-color: #8679dc;
+	background-color: black;
 	/* z-index: 2; */
 }
-
+nav {
+	background-color: black;
+	padding: 10px;
+  }
+  
+  ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+  }
+  
+  li {
+	float: left;
+  }
+  
+  li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+  li a:hover {
+	background-color: #ddd;
+	color: black;
+  }
+  
+footer {
+	background-color: #f2f2f2;
+	padding: 20px;
+	text-align: center;
+  }
+  
+  footer p {
+	color: #333;
+	font-size: 14px;
+  }
+  
+  #email {
+	color : #333;
+  }
+  #password {
+	color : #333;
+  }
