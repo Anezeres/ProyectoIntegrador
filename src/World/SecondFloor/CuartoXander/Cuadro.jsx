@@ -1,12 +1,18 @@
 import { useGLTF } from "@react-three/drei";
-import { useRef } from "react";
+import { useGraph } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
+import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
 
 const Cuadro = (props, textures) => {
 
     const cuadroSciFiModel = useGLTF("/assets/Models/Cuadro/scene.gltf");
+    const {scene} = useGLTF("/assets/Models/Cuadro/scene.gltf");
     
+    const clone = useMemo (() => SkeletonUtils.clone(cuadroSciFiModel.scene), [scene]);
 
+    const { nodes } = useGraph(clone);
 
+    
     return(
         <>
             <group {...props} dispose={null}>
@@ -18,7 +24,6 @@ const Cuadro = (props, textures) => {
                     <meshBasicMaterial {...props.textures} />
                 </mesh>
             </group>
-
         </>
     );
 

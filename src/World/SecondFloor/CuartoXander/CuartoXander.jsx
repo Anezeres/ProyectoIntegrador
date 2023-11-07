@@ -19,7 +19,7 @@ import ObjetosMoverXander from "./ObjetosMoverXander";
 
 const CuartoXander = () => {
 
-    const { camera } = useContext(refContext)
+    /* const { camera } = useContext(refContext)
 
     const moveCamera = () => {
         console.log(camera)
@@ -28,12 +28,12 @@ const CuartoXander = () => {
         camera.position.y = 6;
     }
 
-    moveCamera()
+    moveCamera() */
     
 
     return (
         <>
-            <OrbitControls makeDefault target={[-12, 0, -8]}/>
+            {/* <OrbitControls makeDefault target={[-12, 0, -8]}/> */}
             <Computador/>
             <Arcade/>
             <Basura/>
