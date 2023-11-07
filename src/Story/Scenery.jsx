@@ -26,8 +26,9 @@ export default function Scenery() {
 		setCurrentStep((currentStep) => currentStep + 1);
 		if (currentStep === exampleConversation.length - 1) {
 			setCurrentStep(0);
+			window.location.href = "/s2";
+			updateStoryProgress({ scenery: "s2" });
 		}
-		updateStoryProgress({ scenery: "s2" });
 	}
 	useEffect(() => {
 		setCurrentName(exampleConversation[currentStep].name);

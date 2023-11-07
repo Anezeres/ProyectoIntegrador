@@ -10,32 +10,28 @@ import Personajes from "./World/Personajes/Personajes";
 import Controls from "./World/Controls/Controls";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
 
-
-const Experience = () => {
-
-
-    return (
-        <>
-            <RefContext>
-                <Physics debug>
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={2} />
-                    {/* <Fondo /> */}
-                    {/* <Cuarto rotation-y={-Math.PI}/> */}
-                    {/* <Sotano /> */}
-                    <RigidBody type="fixed" >
+const Experience = ({ children }) => {
+	return (
+		<>
+			<RefContext>
+				<Physics debug>
+					<ambientLight intensity={0.5} />
+					<directionalLight position={[10, 10, 5]} intensity={2} />
+					{/* <Fondo /> */}
+					{/* <Cuarto rotation-y={-Math.PI}/> */}
+					{/* <Sotano /> */}
+					{/* <RigidBody type="fixed" >
                         <SecondFloor />
-                    </RigidBody>
-                    <axesHelper args={[5]} position={[0, 0, 0]} />
+                    </RigidBody> */}
+					{children}
+					<axesHelper args={[5]} position={[0, 0, 0]} />
 
-
-                    <Personajes />
-                    <Controls />
-                </Physics>
-            </RefContext>
-        </>
-    )
-
-}
+					{/* <Personajes /> */}
+					<Controls />
+				</Physics>
+			</RefContext>
+		</>
+	);
+};
 
 export default Experience;
