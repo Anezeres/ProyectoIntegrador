@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Dialogs from "../Components/Dialogs";
+import { refContext } from "../World/Context/refContext";
 const exampleConversation = [
 	{
 		name: "Xander",
@@ -19,11 +20,14 @@ export default function Scenery() {
 	const [currentStep, setCurrentStep] = useState(0);
 	const [currentLine, setCurrentLine] = useState("");
 	const [currentName, setCurrentName] = useState("");
+	const { storyProgress, updateStoryProgress } = useContext(refContext);
+
 	function setNextStep() {
 		setCurrentStep((currentStep) => currentStep + 1);
 		if (currentStep === exampleConversation.length - 1) {
 			setCurrentStep(0);
 		}
+		updateStoryProgress({ scenery: "s2" });
 	}
 	useEffect(() => {
 		setCurrentName(exampleConversation[currentStep].name);
