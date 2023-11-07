@@ -14,9 +14,9 @@ const SecondFloor = () => {
             
                 
             
-                <CuartoXander/>
-                {/* <Corredor/>
-                <CuartoAbuela/>
+                {/* <CuartoXander/> */}
+                <Corredor/>
+                {/* <CuartoAbuela/>
                 <CuartoPadres/> */}
                 
             

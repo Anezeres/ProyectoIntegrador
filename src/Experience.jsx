@@ -22,9 +22,9 @@ const Experience = () => {
                     <directionalLight position={[10, 10, 5]} intensity={2} />
                     {/* <Fondo /> */}
                     {/* <Cuarto rotation-y={-Math.PI}/> */}
-                    {/* <Sotano /> */}
+                    <Sotano />
                     
-                    <SecondFloor />
+                    {/* <SecondFloor /> */}
                     <axesHelper args={[5]} position={[0, 0, 0]} />
 
 
