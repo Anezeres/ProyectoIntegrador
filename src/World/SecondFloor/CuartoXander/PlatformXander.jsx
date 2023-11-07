@@ -23,22 +23,11 @@ const PlatformXander = () => {
             <Floor key={index} rotation-y={-Math.PI} position={position} textures={propsTexture}/>
             ));
         
-        const textureMeshes = floorPositions.map((position, index) => (
-            <mesh
-                key={index}
-                rotation-x={-Math.PI / 2}
-                position={[position[0], 0.21, position[2]]}
-                scale={0.4}
-            >
-                <planeGeometry args={[20, 20, 20]} />
-                <meshBasicMaterial {...propsTexture} />
-            </mesh>
-        ));
+        
 
     return (
         <>
             {floors}
-            {textureMeshes}
 
 
             

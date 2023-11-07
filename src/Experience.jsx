@@ -23,9 +23,8 @@ const Experience = () => {
                     {/* <Fondo /> */}
                     {/* <Cuarto rotation-y={-Math.PI}/> */}
                     {/* <Sotano /> */}
-                    <RigidBody type="fixed" >
-                        <SecondFloor />
-                    </RigidBody>
+                    
+                    <SecondFloor />
                     <axesHelper args={[5]} position={[0, 0, 0]} />
 
 
