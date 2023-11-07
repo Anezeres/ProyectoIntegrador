@@ -9,10 +9,19 @@ import RefContext from "./World/Context/RefContext.jsx";
 import Personajes from "./World/Personajes/Personajes";
 import Controls from "./World/Controls/Controls";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
+import { useEffect, useState } from "react";
 
 
 const Experience = () => {
 
+    const [loaded, setLoaded] = useState(false);
+
+    useEffect(() => {
+        // Simula una carga asíncrona (puede ser una petición de red, etc.)
+        setTimeout(() => {
+            setLoaded(true);
+        }, 10); // Simulamos una carga de 2 segundos
+    }, []);
 
     return (
         <>
@@ -23,13 +32,11 @@ const Experience = () => {
                     {/* <Fondo /> */}
                     {/* <Cuarto rotation-y={-Math.PI}/> */}
                     {/* <Sotano /> */}
-                    
                     <SecondFloor />
+                    
                     <axesHelper args={[5]} position={[0, 0, 0]} />
-
-
-                    <Personajes />
-                    <Controls />
+                    {loaded && <Personajes />}
+                    {loaded && <Controls />}
                 </Physics>
             </RefContext>
         </>

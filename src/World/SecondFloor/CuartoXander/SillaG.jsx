@@ -1,4 +1,5 @@
 import { useGLTF } from "@react-three/drei";
+import { CuboidCollider, RigidBody } from "@react-three/rapier";
 import { useRef } from "react";
 
 const SillaG = () => {
@@ -9,11 +10,12 @@ const SillaG = () => {
 
 
     return (
-        <>
+        <RigidBody type="fixed" colliders={false}>
             <mesh ref={SillaGRef} position={[-9.5, -0.1, -8]} scale={0.7} rotation-y={Math.PI} >
                 <primitive object={SillaGModel.scene} />
             </mesh>
-        </>
+            <CuboidCollider args={[0.6,2,0.6]} position={[-9.5, 1, -8]}/>
+        </RigidBody>
     );
 
 

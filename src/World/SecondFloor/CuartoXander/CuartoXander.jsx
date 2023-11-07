@@ -15,6 +15,7 @@ import SillaG from "./SillaG";
 import Monitor from "./Monitor";
 import Laptop from "./Laptop";
 import ObjetosMoverXander from "./ObjetosMoverXander";
+import { RigidBody } from "@react-three/rapier";
 
 
 const CuartoXander = () => {
@@ -29,23 +30,25 @@ const CuartoXander = () => {
     }
 
     moveCamera()
-    
+
 
     return (
         <>
-            <OrbitControls makeDefault target={[-12, 0, -8]}/>
-            <Computador/>
-            <Arcade/>
-            <Basura/>
-            <MesaControl/>
-            <ObjetosXander position={[0,0,0]} scale={1.3}/>
-            <ObjetosMoverXander position={[0,0,0]} scale={1.3}/>
-            <WallsXander/>
-            <CuadrosXander/>
-            <SillaG/>
-            <Monitor/>
-            <Laptop/>
-            <PlatformXander/>
+            
+                <OrbitControls makeDefault target={[-12, 0, -8]} />
+                <Computador />
+                <Arcade />
+                <Basura />
+                <MesaControl />
+                <ObjetosXander position={[0, 0, 0]} scale={1.3} />
+                <ObjetosMoverXander position={[0, 0, 0]} scale={1.3} />
+                <WallsXander />
+                <CuadrosXander />
+                <SillaG />
+                <Monitor />
+                <Laptop />
+                <PlatformXander />
+            
         </>
     )
 

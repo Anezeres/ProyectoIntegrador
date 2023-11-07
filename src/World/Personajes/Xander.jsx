@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { refContext } from "../Context/refContext";
-import { CuboidCollider, MeshCollider, RigidBody } from "@react-three/rapier";
+import {  CylinderCollider, MeshCollider, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 import { atom, useAtom } from "jotai";
 
@@ -23,11 +23,12 @@ const Xander = ({position, ...props}) => {
     return (
         <RigidBody
             ref={xanderBodyRef}
-            density={50}
-            friction={0}
+            density={100}
+            friction={1}
             restitution={0}
             position={position}
             colliders={false}
+            name="Xander"
         >
             <group
                 ref={xanderRef}
@@ -132,7 +133,7 @@ const Xander = ({position, ...props}) => {
                             castShadow
                         />
                         <primitive object={nodes.Hips} />
-                        <CuboidCollider args={[0.4, 0.9, 0.4]} position={[0, 0.6, 0]}/>
+                        <CylinderCollider args={[0.9, 0.4]} position={[0, 0.6, 0]}/>
                     </group>
                 </group>
             </group>
