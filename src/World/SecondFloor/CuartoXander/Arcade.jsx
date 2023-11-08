@@ -1,4 +1,5 @@
 import { useGLTF } from "@react-three/drei";
+import { CuboidCollider, RigidBody } from "@react-three/rapier";
 import { useRef } from "react";
 
 const Arcade = () => {
@@ -9,9 +10,12 @@ const Arcade = () => {
 
 
     return(
-        <mesh ref={ArcadeRef} position={[-5,1.8,-11.1]} scale={1.6} rotation-y={Math.PI}>
-            <primitive object={ArcadeModel.scene}/>
-        </mesh>
+        <RigidBody type="fixed" colliders={false}>
+            <mesh ref={ArcadeRef} position={[-5,1.8,-11.1]} scale={1.6} rotation-y={Math.PI}>
+                <primitive object={ArcadeModel.scene}/>
+            </mesh>
+            <CuboidCollider args={[1,2,1]} position={[-4.8,2,-11.3]}/>
+        </RigidBody>
     );
 
     
