@@ -10,6 +10,7 @@ import Personajes from "./World/Personajes/Personajes";
 import Controls from "./World/Controls/Controls";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useEffect, useState } from "react";
+import CharacterContext from "./World/Context/CharacterContext.jsx";
 
 
 const Experience = () => {
@@ -25,20 +26,22 @@ const Experience = () => {
 
     return (
         <>
-            <RefContext>
-                <Physics debug>
-                    <ambientLight intensity={0.5} />
-                    <directionalLight position={[10, 10, 5]} intensity={2} />
-                    {/* <Fondo /> */}
-                    {/* <Cuarto rotation-y={-Math.PI}/> */}
-                    {/* <Sotano /> */}
-                    <SecondFloor />
-                    
-                    <axesHelper args={[5]} position={[0, 0, 0]} />
-                    {loaded && <Personajes />}
-                    {loaded && <Controls />}
-                </Physics>
-            </RefContext>
+            <CharacterContext>
+                <RefContext>
+                    <Physics>
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[10, 10, 5]} intensity={2} />
+                        {/* <Fondo /> */}
+                        {/* <Cuarto rotation-y={-Math.PI}/> */}
+                        {/* <Sotano /> */}
+                        <SecondFloor />
+
+                        <axesHelper args={[5]} position={[0, 0, 0]} />
+                        {loaded && <Personajes />}
+                        {loaded && <Controls />}
+                    </Physics>
+                </RefContext>
+            </CharacterContext>
         </>
     )
 

@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState, useRef } from "react";
-import { refContext } from "../Context/refContext";
+import { characterContext } from "../Context/characterContext";
 import { useFrame } from '@react-three/fiber'
-import { xanderBodyRef } from "../Personajes/Xander";
-import { useAtom } from "jotai";
+//import { xanderBodyRef } from "../Personajes/Xander";
+//import { useAtom } from "jotai";
 import * as THREE from 'three'; // Importa la biblioteca three.js
 
 
 const Controls = () => {
-    const { xanderRef, playAnimationWithDuration, playAnimation, stopAnimation, animationInProcess } = useContext(refContext)
+    const { xanderRef, playAnimationWithDuration, playAnimation, stopAnimation, animationInProcess, xanderBodyRef } = useContext(characterContext)
     const [KeysPressing, setKeyPressing] = useState(new Set());
-    const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
+    //const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
     const velocidadMovimiento = 0.02; // Se puede ajustar
 
     const walkingFront = (positive) => {
@@ -27,7 +27,7 @@ const Controls = () => {
         return forwardVector.clone().multiplyScalar(velocidadMovimiento - walkingback);
     }
     useFrame((state, delta) => {
-        if (xanderRef.current && bodyRef) {
+        if (xanderRef.current && xanderBodyRef.current) {
 
             if (KeysPressing.size > 0) {
                 // Realiza acciones mientras al menos una tecla está presionada
@@ -35,18 +35,18 @@ const Controls = () => {
                     playAnimation('Idle', 'Xander')
                 } else if (KeysPressing.has('w')) { // w
                     const desplazamiento = walkingFront(true)
-                    bodyRef.current.setTranslation({
-                        x: bodyRef.current.translation().x + desplazamiento.x,
-                        y: bodyRef.current.translation().y + desplazamiento.y,
-                        z: bodyRef.current.translation().z + desplazamiento.z
+                    xanderBodyRef.current.setTranslation({
+                        x: xanderBodyRef.current.translation().x + desplazamiento.x,
+                        y: xanderBodyRef.current.translation().y + desplazamiento.y,
+                        z: xanderBodyRef.current.translation().z + desplazamiento.z
                     }, true)
                     playAnimation('Walking', 'Xander')
                 } else if (KeysPressing.has('s')) {// s
                     const desplazamiento = walkingFront(false)
-                    bodyRef.current.setTranslation({
-                        x: bodyRef.current.translation().x + desplazamiento.x,
-                        y: bodyRef.current.translation().y + desplazamiento.y,
-                        z: bodyRef.current.translation().z + desplazamiento.z
+                    xanderBodyRef.current.setTranslation({
+                        x: xanderBodyRef.current.translation().x + desplazamiento.x,
+                        y: xanderBodyRef.current.translation().y + desplazamiento.y,
+                        z: xanderBodyRef.current.translation().z + desplazamiento.z
                     }, true)
                     playAnimation("Walking Backwards", 'Xander')
                 }
@@ -70,7 +70,7 @@ const Controls = () => {
                     playAnimation('Idle', 'Xander')
                 }
             }
-            bodyRef.current.setRotation({
+            xanderBodyRef.current.setRotation({
                 x: 0,
                 y: 0,
                 z: 0,

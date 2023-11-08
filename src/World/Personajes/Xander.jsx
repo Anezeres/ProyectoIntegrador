@@ -1,24 +1,24 @@
 import { useContext, useEffect, useRef } from "react";
-import { refContext } from "../Context/refContext";
+import { characterContext } from "../Context/characterContext";
 import {  CylinderCollider, MeshCollider, RigidBody } from "@react-three/rapier";
-import { useFrame } from "@react-three/fiber";
-import { atom, useAtom } from "jotai";
+//import { useFrame } from "@react-three/fiber";
+//import { atom, useAtom } from "jotai";
 
-export const xanderBodyRef = atom(null);
+//export const xanderBodyRef = atom(null);
     
 
 
 const Xander = ({position, ...props}) => {
-    const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
+    //const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
 
-    const { xanderRef, rigidXanderRef, xanderModel, playAnimationWithDuration, playAnimation, stopAnimation } = useContext(refContext)
+    const { xanderRef, xanderModel, playAnimationWithDuration, playAnimation, stopAnimation, xanderBodyRef } = useContext(characterContext)
     const { nodes, materials, animations } = xanderModel;
 
-    useEffect(() => {
-        setBodyRef(xanderBodyRef)
-        //console.log(animations);
-        //console.log(rigidXanderRef);
-    }, [xanderBodyRef.current]);
+    // useEffect(() => {
+    //     setBodyRef(xanderBodyRef)
+    //     //console.log(animations);
+    //     //console.log(rigidXanderRef);
+    // }, [xanderBodyRef.current]);
 
     return (
         <RigidBody

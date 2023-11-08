@@ -162,7 +162,7 @@ const ObjetosXander = (props) => {
                 </group>
                 <CuboidCollider args={[0.4, 0.8, 0.5]} position={[-14.2, 0.5, -5.6]} />
             </RigidBody>
-            {/* Colliders Habitacion */}
+            {/* Colliders Invisibles de la Habitacion */}
             <RigidBody type="fixed" colliders={false}>
                 <CuboidCollider args={[4.7, 2.5, 0.5]} position={[-10.8, 2.5, -2.6]} />
                 <CuboidCollider args={[1, 2.5, 0.5]} position={[-3.8, 2.5, -2.6]} />

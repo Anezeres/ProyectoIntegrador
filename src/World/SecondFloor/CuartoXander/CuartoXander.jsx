@@ -1,24 +1,31 @@
 import Arcade from "./Arcade";
 import Basura from "./Basura";
 import Computador from "./Computador";
+
 import MesaControl from "./MesaControl";
-import CuadrosXander from "./CuadrosXander";
 import ObjetosXander from "./ObjetosXander";
 import PlatformXander from "./PlatformXander";
 import WallsXander from "./WallsXander";
 import { useThree } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import { refContext } from "../../Context/refContext";
 import { useContext } from "react";
-import Cuadro from "./Cuadro";
 import SillaG from "./SillaG";
 import Monitor from "./Monitor";
 import Laptop from "./Laptop";
 import ObjetosMoverXander from "./ObjetosMoverXander";
 import { RigidBody } from "@react-three/rapier";
+import Cuadro from "../../Scene/Cuadro";
+
 
 
 const CuartoXander = () => {
+
+    const PATH = "/assets/Textures/Cuadros/"
+
+    const pintura = useTexture({
+        map: PATH + 'Astronauta.png'
+    })
 
     const { camera } = useContext(refContext)
 
@@ -43,7 +50,8 @@ const CuartoXander = () => {
                 <ObjetosXander position={[0, 0, 0]} scale={1.3} />
                 <ObjetosMoverXander position={[0, 0, 0]} scale={1.3} />
                 <WallsXander />
-                <CuadrosXander />
+                <Cuadro textures={pintura} position={[-8,0,-7.81]}/>
+                <Cuadro textures={pintura} position={[-8,3,-7.81]}/>
                 <SillaG />
                 <Monitor />
                 <Laptop />
