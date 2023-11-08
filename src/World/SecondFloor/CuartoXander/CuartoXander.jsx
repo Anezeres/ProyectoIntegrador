@@ -41,7 +41,6 @@ const CuartoXander = () => {
 
     return (
         <>
-            
                 <OrbitControls makeDefault target={[-12, 0, -8]} />
                 <Computador />
                 <Arcade />
@@ -56,7 +55,6 @@ const CuartoXander = () => {
                 <Monitor />
                 <Laptop />
                 <PlatformXander />
-            
         </>
     )
 

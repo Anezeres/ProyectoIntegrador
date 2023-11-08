@@ -12,7 +12,7 @@ import CuadrosCorredor from "./CuadrosCorredor";
 
 const Corredor = () => {
 
-    const { camera } = useContext(refContext)
+    /* const { camera } = useContext(refContext)
 
     const moveCamera = () => {
         camera.position.x = 0;
@@ -20,7 +20,7 @@ const Corredor = () => {
         camera.position.y = 6;
     }
 
-    moveCamera()
+    moveCamera() */
 
     return (
         <>
