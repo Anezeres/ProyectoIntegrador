@@ -12,7 +12,8 @@ import { RigidBody } from "@react-three/rapier";
 import Xander from "./World/Personajes/Xander.jsx";
 import Personajes from "./World/Personajes/Personajes.jsx";
 import Abuela from "./World/Personajes/Abuela.jsx";
-import Story from "./World/Context/TotalStory.jsx";
+import Story, { s1 } from "./World/Context/TotalStory.jsx";
+import { Loader } from "@react-three/drei";
 
 export default function App() {
 	return (
@@ -21,28 +22,26 @@ export default function App() {
 				<Switch>
 					<Route path="/s1">
 						<div id="canvas-container">
-							<Canvas camera={{ position: [-1, 4, 7] }}>
+							<Canvas camera={{ position: [-1, 4, 2] }}>
 								<Experience>
-									<RigidBody type="fixed">
-										<SecondFloor />
-									</RigidBody>
-									{Story.s1.characters[0]}
+									{/* <RigidBody type="fixed"> */}
+									<SecondFloor />
+									{/* </RigidBody> */}
+
+									{s1.characters[0]}
 								</Experience>
 							</Canvas>
+							<Loader />
 							<StoryContext>
-								<Scenery
-									story={Story}
-									levels={Story.s1.levels}
-									nextScenery="s2"
-								/>
+								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
 							</StoryContext>
 						</div>
 					</Route>
-					<Route path="/s2">
-						<Canvas camera={{ position: [0, 3, 7] }}>
+					{/* <Route path="/s2">
+						<Canvas camera={Story.s2.camera}>
 							<Experience>
 								{Story.s2.component}
-								{Story.s2.characters[0]}
+								{Story.s2.characters.map((character) => character)}
 							</Experience>
 						</Canvas>
 						<StoryContext>
@@ -52,15 +51,15 @@ export default function App() {
 								nextScenery={Story.s2.nextScenery}
 							/>
 						</StoryContext>
-					</Route>
+					</Route> */}
 
-					{/* {Object.keys(Story).map((key) => {
+					{Object.keys(Story).map((key) => {
 						return (
 							<Route path={`/${key}`}>
 								<Canvas camera={Story[key].camera}>
 									<Experience>
 										{Story[key].component}
-										{Story[key].characters[0]}
+										{Story[key].characters.map((character) => character)}
 									</Experience>
 								</Canvas>
 								<StoryContext>
@@ -72,7 +71,7 @@ export default function App() {
 								</StoryContext>
 							</Route>
 						);
-					})} */}
+					})}
 					<Route path="/">
 						<Landing />
 					</Route>
