@@ -196,9 +196,9 @@ const RefContext = ({ children }) => {
 };
 
 export const StoryContext = ({ children }) => {
-	let [storyProgress, setStoryProgress] = useState({ scenery: "s1" });
+	let [storyProgress, setStoryProgress] = useState({ scenery: "s1", level: 0 });
 	function updateStoryProgress(newProgress) {
-		setStoryProgress(newProgress);
+		setStoryProgress({ ...storyProgress, ...newProgress });
 	}
 	return (
 		<refContext.Provider value={{ storyProgress, updateStoryProgress }}>

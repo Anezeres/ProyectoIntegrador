@@ -1,44 +1,46 @@
 import { useState, useEffect, useContext } from "react";
 import Dialogs from "../Components/Dialogs";
 import { refContext } from "../World/Context/refContext";
-const exampleConversation = [
-	{
-		name: "Xander",
-		lines:
-			"Son las 6pm, tengo hambre, y no he podido comer nada desde el desayuno.\n¿Qué hay de comer?",
-	},
-	{
-		name: "Abuela",
-		lines: "Mijo! baje a comer sancocho.",
-	},
-	{
-		name: "Xander",
-		lines: "Oh no, no me gusta el sancocho, ¿Cómo podré librarme del sancocho?",
-	},
-];
-export default function Scenery() {
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
+export default function Scenery({ levels, nextScenery }) {
 	const [currentStep, setCurrentStep] = useState(0);
-	const [currentLine, setCurrentLine] = useState("");
+
 	const [currentName, setCurrentName] = useState("");
 	const { storyProgress, updateStoryProgress } = useContext(refContext);
+	// POR AHORA TODO CON LEVEL CERO
+	const [dialogs, setDialogs] = useState(levels[0].dialogs);
+	const [log, setLog] = useState(levels[0].log);
 
+	const webHistory = useHistory();
 	function setNextStep() {
 		setCurrentStep((currentStep) => currentStep + 1);
-		if (currentStep === exampleConversation.length - 1) {
+		if (currentStep === dialogs.length - 1) {
 			setCurrentStep(0);
-			window.location.href = "/s2";
-			updateStoryProgress({ scenery: "s2" });
+			webHistory.push("/" + nextScenery);
+			updateStoryProgress({
+				scenery: "s2",
+				// level: storyProgress.level + 1
+			});
 		}
 	}
 	useEffect(() => {
-		setCurrentName(exampleConversation[currentStep].name);
+		setCurrentName(dialogs[currentStep].name);
 	}, [currentStep]);
+
+	useEffect(() => {
+		// setCurrentName("dialogs[0].name");
+		// setCurrentStep(0);
+		setLog(levels[0].log);
+	}, []);
 	return (
 		<div className="app-container">
-			{currentName == exampleConversation[currentStep].name ? (
+			<div className="text-white">{log}</div>
+
+			{currentName == dialogs[currentStep].name ? (
 				<Dialogs
-					name={exampleConversation[currentStep].name}
-					lines={exampleConversation[currentStep].lines}
+					name={dialogs[currentStep].name}
+					lines={dialogs[currentStep].lines}
 					speed={30}
 				/>
 			) : null}

@@ -12,19 +12,7 @@ import { RigidBody } from "@react-three/rapier";
 import Xander from "./World/Personajes/Xander.jsx";
 import Personajes from "./World/Personajes/Personajes.jsx";
 import Abuela from "./World/Personajes/Abuela.jsx";
-const Story = {
-	s1: {
-		component: <SecondFloor />,
-		characters: [<Personajes />],
-	},
-	s2: {
-		component: <Sotano />,
-		characters: [
-			<Xander position={[0, 0, 0]} scale={1.5} />,
-			<Abuela position={[0, -30, 0]} />,
-		],
-	},
-};
+import Story from "./World/Context/TotalStory.jsx";
 
 export default function App() {
 	return (
@@ -42,21 +30,49 @@ export default function App() {
 								</Experience>
 							</Canvas>
 							<StoryContext>
-								<Scenery />
+								<Scenery
+									story={Story}
+									levels={Story.s1.levels}
+									nextScenery="s2"
+								/>
 							</StoryContext>
-							{/* elementos que no tienen 3D */}
 						</div>
 					</Route>
 					<Route path="/s2">
-						<Canvas camera={{ position: [-1, 4, 7] }}>
-							<StoryContext>
-								<Experience>
-									{Story.s2.component}
-									{Story.s2.characters[0]}
-								</Experience>
-							</StoryContext>
+						<Canvas camera={{ position: [0, 3, 7] }}>
+							<Experience>
+								{Story.s2.component}
+								{Story.s2.characters[0]}
+							</Experience>
 						</Canvas>
+						<StoryContext>
+							<Scenery
+								story={Story}
+								levels={Story.s2.levels}
+								nextScenery={Story.s2.nextScenery}
+							/>
+						</StoryContext>
 					</Route>
+
+					{/* {Object.keys(Story).map((key) => {
+						return (
+							<Route path={`/${key}`}>
+								<Canvas camera={Story[key].camera}>
+									<Experience>
+										{Story[key].component}
+										{Story[key].characters[0]}
+									</Experience>
+								</Canvas>
+								<StoryContext>
+									<Scenery
+										story={Story}
+										levels={Story[key].levels}
+										nextScenery={Story[key].nextScenery}
+									/>
+								</StoryContext>
+							</Route>
+						);
+					})} */}
 					<Route path="/">
 						<Landing />
 					</Route>
