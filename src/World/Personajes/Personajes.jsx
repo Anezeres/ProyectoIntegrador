@@ -5,7 +5,7 @@ const Personajes = () => {
 
     return(
         <>
-            <Xander position={[-10, 0.25, -6]}/>
+            <Xander position={[0, 0.25, 0]}/> {/* [-10, 0.25, -6] */}
             <Abuela  position={[-15, 0.25, -6]}/>
         </>
     );

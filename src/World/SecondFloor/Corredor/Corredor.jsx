@@ -24,7 +24,7 @@ const Corredor = () => {
 
     return (
         <>
-            <OrbitControls makeDefault target={[4, 0, 0]}/>
+            <OrbitControls makeDefault target={[8, 0, -4]}/>
             <Escalera/>
             <Panel position={[-5,1.5,-3]} rotation-y={-Math.PI/2}/>
             <Pantalla position={[-11.8,2,0]}/>

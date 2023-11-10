@@ -50,7 +50,7 @@ const CuartoXander = () => {
                 <ObjetosMoverXander position={[0, 0, 0]} scale={1.3} />
                 <WallsXander />
                 <Cuadro textures={pintura} position={[-8,0,-7.81]}/>
-                <Cuadro textures={pintura} position={[-8,3,-7.81]}/>
+                {/* <Cuadro textures={pintura} position={[-8,3,-7.81]}/> */}
                 <SillaG />
                 <Monitor />
                 <Laptop />

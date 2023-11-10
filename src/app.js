@@ -19,7 +19,7 @@ export default function App() {
 							<Scenery />
 						</div>
 					</Route>
-					<Route path="/landing">
+					<Route path="/">
 						<Landing />
 					</Route>
 				</Switch>
