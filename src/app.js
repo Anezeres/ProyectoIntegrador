@@ -8,7 +8,7 @@ import Landing from "./pages/landing";
 import RefContext, { StoryContext } from "./World/Context/RefContext.jsx";
 import SecondFloor from "./World/SecondFloor/SecondFloor.jsx";
 import Sotano from "./World/Sotano/Sotano.jsx";
-import { RigidBody } from "@react-three/rapier";
+
 import Xander from "./World/Personajes/Xander.jsx";
 import Personajes from "./World/Personajes/Personajes.jsx";
 import Abuela from "./World/Personajes/Abuela.jsx";
@@ -21,21 +21,19 @@ export default function App() {
 			<Router>
 				<Switch>
 					<Route path="/s1">
-						<div id="canvas-container">
-							<Canvas camera={{ position: [-1, 4, 2] }}>
-								<Experience>
-									{/* <RigidBody type="fixed"> */}
-									<SecondFloor />
-									{/* </RigidBody> */}
+						<Canvas camera={{ position: [-1, 4, 2] }}>
+							<Experience>
+								{/* <RigidBody type="fixed"> */}
+								<SecondFloor />
+								{/* </RigidBody> */}
 
-									{s1.characters[0]}
-								</Experience>
-							</Canvas>
-							<Loader />
-							<StoryContext>
-								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
-							</StoryContext>
-						</div>
+								{s1.characters[0]}
+							</Experience>
+						</Canvas>
+						<Loader />
+						<StoryContext>
+							<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
+						</StoryContext>
 					</Route>
 					{/* <Route path="/s2">
 						<Canvas camera={Story.s2.camera}>

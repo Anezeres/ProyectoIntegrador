@@ -66,7 +66,7 @@ export default function Landing() {
 				{/* Footer */}
 				<p>
 					Contactanos{" "}
-					<a color="#0000FF" href="mailto:rosa@melano.com">
+					<a color="#0000FF" href="mailto:contact@aleatales.com">
 						AleatalesInteractive@app.com
 					</a>
 				</p>

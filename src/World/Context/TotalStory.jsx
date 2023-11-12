@@ -16,14 +16,22 @@ export const s1 = {
 			dialogs: [
 				{
 					name: "Xander",
-					lines: `Me pregunto si la tecnología que nos rodea nos ha acercado o alejado de la humanidad.
-
-                        A veces, me siento como un espectador en lugar de un participante en la vida real.
-                        
-                        Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.
-                        
-                        Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.
-                        `,
+					lines: `Me pregunto si la tecnología que nos rodea nos ha acercado o alejado de la humanidad. `,
+				},
+				{
+					name: "Xander",
+					lines:
+						"A veces, me siento como un espectador en lugar de un participante en la vida real.",
+				},
+				{
+					name: "Xander",
+					lines:
+						"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+				},
+				{
+					name: "Xander",
+					lines:
+						"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
 				},
 				{
 					name: "Xander (Despierta)",
