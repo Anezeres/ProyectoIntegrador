@@ -4,6 +4,13 @@ import Xander from "../Personajes/Xander";
 import Corredor from "../SecondFloor/Corredor/Corredor";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
+
+const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
+		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
+		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
+		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem`;
+
 export const s1 = {
 	camera: { position: [-1, 4, 0] },
 
@@ -74,7 +81,7 @@ const Story = {
 		nextScenery: "s3",
 		levels: [
 			{
-				log: "",
+				log: genericLog,
 				dialogs: [
 					{
 						name: "Xander",
@@ -91,7 +98,7 @@ const Story = {
 				],
 			},
 			{
-				log: "",
+				log: genericLog,
 				dialogs: [
 					{
 						name: "Xander",
@@ -136,7 +143,7 @@ const Story = {
 		nextScenery: "s1",
 		levels: [
 			{
-				log: "",
+				log: genericLog,
 				dialogs: [
 					{
 						name: "Xander",
