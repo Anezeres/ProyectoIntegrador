@@ -1,6 +1,7 @@
 import { refContext } from "./refContext";
 import { MathUtils } from 'three';
 import { useThree } from "@react-three/fiber";
+import { useState } from "react";
 const { useGLTF } = require("@react-three/drei");
 const { useAnimations } = require("@react-three/drei");
 
@@ -9,14 +10,6 @@ const { useAnimations } = require("@react-three/drei");
 const RefContext = ({ children }) => {
 	const { camera } = useThree();
 
-	const xanderRef = useRef();
-	const rigidXanderRef = useRef();
-	const xanderModel = useGLTF("/assets/Models/Characters/Xander/Xander.glb");
-	const abuelaRef = useRef();
-	const abuelaModel = useGLTF("/assets/Models/Characters/Abuela/Abuela.glb");
-	const xanderBodyRef = useRef();
-
-    
     const handleCameraPositionChange = (newPosition) => {
         setCameraPosition(newPosition);
     };
@@ -91,4 +84,16 @@ const RefContext = ({ children }) => {
         </refContext.Provider>
     )
 }
+
+export const StoryContext = ({ children }) => {
+	let [storyProgress, setStoryProgress] = useState({ scenery: "s1", level: 0 });
+	function updateStoryProgress(newProgress) {
+		setStoryProgress({ ...storyProgress, ...newProgress });
+	}
+	return (
+		<refContext.Provider value={{ storyProgress, updateStoryProgress }}>
+			{children}
+		</refContext.Provider>
+	);
+};
 export default RefContext;

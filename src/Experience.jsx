@@ -36,7 +36,7 @@ const Experience = () => {
                         {/* <Sotano /> */}
                         <SecondFloor />
 
-                        <axesHelper args={[5]} position={[0, 0, 0]} />
+                        {/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
                         {loaded && <Personajes />}
                         {loaded && <Controls />}
                     </Physics>
