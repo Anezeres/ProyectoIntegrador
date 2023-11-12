@@ -10,19 +10,13 @@ import { Physics, RigidBody } from "@react-three/rapier";
 const SecondFloor = () => {
 
     return (
-        <>  
-            
-                
-            
-                {/* <CuartoXander/ */}
-                <Corredor/>
-                {/* <CuartoAbuela/>
+			<>
+				<CuartoXander />
+				{/* <Corredor/> */}
+				{/* <CuartoAbuela/>
                 <CuartoPadres/> */}
-                
-            
-
-        </>
-    )
+			</>
+		);
 
 }
 

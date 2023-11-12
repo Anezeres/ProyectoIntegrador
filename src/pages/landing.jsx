@@ -6,7 +6,7 @@ export default function Landing() {
 				<nav className="flex justify-between items-center">
 					<ul className="flex space-x-4">
 						<li className="text-white">
-							<a className="btn btn-blue" href="/start">
+							<a className="btn btn-blue" href="/s1">
 								Jugar
 							</a>
 						</li>
@@ -15,7 +15,7 @@ export default function Landing() {
 						</li>
 					</ul>
 					<div>
-						<a href="/login" className="ml-4 text-white">
+						<a href="/s1" className="ml-4 text-white">
 							Jugar
 						</a>
 					</div>
@@ -66,7 +66,7 @@ export default function Landing() {
 				{/* Footer */}
 				<p>
 					Contactanos{" "}
-					<a color="#0000FF" href="mailto:rosa@melano.com">
+					<a color="#0000FF" href="mailto:contact@aleatales.com">
 						AleatalesInteractive@app.com
 					</a>
 				</p>
