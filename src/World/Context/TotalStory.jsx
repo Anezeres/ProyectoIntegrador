@@ -75,7 +75,7 @@ const Story = {
 		camera: { position: [-1, 4, 4] },
 		component: <Corredor />,
 		characters: [
-			<Xander position={[0, 0.2, 1]} scale={1.4} />,
+			<Xander position={[1, 0.3, 1]} scale={1.4} />,
 			<Abuela position={[6, 0.2, -7]} scale={1.4} />,
 		],
 		nextScenery: "s3",
