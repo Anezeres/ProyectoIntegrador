@@ -6,7 +6,11 @@ import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
 
 
-
+const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
+		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
+		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
+		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem`;
 
 export const s1 = {
 	camera: { position: [-1, 4, 0] },
@@ -20,14 +24,22 @@ export const s1 = {
 			dialogs: [
 				{
 					name: "Xander",
-					lines: `Me pregunto si la tecnología que nos rodea nos ha acercado o alejado de la humanidad.
-
-                        A veces, me siento como un espectador en lugar de un participante en la vida real.
-                        
-                        Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.
-                        
-                        Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.
-                        `,
+					lines: `Me pregunto si la tecnología que nos rodea nos ha acercado o alejado de la humanidad. `,
+				},
+				{
+					name: "Xander",
+					lines:
+						"A veces, me siento como un espectador en lugar de un participante en la vida real.",
+				},
+				{
+					name: "Xander",
+					lines:
+						"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+				},
+				{
+					name: "Xander",
+					lines:
+						"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
 				},
 				{
 					name: "Xander (Despierta)",
@@ -69,13 +81,13 @@ const Story = {
 		camera: { position: [-1, 4, 4] },
 		component: <Corredor />,
 		characters: [
-			<Xander position={[-3, 0.2, 0]} scale={1.4} />,
+			<Xander position={[1, 0.3, 1]} scale={1.4} />,
 			<Abuela position={[6, 0.2, -7]} scale={1.4} />,
 		],
 		nextScenery: "s3",
 		levels: [
 			{
-				log: "",
+				log: genericLog,
 				dialogs: [
 					{
 						name: "Xander",
@@ -92,7 +104,7 @@ const Story = {
 				],
 			},
 			{
-				log: "",
+				log: genericLog,
 				dialogs: [
 					{
 						name: "Xander",
@@ -137,7 +149,7 @@ const Story = {
 		nextScenery: "s1",
 		levels: [
 			{
-				log: "",
+				log: genericLog,
 				dialogs: [
 					{
 						name: "Xander",

@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 import CharacterContext from "./World/Context/CharacterContext.jsx";
 import CameraContext from "./World/Context/CameraContext.jsx";
 
-
 const Experience = () => {
 
     const [loaded, setLoaded] = useState(false);
@@ -47,5 +46,6 @@ const Experience = () => {
     )
 
 }
+
 
 export default Experience;

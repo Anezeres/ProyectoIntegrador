@@ -1,19 +1,11 @@
-import Dialogs from "./Components/Dialogs";
-import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Scenery from "./Story/Scenery";
 import Landing from "./pages/landing";
 import SecondFloor from "./World/SecondFloor/SecondFloor.jsx";
-import Sotano from "./World/Sotano/Sotano.jsx";
-import { RigidBody } from "@react-three/rapier";
-import Xander from "./World/Personajes/Xander.jsx";
-import Personajes from "./World/Personajes/Personajes.jsx";
-import Abuela from "./World/Personajes/Abuela.jsx";
 import Story, { s1 } from "./World/Context/TotalStory.jsx";
 import { Loader } from "@react-three/drei";
-import CharacterContext from "./World/Context/CharacterContext.jsx";
 import RefContext from "./World/Context/RefContext.jsx";
 
 export default function App() {
@@ -39,20 +31,8 @@ export default function App() {
 					</Route>
 					{/* <Route path="/s2">
 						<Canvas camera={Story.s2.camera}>
-							<Experience>
-								{Story.s2.component}
-								{Story.s2.characters.map((character) => character)}
-							</Experience>
-						</Canvas>
-						<StoryContext>
-							<Scenery
-								story={Story}
-								levels={Story.s2.levels}
-								nextScenery={Story.s2.nextScenery}
-							/>
-						</StoryContext>
-					</Route> */}
-
+						{" "}
+						{/*Aquí debería estar la intro, por ahora es el escenario 1*/}
 					{Object.keys(Story).map((key) => {
 						return (
 							<Route path={`/${key}`}>

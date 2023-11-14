@@ -91,3 +91,19 @@ footer {
   #password {
 	color : #333;
   }
+
+  .papel {
+	
+	position: fixed;
+	bottom: -200px; /* Inicialmente fuera de la pantalla */
+	top:20%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: bottom 0.5s ease-in-out;
+  }
+  
+  .papel-appear {
+	bottom: 0; /* Muestra el papel moviéndolo hacia arriba */
+  }
+  
+  

@@ -24,19 +24,13 @@ const SecondFloor = () => {
         }
     }, [storyProgress.currentLevel]);
     return (
-        <>
-
-
-
-            <CuartoXander />
-            {/* <Corredor/> */}
-            {/* <CuartoAbuela/>
-                <CuartoPadres/> */}
-
-
-
-        </>
-    )
+			<>
+				<CuartoXander />
+				{/* <Corredor/> */}
+				{/* <CuartoAbuela/>
+            <CuartoPadres/> */}
+			</>
+		);
 
 }
 
