@@ -1,14 +1,16 @@
 import { useState, useEffect, useContext } from "react";
 import Dialogs from "../Components/Dialogs";
-import { refContext } from "../World/Context/refContext";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { refContext } from "../World/Context/refContext";
+
 
 export default function Scenery({ levels, nextScenery }) {
+	const { storyProgress, updateStoryProgress } = useContext(refContext)
+
 	const [currentStep, setCurrentStep] = useState(0);
 	const [currentLevel, setCurrentLevel] = useState(0);
 	const [currentName, setCurrentName] = useState("");
 	const [currentLines, setCurrentLines] = useState("");
-	const { storyProgress, updateStoryProgress } = useContext(refContext);
 	// POR AHORA TODO CON LEVEL CERO
 	const [dialogs, setDialogs] = useState(levels[0].dialogs);
 	const [log, setLog] = useState(levels[0].log);
@@ -28,7 +30,7 @@ export default function Scenery({ levels, nextScenery }) {
 				webHistory.push("/" + nextScenery);
 				return updateStoryProgress({
 					scenery: nextScenery,
-					// level: storyProgress.level + 1
+					currentLevel: storyProgress.currentLevel + 1
 				});
 			} else {
 				setCurrentName("");
@@ -36,12 +38,17 @@ export default function Scenery({ levels, nextScenery }) {
 				setCurrentLevel(currentLevel + 1);
 				levels[currentLevel + 1] &&
 					setDialogs(levels[currentLevel + 1].dialogs);
+        return updateStoryProgress({
+					scenery: storyProgress.scenery,
+					currentLevel: storyProgress.currentLevel + 1
+				});
 			}
 		}
 	}
 	useEffect(() => {
 		dialogs[currentStep] && setCurrentName(dialogs[currentStep].name);
 		setCurrentLines(dialogs[currentStep].lines);
+
 	}, [currentStep]);
 
 	useEffect(() => {
@@ -49,6 +56,7 @@ export default function Scenery({ levels, nextScenery }) {
 		setLog(levels[currentLevel].log);
 	}, [currentLevel]);
 	return (
+
 		<>
 			<div className="app-container">
 				{/* <div className="text-white">{log}</div> */}

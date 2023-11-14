@@ -5,6 +5,7 @@ import Corredor from "../SecondFloor/Corredor/Corredor";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
 
+
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
 		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -56,8 +57,13 @@ export const s1 = {
 				},
 				{
 					name: "Evelyn",
-					lines: "Si mijo, ¿podrías venir a la cocina",
+					lines: "Si mijo, ¿podrías venir a la cocina?",
 				},
+			],
+		},
+		{
+			log:"",
+			dialogs: [
 				{
 					name: "Xander",
 					lines: "Vale, ya voy.",
@@ -67,7 +73,7 @@ export const s1 = {
 					lines: "¡Gracias! ",
 				},
 			],
-		},
+		}
 	],
 };
 const Story = {

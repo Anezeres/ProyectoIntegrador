@@ -1,24 +1,48 @@
 import { useContext, useEffect, useRef } from "react";
 import { characterContext } from "../Context/characterContext";
-import {  CylinderCollider, MeshCollider, RigidBody } from "@react-three/rapier";
+import { CylinderCollider, MeshCollider, RigidBody } from "@react-three/rapier";
+import { useFrame } from "@react-three/fiber";
 //import { useFrame } from "@react-three/fiber";
 //import { atom, useAtom } from "jotai";
+import * as THREE from 'three'; // Importa la biblioteca three.js
+
 
 //export const xanderBodyRef = atom(null);
-    
 
 
-const Xander = ({position, ...props}) => {
+
+const Xander = ({ position, ...props }) => {
     //const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
 
-    const { xanderRef, xanderModel, playAnimationWithDuration, playAnimation, stopAnimation, xanderBodyRef } = useContext(characterContext)
+    const { xanderRef, xanderModel, playAnimationWithDuration, playAnimation, stopAnimation, xanderBodyRef, moveTo, newPosition, setNewPosition, setLastPosition, changePosition} = useContext(characterContext)
     const { nodes, materials, animations } = xanderModel;
 
-    // useEffect(() => {
-    //     setBodyRef(xanderBodyRef)
-    //     //console.log(animations);
-    //     //console.log(rigidXanderRef);
-    // }, [xanderBodyRef.current]);
+
+
+    useFrame(() => {
+        if (xanderBodyRef.current) {
+            //console.log(Math.floor(xanderBodyRef.current.translation().x))
+            //console.log(newPosition[0])
+            if (Math.floor(xanderBodyRef.current.translation().x) != Math.floor(newPosition[0]) || Math.floor(xanderBodyRef.current.translation().z) != Math.floor(newPosition[2])) {
+                moveTo(newPosition, 'Xander')
+                playAnimation('Walking', 'Xander')
+            } else {
+                playAnimation('Idle', 'Xander')
+            }
+
+            xanderBodyRef.current.setRotation({
+                x: 0,
+                y: 0,
+                z: 0,
+                w: 1
+            }, true)
+        }
+    });
+
+    useEffect(() => {
+        setNewPosition(position)
+        setLastPosition(position)
+    }, []);
 
     return (
         <RigidBody
@@ -34,14 +58,9 @@ const Xander = ({position, ...props}) => {
                 ref={xanderRef}
                 scale={1.5}
                 dispose={null}
-                onClick={() =>
-                    playAnimationWithDuration(
-                        "Left90",
-                        'Xander',
-                        0.9666666388511658,
-                        'Idle'
-                    )
-                }
+                onClick={() => {
+                    changePosition([-9, 0, -5],"Xander")
+                }}
             >
                 <group name="Scene">
                     <group name="Armature">
@@ -133,11 +152,11 @@ const Xander = ({position, ...props}) => {
                             castShadow
                         />
                         <primitive object={nodes.Hips} />
-                        <CylinderCollider args={[0.9, 0.4]} position={[0, 0.6, 0]}/>
+                        <CylinderCollider args={[0.9, 0.4]} position={[0, 0.6, 0]} />
                     </group>
                 </group>
             </group>
-        </RigidBody>
+        </RigidBody >
     );
 };
 

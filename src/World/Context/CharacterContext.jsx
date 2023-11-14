@@ -3,6 +3,8 @@ import { characterContext } from "./characterContext";
 import { MathUtils } from 'three';
 const { useGLTF } = require("@react-three/drei");
 const { useAnimations } = require("@react-three/drei");
+import * as THREE from 'three'; // Importa la biblioteca three.js
+
 
 
 
@@ -10,12 +12,16 @@ const CharacterContext = ({ children }) => {
 
 
     const xanderRef = useRef();
-    const rigidXanderRef = useRef();
     const xanderModel = useGLTF("/assets/Models/Characters/Xander/Xander.glb");
     const abuelaRef = useRef();
     const abuelaModel = useGLTF("/assets/Models/Characters/Abuela/Abuela.glb");
     const xanderBodyRef = useRef();
     const abuelaBodyRef = useRef();
+    const velocidadMovimiento = 0.02;
+    let [newPosition, setNewPosition] = useState([new THREE.Vector3(0, 0, 0)]);
+    let [lastPosition, setLastPosition] = useState([new THREE.Vector3(0, 0, 0)]);
+
+
 
     let { animations: animationsXander } = xanderModel;
     let { actions: actionsXander } = useAnimations(animationsXander, xanderRef);
@@ -102,21 +108,79 @@ const CharacterContext = ({ children }) => {
         }
     };
 
-    //Para una animacion
+    const changePosition = (position, character) => {
+        setNewPosition(position)
+        setLastPosition(xanderBodyRef.current.translation())
+        calcAngle(position, character)
+    };
+
+    //Para mover el personaje a una posicion
     const moveTo = (position, character) => {
         if (character == 'Xander') {
-            currentAnimation = currentAnimationXander
-            setCurrentAnimation = setCurrentAnimationXander
-        } else if (character == 'Abuela') {
-            currentAnimation = currentAnimationAbuela
-            setCurrentAnimation = setCurrentAnimationAbuela
-        }
+            const currentPos = xanderBodyRef.current.translation();
+            let direccionX = 0
+            let direccionZ = 0
 
-        if (currentAnimation !== null) {
-            currentAnimation.stop();
-            setCurrentAnimation(null);
+            if (currentPos.x == position[0]) {
+
+            } else if (currentPos.x > position[0]) {
+                direccionX = -1
+            } else {
+                direccionX = 1
+            }
+
+            if (currentPos.z == position[2]) {
+
+            } else if (currentPos.z > position[2]) {
+                direccionZ = -1
+            } else {
+                direccionZ = 1
+            }
+
+            //const desplazamiento = walkingFront(true, velocidadMovimiento)
+            xanderBodyRef.current.setTranslation({
+                x: currentPos.x + (velocidadMovimiento * direccionX),
+                y: currentPos.y,
+                z: currentPos.z + (velocidadMovimiento * direccionZ)
+            }, true)
+
+
+        } else if (character == 'Abuela') {
+            //codigo abuela
         }
     };
+
+    //Funcion auxiliar para que los personajes vean hacia adelante
+    const calcAngle = (position, character) => {
+        if (character == 'Xander') {
+            const currentPos = lastPosition;
+
+            // Calcular el ángulo de rotación
+            const angle = Math.atan2(position[0] - currentPos[0], position[2] - currentPos[2]);
+
+            // Aplicar la rotación al personaje
+            if (angle) {
+                xanderRef.current.rotation.y = angle
+            }
+
+        } else if (character == 'Abuela') {
+            //codigo abuela
+        }
+    };
+
+    const walkingFront = (positive, velocidadMovimiento) => {
+        let forwardVector = 0
+        if (positive) {
+            forwardVector = new THREE.Vector3(0, 0, 1).applyQuaternion(xanderRef.current.quaternion);
+        } else {
+            forwardVector = new THREE.Vector3(0, 0, -1).applyQuaternion(xanderRef.current.quaternion);
+        }
+        forwardVector.normalize();
+
+        // Calcula el desplazamiento basado en la velocidad de movimiento
+        return forwardVector.clone().multiplyScalar(velocidadMovimiento);
+    }
+
 
     return (
         <characterContext.Provider
@@ -124,7 +188,6 @@ const CharacterContext = ({ children }) => {
                 {
                     xanderRef,
                     xanderBodyRef,
-                    rigidXanderRef,
                     xanderModel,
                     actionsXander,
                     currentAnimationXander,
@@ -136,6 +199,14 @@ const CharacterContext = ({ children }) => {
                     stopAnimation,
                     animationInProcess,
                     setAnimationInProcess,
+                    walkingFront,
+                    velocidadMovimiento,
+                    moveTo,
+                    newPosition,
+                    setNewPosition,
+                    lastPosition,
+                    setLastPosition,
+                    changePosition
                 }
             }
         >
