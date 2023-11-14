@@ -11,6 +11,7 @@ import Controls from "./World/Controls/Controls";
 import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useEffect, useState } from "react";
 import CharacterContext from "./World/Context/CharacterContext.jsx";
+import CameraContext from "./World/Context/CameraContext.jsx";
 
 
 const Experience = () => {
@@ -27,8 +28,8 @@ const Experience = () => {
     return (
         <>
             <CharacterContext>
-                <RefContext>
-                    <Physics>
+                <CameraContext>
+                    <Physics debug>
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[10, 10, 5]} intensity={2} />
                         {/* <Fondo /> */}
@@ -40,7 +41,7 @@ const Experience = () => {
                         {loaded && <Personajes />}
                         {loaded && <Controls />}
                     </Physics>
-                </RefContext>
+                </CameraContext>
             </CharacterContext>
         </>
     )

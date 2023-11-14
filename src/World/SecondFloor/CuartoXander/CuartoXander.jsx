@@ -8,7 +8,7 @@ import PlatformXander from "./PlatformXander";
 import WallsXander from "./WallsXander";
 import { useThree } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
-import { refContext } from "../../Context/refContext";
+import { cameraContext } from "../../Context/cameraContext";
 import { useContext } from "react";
 import SillaG from "./SillaG";
 import Monitor from "./Monitor";
@@ -27,7 +27,7 @@ const CuartoXander = () => {
         map: PATH + 'Astronauta.png'
     })
 
-    const { camera } = useContext(refContext)
+    const { camera } = useContext(cameraContext)
 
     const moveCamera = () => {
         console.log(camera)

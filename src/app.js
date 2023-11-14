@@ -5,7 +5,6 @@ import Experience from "./Experience";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Scenery from "./Story/Scenery";
 import Landing from "./pages/landing";
-import RefContext, { StoryContext } from "./World/Context/RefContext.jsx";
 import SecondFloor from "./World/SecondFloor/SecondFloor.jsx";
 import Sotano from "./World/Sotano/Sotano.jsx";
 import { RigidBody } from "@react-three/rapier";
@@ -14,27 +13,28 @@ import Personajes from "./World/Personajes/Personajes.jsx";
 import Abuela from "./World/Personajes/Abuela.jsx";
 import Story, { s1 } from "./World/Context/TotalStory.jsx";
 import { Loader } from "@react-three/drei";
+import CharacterContext from "./World/Context/CharacterContext.jsx";
+import RefContext from "./World/Context/RefContext.jsx";
 
 export default function App() {
+
 	return (
 		<>
 			<Router>
 				<Switch>
 					<Route path="/s1">
 						<div id="canvas-container">
-							<Canvas camera={{ position: [-1, 4, 2] }}>
-								<Experience>
-									{/* <RigidBody type="fixed"> */}
-									<SecondFloor />
-									{/* </RigidBody> */}
+							<RefContext>
+								<Canvas camera={{ position: [-1, 4, 2] }}>
+									<Experience>
+										<SecondFloor />
 
-									{s1.characters[0]}
-								</Experience>
-							</Canvas>
-							<Loader />
-							<StoryContext>
-								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
-							</StoryContext>
+										{s1.characters[0]}
+									</Experience>
+								</Canvas>
+								<Loader />
+								<Scenery story={Story} levels={s1.levels} nextScenery="s2"/>
+							</RefContext>
 						</div>
 					</Route>
 					{/* <Route path="/s2">
@@ -62,13 +62,11 @@ export default function App() {
 										{Story[key].characters.map((character) => character)}
 									</Experience>
 								</Canvas>
-								<StoryContext>
-									<Scenery
-										story={Story}
-										levels={Story[key].levels}
-										nextScenery={Story[key].nextScenery}
-									/>
-								</StoryContext>
+								<Scenery
+									story={Story}
+									levels={Story[key].levels}
+									nextScenery={Story[key].nextScenery}
+								/>
 							</Route>
 						);
 					})}

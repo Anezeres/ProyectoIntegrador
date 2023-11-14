@@ -4,6 +4,10 @@ import Xander from "../Personajes/Xander";
 import Corredor from "../SecondFloor/Corredor/Corredor";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
+
+
+
+
 export const s1 = {
 	camera: { position: [-1, 4, 0] },
 
@@ -41,8 +45,13 @@ export const s1 = {
 				},
 				{
 					name: "Evelyn",
-					lines: "Si mijo, ¿podrías venir a la cocina",
+					lines: "Si mijo, ¿podrías venir a la cocina?",
 				},
+			],
+		},
+		{
+			log:"",
+			dialogs: [
 				{
 					name: "Xander",
 					lines: "Vale, ya voy.",
@@ -52,7 +61,7 @@ export const s1 = {
 					lines: "¡Gracias! ",
 				},
 			],
-		},
+		}
 	],
 };
 const Story = {
