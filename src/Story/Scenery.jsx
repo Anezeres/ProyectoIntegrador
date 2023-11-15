@@ -12,8 +12,8 @@ export default function Scenery({ levels, nextScenery }) {
 	const [currentName, setCurrentName] = useState("");
 	const [currentLines, setCurrentLines] = useState("");
 	// POR AHORA TODO CON LEVEL CERO
-	const [dialogs, setDialogs] = useState(levels[0].dialogs);
-	const [log, setLog] = useState(levels[0].log);
+	const [dialogs, setDialogs] = useState(levels[0]?.dialogs);
+	const [log, setLog] = useState(levels[0]?.log);
 
 	const webHistory = useHistory();
 	function setNextStep() {
@@ -23,14 +23,16 @@ export default function Scenery({ levels, nextScenery }) {
 
 		if (currentStep === dialogs.length - 1) {
 			if (currentLevel === levels.length - 1) {
+				window.location.href = "/" + nextScenery;
 				setCurrentName(""); //hacer esto cada vez que cambié el step
 				setCurrentLevel(0);
 				setCurrentStep(0);
 
-				webHistory.push("/" + nextScenery);
+				// webHistory.push("/" + nextScenery);
+
 				return updateStoryProgress({
 					scenery: nextScenery,
-					currentLevel: storyProgress.currentLevel + 1
+					currentLevel: storyProgress.currentLevel + 1,
 				});
 			} else {
 				setCurrentName("");
@@ -38,9 +40,9 @@ export default function Scenery({ levels, nextScenery }) {
 				setCurrentLevel(currentLevel + 1);
 				levels[currentLevel + 1] &&
 					setDialogs(levels[currentLevel + 1].dialogs);
-        return updateStoryProgress({
+				return updateStoryProgress({
 					scenery: storyProgress.scenery,
-					currentLevel: storyProgress.currentLevel + 1
+					currentLevel: storyProgress.currentLevel + 1,
 				});
 			}
 		}

@@ -7,16 +7,46 @@ import SecondFloor from "./World/SecondFloor/SecondFloor.jsx";
 import Story, { s1 } from "./World/Context/TotalStory.jsx";
 import { Loader } from "@react-three/drei";
 import RefContext from "./World/Context/RefContext.jsx";
+import { introState } from "./pages/intro.jsx";
 
 export default function App() {
-
 	return (
 		<>
-			<Router>
-				<Switch>
-					<Route path="/s1">
-						<div id="canvas-container">
-							<RefContext>
+			<RefContext>
+				<Router>
+					<Switch>
+						{/* <Route exact path="/intro">
+							<Intro />
+							<Scenery
+								story={Story}
+								levels={introState[0].levels}
+								nextScenery="intro-2"
+							/>
+						</Route> */}
+						{/* <Route exact path="/intro-2">
+							<Intro />
+							<Scenery
+								story={Story}
+								levels={introState[1].levels}
+								nextScenery="intro-3"
+							/>
+						</Route> */}
+						{introState.map((state, index) => {
+							return (
+								<Route exact path={`/intro-${index}`}>
+									{state.component}
+									{index && (
+										<Scenery
+											story={Story}
+											levels={state.levels}
+											nextScenery={state.nextScenery}
+										/>
+									)}
+								</Route>
+							);
+						})}
+						<Route path="/s1">
+							<div id="canvas-container">
 								<Canvas camera={{ position: [-1, 4, 2] }}>
 									<Experience>
 										<SecondFloor />
@@ -25,36 +55,36 @@ export default function App() {
 									</Experience>
 								</Canvas>
 								<Loader />
-								<Scenery story={Story} levels={s1.levels} nextScenery="s2"/>
-							</RefContext>
-						</div>
-					</Route>
-					{/* <Route path="/s2">
+								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
+							</div>
+						</Route>
+						{/* <Route path="/s2">
 						<Canvas camera={Story.s2.camera}>
 						{" "}
 						{/*Aquí debería estar la intro, por ahora es el escenario 1*/}
-					{Object.keys(Story).map((key) => {
-						return (
-							<Route path={`/${key}`}>
-								<Canvas camera={Story[key].camera}>
-									<Experience>
-										{Story[key].component}
-										{Story[key].characters.map((character) => character)}
-									</Experience>
-								</Canvas>
-								<Scenery
-									story={Story}
-									levels={Story[key].levels}
-									nextScenery={Story[key].nextScenery}
-								/>
-							</Route>
-						);
-					})}
-					<Route path="/">
-						<Landing />
-					</Route>
-				</Switch>
-			</Router>
+						{Object.keys(Story).map((key) => {
+							return (
+								<Route path={`/${key}`}>
+									<Canvas camera={Story[key].camera}>
+										<Experience>
+											{Story[key].component}
+											{Story[key].characters.map((character) => character)}
+										</Experience>
+									</Canvas>
+									<Scenery
+										story={Story}
+										levels={Story[key].levels}
+										nextScenery={Story[key].nextScenery}
+									/>
+								</Route>
+							);
+						})}
+						<Route path="/">
+							<Landing />
+						</Route>
+					</Switch>
+				</Router>
+			</RefContext>
 		</>
 	);
 }

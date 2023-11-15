@@ -1,0 +1,49 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #ede8f7; /* Cambiar el color de fondo de la página completa */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2%;
+  
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+}
+
+.image-row img {
+  max-width: 42%; /* Cambia el tamaño de las imágenes según tus necesidades */
+  border-radius: 15px; /* Borde redondeado */
+  border: 2px solid #4d205a; /* Borde azul oscuro */
+  box-shadow: 0 0 10px #d775f4;
+  transition: transform 0.2s, background-color 0.2s; /* Transiciones suaves de tamaño y color de fondo */
+}
+
+.image-row img:hover {
+  transform: scale(1.05); /* Hacer que la imagen se agrande al pasar el mouse sobre ella */
+  background-color: #283a74; /* Cambiar el color de fondo al pasar el mouse sobre ella */
+}
+
+.image-space {
+  height: 2%; /* Espacio entre las filas */
+}
+
+/* Espacio adicional entre las imágenes de arriba y abajo */
+.image-container .image-row:first-child {
+  margin-bottom: 2%;
+}
