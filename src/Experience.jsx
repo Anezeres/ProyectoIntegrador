@@ -27,7 +27,7 @@ const Experience = ({ children }) => {
 		<>
 			<CharacterContext>
 				<CameraContext>
-					<Physics debug>
+					<Physics>
 						<ambientLight intensity={0.5} />
 						<directionalLight position={[10, 10, 5]} intensity={2} />
 

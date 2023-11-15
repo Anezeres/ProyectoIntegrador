@@ -1,13 +1,13 @@
 import React, { useContext, useRef } from "react";
 import { useGLTF, useHelper } from "@react-three/drei";
 import { BoxHelper } from "three";
-import { refContext } from "../../Context/refContext";
+import { cameraContext } from "../../Context/cameraContext";
 import { CuboidCollider, RigidBody } from "@react-three/rapier";
 
 
 const Objetos = (props) => {
     const { nodes, materials } = useGLTF("/assets/Models/Decoraciones/ObjetosHogar.glb");
-    const { moveObjectToPositionSmoothly, abrirPuerta } = useContext(refContext)
+    const { moveObjectToPositionSmoothly, abrirPuerta } = useContext(cameraContext)
 
     const objetoRef = useRef();
     const cameraRef = useRef();
