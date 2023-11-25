@@ -76,7 +76,7 @@ export const introState = [
 				log: "Dale clic en siguiente para continuar con la historia",
 				dialogs: [
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines: `Una enfermedad devastadora atacó a mis padres. Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo. Mis lágrimas no cesaron durante días.`,
 					},
 				],
@@ -93,21 +93,21 @@ export const introState = [
 				log: "Dale clic en siguiente para continuar con la historia",
 				dialogs: [
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines: `Mi vida no ha sido la misma desde hace 5 años, solíamos ser una familia feliz, yo solía ser feliz…`,
 					},
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines:
 							"Pero la vida es efímera, el mundo es inconstante, nada perdura... Todo puede cambiar en un abrir y cerrar de ojos.",
 					},
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines:
 							"Aeron, mi padre, y Seraphine, mi madre, compartían un amor que parecía indestructible, hasta el final de sus días",
 					},
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines:
 							"Sin embargo, las tormentas suelen aparecer cuando menos las esperamos.",
 					},
@@ -126,7 +126,7 @@ export const introState = [
 				log: "Dale clic en siguiente para continuar con la historia",
 				dialogs: [
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines: `Una enfermedad devastadora atacó a mis padres. Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo. Mis lágrimas no cesaron durante días.`,
 					},
 				],
@@ -144,11 +144,11 @@ export const introState = [
 				log: "Dale clic en siguiente para continuar con la historia",
 				dialogs: [
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines: `Mis padres decidieron usar sus ahorros de toda una vida en los novedosos Virtual Organs, buscando prolongar sus vidas 10 años más, para no abandonarme.`,
 					},
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines:
 							"La corrupción gubernamental es despiadada; venden los Virtual Organs sin seguro, priorizando sus ganancias por encima de la seguridad.",
 					},
@@ -167,7 +167,7 @@ export const introState = [
 				log: "Dale clic en siguiente para continuar con la historia",
 				dialogs: [
 					{
-						name: "Xander (Sueña)",
+						name: "Xander ",
 						lines: `Un malvado hacker interrumpió el latir de sus corazones, exigiendo tres millones de dólares a cambio de devolverles la vida.`,
 					},
 				],

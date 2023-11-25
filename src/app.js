@@ -58,10 +58,7 @@ export default function App() {
 								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
 							</div>
 						</Route>
-						{/* <Route path="/s2">
-						<Canvas camera={Story.s2.camera}>
-						{" "}
-						{/*Aquí debería estar la intro, por ahora es el escenario 1*/}
+
 						{Object.keys(Story).map((key) => {
 							return (
 								<Route path={`/${key}`}>

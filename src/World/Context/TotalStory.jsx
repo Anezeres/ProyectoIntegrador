@@ -2,9 +2,10 @@ import Abuela from "../Personajes/Abuela";
 import Personajes from "../Personajes/Personajes";
 import Xander from "../Personajes/Xander";
 import Corredor from "../SecondFloor/Corredor/Corredor";
+import CuartoAbuela from "../SecondFloor/CuartoAbuela/CuartoAbuela";
+import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
-
 
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -62,7 +63,7 @@ export const s1 = {
 			],
 		},
 		{
-			log:"",
+			log: "",
 			dialogs: [
 				{
 					name: "Xander",
@@ -73,7 +74,7 @@ export const s1 = {
 					lines: "¡Gracias! ",
 				},
 			],
-		}
+		},
 	],
 };
 const Story = {
@@ -144,9 +145,28 @@ const Story = {
 	},
 	s3: {
 		camera: { position: [1, 3, 6] },
+		component: <CuartoAbuela />,
+		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
+		nextScenery: "s4",
+		levels: [
+			{
+				log: genericLog,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Mi abuela es muy organizada, aquí no hay nada que limpiar. 
+						
+						Mejor busco algo para ayudar a mi abuela.`,
+					},
+				],
+			},
+		],
+	},
+	s4: {
+		camera: { position: [1, 3, 6] },
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
-		nextScenery: "s1",
+		nextScenery: "tapaq",
 		levels: [
 			{
 				log: genericLog,
@@ -156,6 +176,25 @@ const Story = {
 						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
 						
 						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	tapaq: {
+		camera: { position: [1, 3, 6] },
+		component: <CuartoPadres />,
+		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
+		nextScenery: "s2",
+		levels: [
+			{
+				log: genericLog,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Wow cuanto tiempo lleva este cuarto vacío. 
+						
+						Como extraño a mis padres.`,
 					},
 				],
 			},
