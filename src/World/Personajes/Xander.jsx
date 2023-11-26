@@ -24,10 +24,7 @@ const Xander = ({ position, ...props }) => {
             //console.log(Math.floor(xanderBodyRef.current.translation().x))
             //console.log(newPosition[0])
             if (Math.floor(xanderBodyRef.current.translation().x) != Math.floor(newPosition[0]) || Math.floor(xanderBodyRef.current.translation().z) != Math.floor(newPosition[2])) {
-                moveTo(newPosition, 'Xander')
-                playAnimation('Walking', 'Xander')
-            } else {
-                playAnimation('Idle', 'Xander')
+                //moveTo(newPosition, 'Xander')
             }
 
             xanderBodyRef.current.setRotation({
@@ -58,9 +55,6 @@ const Xander = ({ position, ...props }) => {
                 ref={xanderRef}
                 scale={1.5}
                 dispose={null}
-                onClick={() => {
-                    changePosition([-9, 0, -5],"Xander")
-                }}
             >
                 <group name="Scene">
                     <group name="Armature">

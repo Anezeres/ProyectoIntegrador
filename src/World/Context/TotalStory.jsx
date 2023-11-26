@@ -40,7 +40,12 @@ export const s1 = {
 					name: "Xander",
 					lines:
 						"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
-				},
+				}
+			],
+		},
+		{
+			log:"",
+			dialogs: [
 				{
 					name: "Xander (Despierta)",
 					lines:

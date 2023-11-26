@@ -12,11 +12,11 @@ export default function App() {
 
 	return (
 		<>
-			<Router>
-				<Switch>
-					<Route path="/s1">
-						<div id="canvas-container">
-							<RefContext>
+			<RefContext>
+				<Router>
+					<Switch>
+						<Route path="/s1">
+							<div id="canvas-container">
 								<Canvas camera={{ position: [-1, 4, 2] }}>
 									<Experience>
 										<SecondFloor />
@@ -25,36 +25,36 @@ export default function App() {
 									</Experience>
 								</Canvas>
 								<Loader />
-								<Scenery story={Story} levels={s1.levels} nextScenery="s2"/>
-							</RefContext>
-						</div>
-					</Route>
-					{/* <Route path="/s2">
+								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
+							</div>
+						</Route>
+						{/* <Route path="/s2">
 						<Canvas camera={Story.s2.camera}>
 						{" "}
 						{/*Aquí debería estar la intro, por ahora es el escenario 1*/}
-					{Object.keys(Story).map((key) => {
-						return (
-							<Route path={`/${key}`}>
-								<Canvas camera={Story[key].camera}>
-									<Experience>
-										{Story[key].component}
-										{Story[key].characters.map((character) => character)}
-									</Experience>
-								</Canvas>
-								<Scenery
-									story={Story}
-									levels={Story[key].levels}
-									nextScenery={Story[key].nextScenery}
-								/>
-							</Route>
-						);
-					})}
-					<Route path="/">
-						<Landing />
-					</Route>
-				</Switch>
-			</Router>
+						{Object.keys(Story).map((key) => {
+							return (
+								<Route path={`/${key}`}>
+									<Canvas camera={Story[key].camera}>
+										<Experience>
+											{Story[key].component}
+											{Story[key].characters.map((character) => character)}
+										</Experience>
+									</Canvas>
+									<Scenery
+										story={Story}
+										levels={Story[key].levels}
+										nextScenery={Story[key].nextScenery}
+									/>
+								</Route>
+							);
+						})}
+						<Route path="/">
+							<Landing />
+						</Route>
+					</Switch>
+				</Router >
+			</RefContext>
 		</>
 	);
 }

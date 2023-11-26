@@ -25,7 +25,7 @@ const CharacterContext = ({ children }) => {
 
     let { animations: animationsXander } = xanderModel;
     let { actions: actionsXander } = useAnimations(animationsXander, xanderRef);
-
+    console.log(animationsXander)
     let { animations: animationsAbuela } = abuelaModel;
     let { actions: actionsAbuela } = useAnimations(animationsAbuela, abuelaRef);
 
@@ -37,6 +37,9 @@ const CharacterContext = ({ children }) => {
 
     //Realiza una animacion por un tiempo determinado
     const playAnimationWithDuration = (animationName, character, duration) => {
+        let currentAnimation;
+        let setCurrentAnimation;
+        let actions;
         if (character == 'Xander') {
             currentAnimation = currentAnimationXander
             setCurrentAnimation = setCurrentAnimationXander
@@ -59,14 +62,16 @@ const CharacterContext = ({ children }) => {
         setTimeout(() => {
 
             setAnimationInProcess(false)
-
+            stopAnimation(animationName, character)
         }, (duration - 0.2) * 1000);
 
     };
 
     //Realiza una animacion en bucle
     const playAnimation = (animationName, character) => {
-
+        let currentAnimation;
+        let setCurrentAnimation;
+        let actions;
         if (character == 'Xander') {
             currentAnimation = currentAnimationXander
             setCurrentAnimation = setCurrentAnimationXander
@@ -93,19 +98,30 @@ const CharacterContext = ({ children }) => {
     };
 
     //Para una animacion
-    const stopAnimation = (character) => {
+    const stopAnimation = (animationName, character) => {
+        let currentAnimation;
+        let setCurrentAnimation;
+        let actions;
         if (character == 'Xander') {
             currentAnimation = currentAnimationXander
             setCurrentAnimation = setCurrentAnimationXander
+            actions = actionsXander
         } else if (character == 'Abuela') {
             currentAnimation = currentAnimationAbuela
             setCurrentAnimation = setCurrentAnimationAbuela
+            actions = actionsAbuela
         }
 
-        if (currentAnimation !== null) {
-            currentAnimation.stop();
+        const action = actions[animationName];
+        if (action) {
+            console.log(action)
+            action.paused(true);
             setCurrentAnimation(null);
+        } else {
+            console.error(`La animación "${animationName}" no está definida para el personaje "${character}".`);
         }
+        setCurrentAnimation(null);
+
     };
 
     const changePosition = (position, character) => {
@@ -148,6 +164,7 @@ const CharacterContext = ({ children }) => {
         } else if (character == 'Abuela') {
             //codigo abuela
         }
+        playAnimation('Walking', 'Xander')
     };
 
     //Funcion auxiliar para que los personajes vean hacia adelante
@@ -167,6 +184,28 @@ const CharacterContext = ({ children }) => {
             //codigo abuela
         }
     };
+
+    const teleport = (position, character) => {
+        let ref = 0
+        if (character == 'Xander') {
+            ref = xanderBodyRef
+        } else if (character == 'Abuela') {
+        }
+
+        //setLastPosition(position)
+        //setNewPosition(position)
+        ref.current.setTranslation(position, true)
+    }
+
+    const rotate = (rotationY, character) => {
+        let ref = 0
+        if (character == 'Xander') {
+            ref = xanderRef
+        } else if (character == 'Abuela') {
+        }
+        ref.current.rotation.y = rotationY
+
+    }
 
     const walkingFront = (positive, velocidadMovimiento) => {
         let forwardVector = 0
@@ -206,7 +245,9 @@ const CharacterContext = ({ children }) => {
                     setNewPosition,
                     lastPosition,
                     setLastPosition,
-                    changePosition
+                    changePosition,
+                    teleport,
+                    rotate
                 }
             }
         >
