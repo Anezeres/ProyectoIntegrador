@@ -15,22 +15,6 @@ export default function App() {
 			<RefContext>
 				<Router>
 					<Switch>
-						{/* <Route exact path="/intro">
-							<Intro />
-							<Scenery
-								story={Story}
-								levels={introState[0].levels}
-								nextScenery="intro-2"
-							/>
-						</Route> */}
-						{/* <Route exact path="/intro-2">
-							<Intro />
-							<Scenery
-								story={Story}
-								levels={introState[1].levels}
-								nextScenery="intro-3"
-							/>
-						</Route> */}
 						{introState.map((state, index) => {
 							return (
 								<Route exact path={`/intro-${index}`}>

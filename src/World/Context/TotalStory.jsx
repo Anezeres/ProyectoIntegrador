@@ -21,7 +21,7 @@ export const s1 = {
 	nextScenery: "s2",
 	levels: [
 		{
-			log: "Xander duerme en su propia habitación que el mismo personalizó.",
+			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
 			dialogs: [
 				{
 					name: "Xander",
@@ -63,7 +63,8 @@ export const s1 = {
 			],
 		},
 		{
-			log: "",
+			showLog: true,
+			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
 			dialogs: [
 				{
 					name: "Xander",
@@ -105,6 +106,7 @@ const Story = {
 				],
 			},
 			{
+				showLog: true,
 				log: genericLog,
 				dialogs: [
 					{
