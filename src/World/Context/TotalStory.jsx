@@ -28,18 +28,15 @@ export const s1 = {
 				},
 				{
 					name: "Xander",
-					lines:
-						"A veces, me siento como un espectador en lugar de un participante en la vida real.",
+					lines:"A veces, me siento como un espectador en lugar de un participante en la vida real.",
 				},
 				{
 					name: "Xander",
-					lines:
-						"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+					lines:"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
 				},
 				{
 					name: "Xander",
-					lines:
-						"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
+					lines:"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
 				}
 			],
 		},

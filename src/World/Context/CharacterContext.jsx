@@ -11,28 +11,41 @@ import * as THREE from 'three'; // Importa la biblioteca three.js
 const CharacterContext = ({ children }) => {
 
 
+    //mesh (dibujo de xander)
     const xanderRef = useRef();
-    const xanderModel = useGLTF("/assets/Models/Characters/Xander/Xander.glb");
     const abuelaRef = useRef();
+
+    //Animaciones
+    const xanderModel = useGLTF("/assets/Models/Characters/Xander/Xander.glb");
     const abuelaModel = useGLTF("/assets/Models/Characters/Abuela/Abuela.glb");
+
+    //rigid body fisicas (cylindro)
     const xanderBodyRef = useRef();
     const abuelaBodyRef = useRef();
+
+    //Velocidad
     const velocidadMovimiento = 0.02;
+
+    //Variables de Posicion
     let [newPosition, setNewPosition] = useState([new THREE.Vector3(0, 0, 0)]);
     let [lastPosition, setLastPosition] = useState([new THREE.Vector3(0, 0, 0)]);
+    let [arrayPosition, setArrayPosition] = useState([]);
+    let [move, setMove] = useState(false);
+
 
 
 
     let { animations: animationsXander } = xanderModel;
     let { actions: actionsXander } = useAnimations(animationsXander, xanderRef);
-    console.log(animationsXander)
     let { animations: animationsAbuela } = abuelaModel;
     let { actions: actionsAbuela } = useAnimations(animationsAbuela, abuelaRef);
 
     const [currentAnimationXander, setCurrentAnimationXander] = useState(null);
     const [animationInProcess, setAnimationInProcess] = useState(false);
     const [currentAnimationAbuela, setCurrentAnimationAbuela] = useState(null);
+    //Muestra las animaciones de xander
 
+    console.log(animationsXander)
     let currentAnimation, setCurrentAnimation, actions = null
 
     //Realiza una animacion por un tiempo determinado
@@ -55,7 +68,7 @@ const CharacterContext = ({ children }) => {
         }
 
         const action = actions[animationName];
-        action.reset().fadeIn(0.2).play();
+        action.fadeIn(0.2).play();
         setCurrentAnimation(action);
         setAnimationInProcess(true)
 
@@ -90,7 +103,7 @@ const CharacterContext = ({ children }) => {
 
             // Reproducir la animación seleccionada
             const action = actions[animationName];
-            action.reset().fadeIn(0.2).play();
+            action.fadeIn(0.2).play();
 
             // Actualizar el estado para rastrear la animación actual
             setCurrentAnimation(action);
@@ -115,7 +128,7 @@ const CharacterContext = ({ children }) => {
         const action = actions[animationName];
         if (action) {
             console.log(action)
-            action.paused(true);
+            action.fadeOut(0.2)
             setCurrentAnimation(null);
         } else {
             console.error(`La animación "${animationName}" no está definida para el personaje "${character}".`);
@@ -124,10 +137,23 @@ const CharacterContext = ({ children }) => {
 
     };
 
-    const changePosition = (position, character) => {
-        setNewPosition(position)
-        setLastPosition(xanderBodyRef.current.translation())
-        calcAngle(position, character)
+    //Mueve el personaje (rigidBody)
+    const changePosition = (position, character, animationName) => {
+        console.log(position)
+        setMove(false)
+        if (position && Array.isArray(position) && position.length > 0) {
+            setLastPosition(xanderBodyRef.current.translation())
+            setNewPosition(position[0])
+            calcAngle(position[0], character)
+            setMove(true)
+            const newPositionArray = position.slice(1)
+            setArrayPosition(newPositionArray)
+        } else {
+            playAnimation('Idle', 'Xander')
+            setArrayPosition([])
+            console.log('entre')
+        }
+        
     };
 
     //Para mover el personaje a una posicion
@@ -170,11 +196,10 @@ const CharacterContext = ({ children }) => {
     //Funcion auxiliar para que los personajes vean hacia adelante
     const calcAngle = (position, character) => {
         if (character == 'Xander') {
-            const currentPos = lastPosition;
-
             // Calcular el ángulo de rotación
-            const angle = Math.atan2(position[0] - currentPos[0], position[2] - currentPos[2]);
+            const angle = Math.atan2(position[0] - xanderBodyRef.current.translation().x, position[2] - xanderBodyRef.current.translation().z);
 
+            console.log(angle)
             // Aplicar la rotación al personaje
             if (angle) {
                 xanderRef.current.rotation.y = angle
@@ -185,6 +210,7 @@ const CharacterContext = ({ children }) => {
         }
     };
 
+    //Teletransporta al personaje a la posicion colocada
     const teleport = (position, character) => {
         let ref = 0
         if (character == 'Xander') {
@@ -192,8 +218,8 @@ const CharacterContext = ({ children }) => {
         } else if (character == 'Abuela') {
         }
 
-        //setLastPosition(position)
-        //setNewPosition(position)
+        setLastPosition(ref.current.translation())
+        setNewPosition(position)
         ref.current.setTranslation(position, true)
     }
 
@@ -203,7 +229,7 @@ const CharacterContext = ({ children }) => {
             ref = xanderRef
         } else if (character == 'Abuela') {
         }
-        ref.current.rotation.y = rotationY
+        ref.current.rotation.y = ref.current.rotation.y + rotationY
 
     }
 
@@ -220,6 +246,16 @@ const CharacterContext = ({ children }) => {
         return forwardVector.clone().multiplyScalar(velocidadMovimiento);
     }
 
+    //Para mover el personaje a una posicion
+    const moveMesh = (position, character) => {
+        if (character == 'Xander') {
+            xanderRef.current.position.x = xanderRef.current.position.x + position[0];
+            xanderRef.current.position.y = xanderRef.current.position.y + position[1];
+            xanderRef.current.position.z = xanderRef.current.position.z + position[2];
+        } else if (character == 'Abuela') {
+            //codigo abuela
+        }
+    };
 
     return (
         <characterContext.Provider
@@ -247,7 +283,12 @@ const CharacterContext = ({ children }) => {
                     setLastPosition,
                     changePosition,
                     teleport,
-                    rotate
+                    rotate,
+                    move,
+                    setMove,
+                    moveMesh,
+                    arrayPosition,
+                    setArrayPosition
                 }
             }
         >
