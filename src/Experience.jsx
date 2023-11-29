@@ -14,38 +14,37 @@ import CharacterContext from "./World/Context/CharacterContext.jsx";
 import CameraContext from "./World/Context/CameraContext.jsx";
 import TimeLine from "./Story/TimeLine.jsx";
 
-const Experience = () => {
+const Experience = ({ children }) => {
+	const [loaded, setLoaded] = useState(false);
+	const [loadedCharaters, setLoadedCharacters] = useState(false);
 
-    const [loaded, setLoaded] = useState(false);
-    const [loadedCharaters, setLoadedCharacters] = useState(false);
+	useEffect(() => {
+		// Simula una carga asíncrona (puede ser una petición de red, etc.)
+		setTimeout(() => {
+			setLoaded(true);
+			setTimeout(() => {
+				setLoadedCharacters(true);
+			}, 10);
+		}, 10); // Simulamos una carga de 2 segundos
+	}, []);
 
-    useEffect(() => {
-        // Simula una carga asíncrona (puede ser una petición de red, etc.)
-        setTimeout(() => {
-            setLoaded(true);
-            setTimeout(() => {
-                setLoadedCharacters(true);
-            }, 10);
-        }, 10); // Simulamos una carga de 2 segundos
-    }, []);
+	return (
+		<>
+			<CharacterContext>
+				<CameraContext>
+					<Physics>
+						<ambientLight intensity={0.5} />
+						<directionalLight position={[10, 10, 5]} intensity={2} />
 
-    return (
-        <>
-            <CharacterContext>
-                <CameraContext>
-                    <Physics>
-                        <ambientLight intensity={0.5} />
-                        <directionalLight position={[10, 10, 5]} intensity={2} />
-                        <SecondFloor/>
-                        {/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
-                        {loaded && <Personajes />}
-                        {loaded && <Controls />}
-                        {loadedCharaters && <TimeLine/>}
-                    </Physics>
-                </CameraContext>
-            </CharacterContext>
-        </>
-    )
-}
+						{/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
+						{loaded && children}
+						{loaded && <Controls />}
+						{loadedCharaters && <TimeLine />}
+					</Physics>
+				</CameraContext>
+			</CharacterContext>
+		</>
+	);
+};
 
 export default Experience;
