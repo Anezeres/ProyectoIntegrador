@@ -71,7 +71,7 @@ const ObjetosXander = (props) => {
 
 
             <RigidBody type="fixed" colliders={false}>
-                <group scale={1.6} rotation-y={Math.PI / 2} position={[-13.6, 0.16, -8.2]}>
+                <group scale={1.4} rotation-y={Math.PI / 2} position={[-14, 0.16, -8.2]}>
                     {/* Cama */}
                     <mesh
                         castShadow
@@ -80,7 +80,7 @@ const ObjetosXander = (props) => {
                         material={materials.Material}
                     />
                 </group>
-                <CuboidCollider args={[1.8, 0.5, 1]} position={[-13.6, 0.6, -8.2]} />
+                <CuboidCollider args={[1.5, 0.7, 0.8]} position={[-14, 0.25, -8.2]} />
             </RigidBody>
             <RigidBody type="fixed" colliders={false}>
                 <group scale={1.1} rotation-y={Math.PI / 2} position={[-15.8, 0, -7.2]}>

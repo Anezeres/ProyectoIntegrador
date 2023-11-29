@@ -12,34 +12,39 @@ import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
 import { Children, useEffect, useState } from "react";
 import CharacterContext from "./World/Context/CharacterContext.jsx";
 import CameraContext from "./World/Context/CameraContext.jsx";
+import TimeLine from "./Story/TimeLine.jsx";
 
-const Experience = ({ children }) => {
-	const [loaded, setLoaded] = useState(false);
+const Experience = () => {
 
-	useEffect(() => {
-		// Simula una carga asíncrona (puede ser una petición de red, etc.)
-		setTimeout(() => {
-			setLoaded(true);
-		}, 10); // Simulamos una carga de 2 segundos
-	}, []);
+    const [loaded, setLoaded] = useState(false);
+    const [loadedCharaters, setLoadedCharacters] = useState(false);
 
-	return (
-		<>
-			<CharacterContext>
-				<CameraContext>
-					<Physics>
-						<ambientLight intensity={0.5} />
-						<directionalLight position={[10, 10, 5]} intensity={2} />
+    useEffect(() => {
+        // Simula una carga asíncrona (puede ser una petición de red, etc.)
+        setTimeout(() => {
+            setLoaded(true);
+            setTimeout(() => {
+                setLoadedCharacters(true);
+            }, 10);
+        }, 10); // Simulamos una carga de 2 segundos
+    }, []);
 
-						{/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
-						{loaded && children}
-						{loaded && <Controls />}
-					</Physics>
-				</CameraContext>
-			</CharacterContext>
-		</>
-	);
-};
-
+    return (
+        <>
+            <CharacterContext>
+                <CameraContext>
+                    <Physics>
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[10, 10, 5]} intensity={2} />
+                        {/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
+                        {loaded && <Personajes />}
+                        {loaded && <Controls />}
+                        {loadedCharaters && <TimeLine/>}
+                    </Physics>
+                </CameraContext>
+            </CharacterContext>
+        </>
+    )
+}
 
 export default Experience;

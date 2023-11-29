@@ -30,7 +30,7 @@ const CuartoXander = () => {
     const { camera } = useContext(cameraContext)
 
     const moveCamera = () => {
-        console.log(camera)
+        //console.log(camera)
         camera.position.x = -12;
         camera.position.z = 2;
         camera.position.y = 6;
