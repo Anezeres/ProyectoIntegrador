@@ -18,6 +18,9 @@ export default function Scenery({ levels, nextScenery, thereIsMission }) {
 	const [playSound] = useSound("assets/sounds/click.mp3", {
 		volume: 0.1,
 	});
+	const [playRingSound] = useSound("assets/sounds/ring.m4a", {
+		volume: 0.3,
+	});
 	const webHistory = useHistory();
 
 	useEffect(() => {
@@ -41,7 +44,13 @@ export default function Scenery({ levels, nextScenery, thereIsMission }) {
 		levels[currentLevel].dialogs[currentStep + 1] &&
 			setCurrentStep((currentStep) => currentStep + 1);
 		setCurrentName("");
-		console.log(storyProgress);
+
+		if (
+			dialogs[currentStep + 1]?.name &&
+			"Xander (mientras suena el SynthiCom)" == dialogs[currentStep + 1].name
+		) {
+			playRingSound();
+		}
 		if (currentStep === dialogs.length - 1) {
 			if (levels[currentLevel + 1] && levels[currentLevel + 1].showLog) {
 				setLogVisible(true);

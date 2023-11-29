@@ -65,7 +65,7 @@ const Video = () => {
 						window.location.href = "/intro-1";
 					}}
 				>
-					{playButtonSound()}
+					{playSound()}
 					<button className="text-lg bg-[#4cdef8] font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 fixed bottom-1 left-[40%]  w-[200px]">
 						Iniciar
 					</button>
@@ -85,12 +85,7 @@ export const introState = [
 		levels: [
 			{
 				log: "Dale clic en siguiente para continuar con la historia",
-				dialogs: [
-					{
-						name: "Xander ",
-						lines: `Una enfermedad devastadora atacó a mis padres. Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo. Mis lágrimas no cesaron durante días.`,
-					},
-				],
+				dialogs: [],
 			},
 		],
 	},
@@ -204,6 +199,60 @@ export const introState = [
 					{
 						name: "Xander",
 						lines: `No lo lograron...`,
+					},
+				],
+			},
+		],
+	},
+	{
+		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
+		component: <Intro imageId={6} />,
+		characters: [""],
+		nextScenery: "intro-7",
+		levels: [
+			{
+				log: "Dale clic en siguiente para continuar con la historia",
+				dialogs: [
+					{
+						name: "Xander ",
+						lines: `Investigando sobre nexo digital`,
+					},
+				],
+			},
+		],
+	},
+	{
+		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
+		component: <Intro imageId={7} />,
+		characters: [""],
+		nextScenery: "intro-8",
+		levels: [
+			{
+				log: "Dale clic en siguiente para continuar con la historia",
+				dialogs: [
+					{
+						name: "Xander ",
+						lines: `Investigando sobre nexo digital`,
+					},
+				],
+			},
+		],
+	},
+	{
+		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
+		component: <Intro imageId={8} />,
+		characters: [""],
+		nextScenery: "s1",
+		levels: [
+			{
+				log: "Dale clic en siguiente para continuar con la historia",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Investigando sobre nexo digital`,
 					},
 				],
 			},

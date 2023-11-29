@@ -92,7 +92,7 @@ const Story = {
 		nextScenery: "s3",
 		levels: [
 			{
-				log: "Ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -110,7 +110,7 @@ const Story = {
 			},
 			{
 				showLog: true,
-				log: "Ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -142,7 +142,11 @@ const Story = {
 					{
 						name: "Evelyn",
 						lines:
-							"Puedes revisar el sótano. Las cosas de tus padres están allí. Cogiendo polvo.",
+							"Puedes revisar mi habitación y  revisar el sótano. Las cosas de tus padres están allí. Cogiendo polvo.",
+					},
+					{
+						name: "Xander",
+						lines: "Bueno, abuela. Primero voy a revisar tu habitación.",
 					},
 				],
 			},
@@ -153,17 +157,101 @@ const Story = {
 
 		camera: { position: [1, 3, 6] },
 		component: <CuartoAbuela />,
-		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
-		nextScenery: "s4",
+		characters: [<Xander position={[9, 2, 5]} scale={1.5} />],
+		nextScenery: "intro-6",
 		levels: [
 			{
-				log: genericLog,
+				log: `Xander tiene un dispositivo en su chaqueta que le permite comunicarse de manera instantánea. Un SynthiCom modelo 2048, todos tienen uno de estos hoy en día. Estos dispositivos pusieron de moda el llamar las personas. Los chats instantaneos y los mensajes de audio quedaron a un lado.
+				
+				VOG es la abreviación coloquial de Virtual Organs.
+				`,
 				dialogs: [
 					{
 						name: "Xander",
 						lines: `Mi abuela es muy organizada, aquí no hay nada que limpiar. 
 						
-						Mejor busco algo para ayudar a mi abuela.`,
+						`,
+					},
+					{
+						name: "Xander (mientras suena el SynthiCom)",
+						lines: `Qué extraño sonido. 
+						
+						Así no suena mi Synthi. Bueno, voy a contestar.`,
+					},
+					{
+						name: "Desconocido",
+						lines: "Evelyn… Al fin respondes mis llamadas.",
+					},
+					{
+						name: "Xander",
+						lines: "Habla Xander… ¿Quién eres? ¿Qué es lo que quieres?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"No es quién soy lo que importa, sino lo que poseo. Tengo algo valioso que podría cambiar tu vida y la de tu querida abuela.",
+					},
+					{
+						name: "Xander",
+						lines: "¿De qué estás hablando? ¿Qué tienes?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"Tengo un código, Xander, un código que podría salvar o arruinar tu existencia.Tengo la llave del Virtual Organs de tu abuela. Pero no te preocupes, estoy dispuesto a hacer un trato contigo.",
+					},
+					{
+						name: "Xander",
+						lines: "(Preocupado) ¿Un trato? ¿Qué quieres?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"Sencillo. Dinero. Una buena suma de bitcoins, para ser precisos. Envíame la cantidad que te diré y te daré el código que necesitas. No hagas preguntas, solo obedece.",
+					},
+					{
+						name: "Xander",
+						lines:
+							"Pero... ¿por qué debería confiar en ti? ¿Cómo sé que cumplirás tu parte del trato?",
+					},
+					{
+						name: "Desconocido",
+						lines: "(Ríe) Desconfiar es un lujo que no te puedes permitir.",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"(Ríe) Pero si valoras la vida de tu abuela, no te conviene desafiarme. Tienes  2 semanas para conseguir el dinero y seguir mis instrucciones. Si no lo haces, las consecuencias serán desastrosas.",
+					},
+					{
+						name: "Xander",
+						lines: "¿Cómo sé que ella está a salvo?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"Esa es la gracia, no lo sabrás hasta que completes la transacción. No intentes rastrearme, créeme en el mundo virtual yo soy tu peor pesadilla. No intentes ser más inteligente. Solo haz lo que se te ordena.",
+					},
+					{
+						name: "Desconocido",
+						lines: "La vida de tu abuela está en juego.",
+					},
+					{
+						name: "Xander:",
+						lines: "¿Qué? ¿eres un hacker?",
+					},
+					{
+						name: "Xander:",
+						lines: "¿Cómo conseguiste el acceso al VOG de mi abuela?",
+					},
+					{
+						name: "Desconocido (antes de colgar)",
+						lines: "Solo obedece...",
+					},
+					{
+						name: "Xander",
+						lines:
+							"No es posible, seguro es una broma. Voy a investigar un poco. No creo que sea cierto. No es posible acceder a un VOG de manera remota ¿O sí?",
 					},
 				],
 			},

@@ -35,7 +35,6 @@ export default function App() {
 								<Canvas camera={{ position: [-1, 4, 2] }}>
 									<Experience>
 										<SecondFloor />
-
 										{s1.characters[0]}
 									</Experience>
 								</Canvas>
