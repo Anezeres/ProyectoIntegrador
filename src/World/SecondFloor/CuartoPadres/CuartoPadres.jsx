@@ -24,19 +24,13 @@ const CuartoPadres = () => {
     moveCamera() */
 
     return (
-        <>
-            {/* <OrbitControls makeDefault target={[-8, 0, 8]}/> */}
-            <ObjetosPadres position={[0,0,0]} scale={1.3}/>
-            <PlatformPadres/>
-            {/* <WallsPadres/> */}
-
-
-            
-            
-            
-
-        </>
-    )
+			<>
+				<OrbitControls makeDefault target={[-8, 0, 8]} />
+				<ObjetosPadres position={[0, 0, 0]} scale={1.3} />
+				<PlatformPadres />
+				{/* <WallsPadres/> */}
+			</>
+		);
 
 }
 

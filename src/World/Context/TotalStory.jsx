@@ -19,6 +19,8 @@ export const s1 = {
 	component: <SecondFloor />,
 	characters: [<Personajes />],
 	nextScenery: "s2",
+	thereIsMission: true,
+
 	levels: [
 		{
 			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
@@ -81,15 +83,16 @@ export const s1 = {
 const Story = {
 	s2: {
 		camera: { position: [-1, 4, 4] },
+		thereIsMission: true,
 		component: <Corredor />,
 		characters: [
-			<Xander position={[1, 0.3, 1]} scale={1.4} />,
-			<Abuela position={[6, 0.2, -7]} scale={1.4} />,
+			<Xander key={1} position={[1, 0.3, 1]} scale={1.4} />,
+			<Abuela key={2} position={[6, 0.2, -7]} scale={1.4} />,
 		],
 		nextScenery: "s3",
 		levels: [
 			{
-				log: genericLog,
+				log: "Ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -107,7 +110,7 @@ const Story = {
 			},
 			{
 				showLog: true,
-				log: genericLog,
+				log: "Ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -146,6 +149,8 @@ const Story = {
 		],
 	},
 	s3: {
+		thereIsMission: false,
+
 		camera: { position: [1, 3, 6] },
 		component: <CuartoAbuela />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
@@ -165,6 +170,8 @@ const Story = {
 		],
 	},
 	s4: {
+		thereIsMission: false,
+
 		camera: { position: [1, 3, 6] },
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
@@ -184,6 +191,8 @@ const Story = {
 		],
 	},
 	tapaq: {
+		thereIsMission: false,
+
 		camera: { position: [1, 3, 6] },
 		component: <CuartoPadres />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
@@ -193,10 +202,10 @@ const Story = {
 				log: genericLog,
 				dialogs: [
 					{
-						name: "Xander",
-						lines: `Wow cuanto tiempo lleva este cuarto vacío. 
+						name: "Juan David",
+						lines: `Bienvenido. 
 						
-						Como extraño a mis padres.`,
+						Te presento a los creadores`,
 					},
 				],
 			},

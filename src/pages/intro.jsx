@@ -1,10 +1,14 @@
 import "./intro.css";
 
 export default function Intro({ imageId }) {
+	const [playSound] = useSound("assets/sounds/ambient.mp3", {
+		volume: 0.1,
+		loop: true,
+	});
 	return (
 		<div className="App">
+			{playSound()}
 			<div className="image-container">
-				hola
 				<div className="image-row">
 					<img src={`./images/0${imageId}.jpg`} alt="Image 01" />
 				</div>
@@ -14,17 +18,23 @@ export default function Intro({ imageId }) {
 }
 
 import React, { useRef, useEffect, Suspense } from "react";
-
+import { useSound } from "use-sound";
 const Video = () => {
 	const videoRef = useRef(null);
+	const [playSound] = useSound("assets/sounds/aleatales-intro.mp3", {
+		volume: 0.3,
+	});
+	const [playButtonSound] = useSound("assets/sounds/click.mp3", {
+		volume: 0.3,
+	});
 
 	useEffect(() => {
 		// Acciones a realizar cuando el componente se monta (se renderiza)
 		// En este caso, reproducimos el video a pantalla completa
-
 		const playVideo = async () => {
 			try {
 				// await videoRef.current.requestFullscreen();
+
 				await videoRef.current.play();
 			} catch (error) {
 				console.error("Error reproduciendo el video:", error);
@@ -44,21 +54,22 @@ const Video = () => {
 	return (
 		<>
 			<Suspense fallback={<div>Cargando...</div>}>
-				<video
-					className="w-full h-full"
-					ref={videoRef}
-					autoPlay
-					muted
-					playsInline
-				>
+				<video className="w-full h-full" ref={videoRef} autoPlay playsInline>
 					<source src="assets/videos/intro.mp4" type="video/mp4" />
 					Tu navegador no soporta el elemento de video.
 				</video>
-				<a href="/intro-1">
+				<div
+					href="/intro-1"
+					onClick={() => {
+						playButtonSound();
+						window.location.href = "/intro-1";
+					}}
+				>
+					{playButtonSound()}
 					<button className="text-lg bg-[#4cdef8] font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 fixed bottom-1 left-[40%]  w-[200px]">
 						Iniciar
 					</button>
-				</a>
+				</div>
 			</Suspense>
 		</>
 	);
@@ -67,7 +78,7 @@ const Video = () => {
 export const introState = [
 	{
 		camera: { position: [-1, 4, 0] },
-
+		thereIsMission: false,
 		component: <Video />,
 		characters: [""],
 		nextScenery: "intro-1",
@@ -84,6 +95,8 @@ export const introState = [
 		],
 	},
 	{
+		thereIsMission: false,
+
 		camera: { position: [-1, 4, 0] },
 		component: <Intro imageId={1} />,
 		characters: [""],
@@ -117,6 +130,7 @@ export const introState = [
 	},
 	{
 		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
 
 		component: <Intro imageId={2} />,
 		characters: [""],
@@ -135,6 +149,7 @@ export const introState = [
 	},
 	{
 		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
 
 		component: <Intro imageId={3} />,
 		characters: [""],
@@ -158,6 +173,7 @@ export const introState = [
 	},
 	{
 		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
 
 		component: <Intro imageId={4} />,
 		characters: [""],
@@ -176,6 +192,7 @@ export const introState = [
 	},
 	{
 		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
 
 		component: <Intro imageId={5} />,
 		characters: [""],

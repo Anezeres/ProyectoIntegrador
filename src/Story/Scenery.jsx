@@ -2,9 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import Dialogs from "../Components/Dialogs";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { refContext } from "../World/Context/refContext";
+import useSound from "use-sound";
 
-
-export default function Scenery({ levels, nextScenery }) {
+export default function Scenery({ levels, nextScenery, thereIsMission }) {
 	const { storyProgress, updateStoryProgress } = useContext(refContext);
 
 	const [currentStep, setCurrentStep] = useState(0);
@@ -15,7 +15,9 @@ export default function Scenery({ levels, nextScenery }) {
 	// POR AHORA TODO CON LEVEL CERO
 	const [dialogs, setDialogs] = useState(levels[0]?.dialogs);
 	const [log, setLog] = useState(levels[0]?.log);
-
+	const [playSound] = useSound("assets/sounds/click.mp3", {
+		volume: 0.1,
+	});
 	const webHistory = useHistory();
 
 	useEffect(() => {
@@ -29,13 +31,17 @@ export default function Scenery({ levels, nextScenery }) {
 	}, [currentLevel]);
 
 	function setNextStep() {
-		if (!storyProgress.missionDone && currentLevel === levels.length - 1) {
+		if (
+			!storyProgress.missionDone &&
+			thereIsMission &&
+			currentLevel === levels.length - 1
+		) {
 			return setLogVisible(true); // va a mostrar el log cuando se acaban los niveles para que termine la mision del escenario
 		}
 		levels[currentLevel].dialogs[currentStep + 1] &&
 			setCurrentStep((currentStep) => currentStep + 1);
 		setCurrentName("");
-
+		console.log(storyProgress);
 		if (currentStep === dialogs.length - 1) {
 			if (levels[currentLevel + 1] && levels[currentLevel + 1].showLog) {
 				setLogVisible(true);
@@ -52,7 +58,6 @@ export default function Scenery({ levels, nextScenery }) {
 					currentLevel: storyProgress.currentLevel + 1,
 				});
 			} else {
-				alert(JSON.stringify(storyProgress));
 				setCurrentName("");
 				setCurrentStep(0);
 				setCurrentLevel(currentLevel + 1);
@@ -86,6 +91,7 @@ export default function Scenery({ levels, nextScenery }) {
 				) : null}
 				<button
 					onClick={() => {
+						playSound();
 						setNextStep();
 					}}
 					className="text-lg bg-[#4cdef8] font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3"
@@ -117,7 +123,6 @@ function logIcon() {
 }
 
 const PapelComponent = ({ log, visible = true, handleShowLog }) => {
-	console.log(log);
 	return (
 		<div className="fixed bottom-0 left-1 ">
 			<button className="text-[#4cdef8]" onClick={handleShowLog}>

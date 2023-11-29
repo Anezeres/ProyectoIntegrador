@@ -17,13 +17,14 @@ export default function App() {
 					<Switch>
 						{introState.map((state, index) => {
 							return (
-								<Route exact path={`/intro-${index}`}>
+								<Route key={index} exact path={`/intro-${index}`}>
 									{state.component}
 									{index && (
 										<Scenery
 											story={Story}
 											levels={state.levels}
 											nextScenery={state.nextScenery}
+											thereIsMission={state.thereIsMission}
 										/>
 									)}
 								</Route>
@@ -39,13 +40,18 @@ export default function App() {
 									</Experience>
 								</Canvas>
 								<Loader />
-								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
+								<Scenery
+									story={Story}
+									levels={s1.levels}
+									nextScenery="s2"
+									thereIsMission={s1.thereIsMission}
+								/>
 							</div>
 						</Route>
-
+						;
 						{Object.keys(Story).map((key) => {
 							return (
-								<Route path={`/${key}`}>
+								<Route path={`/${key}`} key={key}>
 									<Canvas camera={Story[key].camera}>
 										<Experience>
 											{Story[key].component}
@@ -56,6 +62,7 @@ export default function App() {
 										story={Story}
 										levels={Story[key].levels}
 										nextScenery={Story[key].nextScenery}
+										thereIsMission={Story[key].thereIsMission}
 									/>
 								</Route>
 							);
