@@ -22,10 +22,14 @@ const PlatformCorredor = () => {
         ];
 
         const floors = floorPositions.map((position, index) => (
-            <RigidBody type="fixed">
-                <Floor key={index} rotation-y={-Math.PI} position={position} textures={propsTexture}/>
-            </RigidBody>
-            ));
+					<RigidBody type="fixed" key={index}>
+						<Floor
+							rotation-y={-Math.PI}
+							position={position}
+							textures={propsTexture}
+						/>
+					</RigidBody>
+				));
         
        
 

@@ -15,31 +15,16 @@ export default function App() {
 			<RefContext>
 				<Router>
 					<Switch>
-						{/* <Route exact path="/intro">
-							<Intro />
-							<Scenery
-								story={Story}
-								levels={introState[0].levels}
-								nextScenery="intro-2"
-							/>
-						</Route> */}
-						{/* <Route exact path="/intro-2">
-							<Intro />
-							<Scenery
-								story={Story}
-								levels={introState[1].levels}
-								nextScenery="intro-3"
-							/>
-						</Route> */}
 						{introState.map((state, index) => {
 							return (
-								<Route exact path={`/intro-${index}`}>
+								<Route key={index} exact path={`/intro-${index}`}>
 									{state.component}
 									{index && (
 										<Scenery
 											story={Story}
 											levels={state.levels}
 											nextScenery={state.nextScenery}
+											thereIsMission={state.thereIsMission}
 										/>
 									)}
 								</Route>
@@ -50,21 +35,22 @@ export default function App() {
 								<Canvas camera={{ position: [-1, 4, 2] }}>
 									<Experience>
 										<SecondFloor />
-
 										{s1.characters[0]}
 									</Experience>
 								</Canvas>
 								<Loader />
-								<Scenery story={Story} levels={s1.levels} nextScenery="s2" />
+								<Scenery
+									story={Story}
+									levels={s1.levels}
+									nextScenery="s2"
+									thereIsMission={s1.thereIsMission}
+								/>
 							</div>
 						</Route>
-						{/* <Route path="/s2">
-						<Canvas camera={Story.s2.camera}>
-						{" "}
-						{/*Aquí debería estar la intro, por ahora es el escenario 1*/}
+						;
 						{Object.keys(Story).map((key) => {
 							return (
-								<Route path={`/${key}`}>
+								<Route path={`/${key}`} key={key}>
 									<Canvas camera={Story[key].camera}>
 										<Experience>
 											{Story[key].component}
@@ -75,6 +61,7 @@ export default function App() {
 										story={Story}
 										levels={Story[key].levels}
 										nextScenery={Story[key].nextScenery}
+										thereIsMission={Story[key].thereIsMission}
 									/>
 								</Route>
 							);

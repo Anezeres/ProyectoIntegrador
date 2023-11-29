@@ -11,7 +11,7 @@ export default function Landing() {
 							</a>
 						</li>
 						<li>
-							<a href="#contenido">Acerca de</a>
+							<a href="#contenido">Saber más</a>
 						</li>
 					</ul>
 					<div>

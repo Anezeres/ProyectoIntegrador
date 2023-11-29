@@ -2,9 +2,10 @@ import Abuela from "../Personajes/Abuela";
 import Personajes from "../Personajes/Personajes";
 import Xander from "../Personajes/Xander";
 import Corredor from "../SecondFloor/Corredor/Corredor";
+import CuartoAbuela from "../SecondFloor/CuartoAbuela/CuartoAbuela";
+import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
-
 
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -18,9 +19,11 @@ export const s1 = {
 	component: <SecondFloor />,
 	characters: [<Personajes />],
 	nextScenery: "s2",
+	thereIsMission: true,
+
 	levels: [
 		{
-			log: "Xander duerme en su propia habitación que el mismo personalizó.",
+			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
 			dialogs: [
 				{
 					name: "Xander",
@@ -64,7 +67,8 @@ export const s1 = {
 			],
 		},
 		{
-			log:"",
+			showLog: true,
+			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
 			dialogs: [
 				{
 					name: "Xander",
@@ -75,21 +79,22 @@ export const s1 = {
 					lines: "¡Gracias! ",
 				},
 			],
-		}
+		},
 	],
 };
 const Story = {
 	s2: {
 		camera: { position: [-1, 4, 4] },
+		thereIsMission: true,
 		component: <Corredor />,
 		characters: [
-			<Xander position={[1, 0.3, 1]} scale={1.4} />,
-			<Abuela position={[6, 0.2, -7]} scale={1.4} />,
+			<Xander key={1} position={[1, 0.3, 1]} scale={1.4} />,
+			<Abuela key={2} position={[6, 0.2, -7]} scale={1.4} />,
 		],
 		nextScenery: "s3",
 		levels: [
 			{
-				log: genericLog,
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -106,7 +111,8 @@ const Story = {
 				],
 			},
 			{
-				log: genericLog,
+				showLog: true,
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -138,17 +144,128 @@ const Story = {
 					{
 						name: "Evelyn",
 						lines:
-							"Puedes revisar el sótano. Las cosas de tus padres están allí. Cogiendo polvo.",
+							"Puedes revisar mi habitación y  revisar el sótano. Las cosas de tus padres están allí. Cogiendo polvo.",
+					},
+					{
+						name: "Xander",
+						lines: "Bueno, abuela. Primero voy a revisar tu habitación.",
 					},
 				],
 			},
 		],
 	},
 	s3: {
+		thereIsMission: false,
+
+		camera: { position: [1, 3, 6] },
+		component: <CuartoAbuela />,
+		characters: [<Xander position={[9, 2, 5]} scale={1.5} />],
+		nextScenery: "intro-6",
+		levels: [
+			{
+				log: `Xander tiene un dispositivo en su chaqueta que le permite comunicarse de manera instantánea. Un SynthiCom modelo 2048, todos tienen uno de estos hoy en día. Estos dispositivos pusieron de moda el llamar las personas. Los chats instantaneos y los mensajes de audio quedaron a un lado.
+				
+				VOG es la abreviación coloquial de Virtual Organs.
+				`,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Mi abuela es muy organizada, aquí no hay nada que limpiar. 
+						
+						`,
+					},
+					{
+						name: "Xander (mientras suena el SynthiCom)",
+						lines: `Qué extraño sonido. 
+						
+						Así no suena mi Synthi. Bueno, voy a contestar.`,
+					},
+					{
+						name: "Desconocido",
+						lines: "Evelyn… Al fin respondes mis llamadas.",
+					},
+					{
+						name: "Xander",
+						lines: "Habla Xander… ¿Quién eres? ¿Qué es lo que quieres?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"No es quién soy lo que importa, sino lo que poseo. Tengo algo valioso que podría cambiar tu vida y la de tu querida abuela.",
+					},
+					{
+						name: "Xander",
+						lines: "¿De qué estás hablando? ¿Qué tienes?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"Tengo un código, Xander, un código que podría salvar o arruinar tu existencia.Tengo la llave del Virtual Organs de tu abuela. Pero no te preocupes, estoy dispuesto a hacer un trato contigo.",
+					},
+					{
+						name: "Xander",
+						lines: "(Preocupado) ¿Un trato? ¿Qué quieres?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"Sencillo. Dinero. Una buena suma de bitcoins, para ser precisos. Envíame la cantidad que te diré y te daré el código que necesitas. No hagas preguntas, solo obedece.",
+					},
+					{
+						name: "Xander",
+						lines:
+							"Pero... ¿por qué debería confiar en ti? ¿Cómo sé que cumplirás tu parte del trato?",
+					},
+					{
+						name: "Desconocido",
+						lines: "(Ríe) Desconfiar es un lujo que no te puedes permitir.",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"(Ríe) Pero si valoras la vida de tu abuela, no te conviene desafiarme. Tienes  2 semanas para conseguir el dinero y seguir mis instrucciones. Si no lo haces, las consecuencias serán desastrosas.",
+					},
+					{
+						name: "Xander",
+						lines: "¿Cómo sé que ella está a salvo?",
+					},
+					{
+						name: "Desconocido",
+						lines:
+							"Esa es la gracia, no lo sabrás hasta que completes la transacción. No intentes rastrearme, créeme en el mundo virtual yo soy tu peor pesadilla. No intentes ser más inteligente. Solo haz lo que se te ordena.",
+					},
+					{
+						name: "Desconocido",
+						lines: "La vida de tu abuela está en juego.",
+					},
+					{
+						name: "Xander:",
+						lines: "¿Qué? ¿eres un hacker?",
+					},
+					{
+						name: "Xander:",
+						lines: "¿Cómo conseguiste el acceso al VOG de mi abuela?",
+					},
+					{
+						name: "Desconocido (antes de colgar)",
+						lines: "Solo obedece...",
+					},
+					{
+						name: "Xander",
+						lines:
+							"No es posible, seguro es una broma. Voy a investigar un poco. No creo que sea cierto. No es posible acceder a un VOG de manera remota ¿O sí?",
+					},
+				],
+			},
+		],
+	},
+	s4: {
+		thereIsMission: false,
+
 		camera: { position: [1, 3, 6] },
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
-		nextScenery: "s1",
+		nextScenery: "tapaq",
 		levels: [
 			{
 				log: genericLog,
@@ -158,6 +275,27 @@ const Story = {
 						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
 						
 						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	tapaq: {
+		thereIsMission: false,
+
+		camera: { position: [1, 3, 6] },
+		component: <CuartoPadres />,
+		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
+		nextScenery: "s2",
+		levels: [
+			{
+				log: genericLog,
+				dialogs: [
+					{
+						name: "Juan David",
+						lines: `Bienvenido. 
+						
+						Te presento a los creadores`,
 					},
 				],
 			},
