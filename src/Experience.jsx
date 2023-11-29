@@ -36,6 +36,7 @@ const Experience = () => {
                     <Physics>
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[10, 10, 5]} intensity={2} />
+                        <SecondFloor/>
                         {/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
                         {loaded && <Personajes />}
                         {loaded && <Controls />}
