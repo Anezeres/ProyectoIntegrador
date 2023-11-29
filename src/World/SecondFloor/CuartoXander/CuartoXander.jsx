@@ -9,7 +9,7 @@ import WallsXander from "./WallsXander";
 import { useThree } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import { cameraContext } from "../../Context/cameraContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import SillaG from "./SillaG";
 import Monitor from "./Monitor";
 import Laptop from "./Laptop";
@@ -39,10 +39,12 @@ const CuartoXander = () => {
 	};
 
 	moveCamera();
+	useEffect(() => {
+		playSound();
+	}, []);
 
 	return (
 		<>
-			{playSound()}
 			<OrbitControls makeDefault target={[-12, 0, -8]} />
 			<Computador />
 			<Arcade />
