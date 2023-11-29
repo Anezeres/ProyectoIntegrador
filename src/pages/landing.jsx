@@ -2,24 +2,7 @@ export default function Landing() {
 	return (
 		<div>
 			<header>
-				{/* Navbar */}
-				<nav className="flex justify-between items-center">
-					<ul className="flex space-x-4">
-						<li className="text-white">
-							<a className="btn btn-blue" href="/intro-0">
-								Jugar
-							</a>
-						</li>
-						<li>
-							<a href="#contenido">Saber más</a>
-						</li>
-					</ul>
-					<div>
-						<a href="/intro-0" className="ml-4 text-white">
-							Log in
-						</a>
-					</div>
-				</nav>
+
 			</header>
 			<section className="banner h-30 relative">
 				<img
@@ -28,6 +11,28 @@ export default function Landing() {
 					className="w-full h-full object-cover"
 				/>
 			</section>
+
+			{/* Navbar */}
+			<nav className="flex justify-center items-center z-1 relative top-[-150px] bg-transparent">
+				<ul className="flex space-x-4">
+					<li>
+						<a className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white" href="/intro-0">
+							Jugar
+						</a>
+					</li>
+					<li>
+						<a className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white" href="#contenido">Saber más</a>
+					</li>
+					<li>
+						<a className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white" href="#contenido">Log in</a>
+					</li>
+				</ul>
+				{/* <div>
+					<a href="/intro-0" className="ml-4 text-white ">
+						Log in
+					</a>
+				</div> */}
+			</nav>
 
 			<div className="flex  flex-col items-center justify-between p-24 w-full  ">
 				<section id="contenido" className="  p-8">
