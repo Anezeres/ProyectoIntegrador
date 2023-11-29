@@ -14,22 +14,23 @@ import * as THREE from 'three'; // Importa la biblioteca three.js
 const Xander = ({ position, ...props }) => {
     //const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
 
-    const { xanderRef, xanderModel, playAnimationWithDuration, playAnimation, stopAnimation, xanderBodyRef, moveTo, newPosition, setNewPosition, setLastPosition, changePosition} = useContext(characterContext)
+    const { xanderRef, xanderModel, playAnimationWithDuration, playAnimation, stopAnimation, xanderBodyRef, moveTo, newPosition, setNewPosition, setLastPosition, changePosition, move, setMove, arrayPosition } = useContext(characterContext)
     const { nodes, materials, animations } = xanderModel;
 
 
 
     useFrame(() => {
         if (xanderBodyRef.current) {
-            //console.log(Math.floor(xanderBodyRef.current.translation().x))
+            console.log("x: ", xanderBodyRef.current.translation().x.toFixed(1), 'z: ', xanderBodyRef.current.translation().z.toFixed(1))
             //console.log(newPosition[0])
-            if (Math.floor(xanderBodyRef.current.translation().x) != Math.floor(newPosition[0]) || Math.floor(xanderBodyRef.current.translation().z) != Math.floor(newPosition[2])) {
-                moveTo(newPosition, 'Xander')
-                playAnimation('Walking', 'Xander')
-            } else {
-                playAnimation('Idle', 'Xander')
+            if (move) {
+                if (xanderBodyRef.current.translation().x.toFixed(1) != newPosition[0].toFixed(1) || xanderBodyRef.current.translation().z.toFixed(1) != newPosition[2].toFixed(1)) {
+                    moveTo(newPosition, 'Xander')
+                } else {
+                    changePosition(arrayPosition, 'Xander')
+                }
             }
-
+            //hace que el personaje siempre este bien orientado
             xanderBodyRef.current.setRotation({
                 x: 0,
                 y: 0,
@@ -58,9 +59,6 @@ const Xander = ({ position, ...props }) => {
                 ref={xanderRef}
                 scale={1.5}
                 dispose={null}
-                onClick={() => {
-                    changePosition([-9, 0, -5],"Xander")
-                }}
             >
                 <group name="Scene">
                     <group name="Armature">

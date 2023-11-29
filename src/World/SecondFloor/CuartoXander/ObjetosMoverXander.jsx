@@ -162,5 +162,6 @@ const ObjetosMoverXander = (props) => {
 	);
 };
 
+
 export default ObjetosMoverXander;
 useGLTF.preload("/assets/Models/Decoraciones/ObjetosHogar.glb");
