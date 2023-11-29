@@ -7,14 +7,44 @@ import SecondFloor from "./World/SecondFloor/SecondFloor.jsx";
 import Story, { s1 } from "./World/Context/TotalStory.jsx";
 import { Loader } from "@react-three/drei";
 import RefContext from "./World/Context/RefContext.jsx";
+import { introState } from "./pages/intro.jsx";
 
 export default function App() {
-
 	return (
 		<>
 			<RefContext>
 				<Router>
 					<Switch>
+						{/* <Route exact path="/intro">
+							<Intro />
+							<Scenery
+								story={Story}
+								levels={introState[0].levels}
+								nextScenery="intro-2"
+							/>
+						</Route> */}
+						{/* <Route exact path="/intro-2">
+							<Intro />
+							<Scenery
+								story={Story}
+								levels={introState[1].levels}
+								nextScenery="intro-3"
+							/>
+						</Route> */}
+						{introState.map((state, index) => {
+							return (
+								<Route exact path={`/intro-${index}`}>
+									{state.component}
+									{index && (
+										<Scenery
+											story={Story}
+											levels={state.levels}
+											nextScenery={state.nextScenery}
+										/>
+									)}
+								</Route>
+							);
+						})}
 						<Route path="/s1">
 							<div id="canvas-container">
 								<Canvas camera={{ position: [-1, 4, 2] }}>
@@ -53,7 +83,7 @@ export default function App() {
 							<Landing />
 						</Route>
 					</Switch>
-				</Router >
+				</Router>
 			</RefContext>
 		</>
 	);

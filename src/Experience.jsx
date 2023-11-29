@@ -19,7 +19,6 @@ const Experience = () => {
     const [loaded, setLoaded] = useState(false);
     const [loadedCharaters, setLoadedCharacters] = useState(false);
 
-
     useEffect(() => {
         // Simula una carga asíncrona (puede ser una petición de red, etc.)
         setTimeout(() => {
@@ -34,27 +33,18 @@ const Experience = () => {
         <>
             <CharacterContext>
                 <CameraContext>
-                    <Physics debug>
+                    <Physics>
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[10, 10, 5]} intensity={2} />
-                        {/* <Fondo /> */}
-                        {/* <Cuarto rotation-y={-Math.PI}/> */}
-                        {/* <Sotano /> */}
-                        <SecondFloor />
-
                         {/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
                         {loaded && <Personajes />}
                         {loaded && <Controls />}
                         {loadedCharaters && <TimeLine/>}
-                        
-
                     </Physics>
                 </CameraContext>
             </CharacterContext>
         </>
     )
-
 }
-
 
 export default Experience;

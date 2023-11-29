@@ -6,7 +6,7 @@ export default function Landing() {
 				<nav className="flex justify-between items-center">
 					<ul className="flex space-x-4">
 						<li className="text-white">
-							<a className="btn btn-blue" href="/s1">
+							<a className="btn btn-blue" href="/intro-0">
 								Jugar
 							</a>
 						</li>
@@ -15,8 +15,8 @@ export default function Landing() {
 						</li>
 					</ul>
 					<div>
-						<a href="/s1" className="ml-4 text-white">
-							Jugar
+						<a href="/intro-0" className="ml-4 text-white">
+							Log in
 						</a>
 					</div>
 				</nav>
