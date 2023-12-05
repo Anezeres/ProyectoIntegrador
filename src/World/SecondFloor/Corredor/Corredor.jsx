@@ -9,34 +9,32 @@ import WallsCorredor from "./WallsCorredor";
 import { refContext } from "../../Context/refContext";
 import { useContext } from "react";
 import CuadrosCorredor from "./CuadrosCorredor";
+import { cameraContext } from "../../Context/cameraContext";
 
 const Corredor = () => {
+	const { camera } = useContext(cameraContext);
 
-    /* const { camera } = useContext(refContext)
+	const moveCamera = () => {
+		camera.position.x = 5;
+		camera.position.z = 9;
+		camera.position.y = 6;
+	};
 
-    const moveCamera = () => {
-        camera.position.x = 0;
-        camera.position.z = 9;
-        camera.position.y = 6;
-    }
+	moveCamera();
 
-    moveCamera() */
-
-    return (
-        <>
-            <OrbitControls makeDefault target={[8, 0, -4]}/>
-            <Escalera/>
-            <Panel position={[-5,1.5,-3]} rotation-y={-Math.PI/2}/>
-            <Pantalla position={[-11.8,2,0]}/>
-            <MesaSciFi/>
-            <CuadrosCorredor/>
-            <ObjetosCorredor position={[0,0,0]} scale={1.3} />
-            <WallsCorredor/>
-            <PlatformCorredor/>
-
-        </>
-    )
-
-}
+	return (
+		<>
+			<OrbitControls makeDefault target={[8, 0, -4]} />
+			<Escalera />
+			<Panel position={[-5, 1.5, -3]} rotation-y={-Math.PI / 2} />
+			<Pantalla position={[-11.8, 2, 0]} />
+			<MesaSciFi />
+			<CuadrosCorredor />
+			<ObjetosCorredor position={[0, 0, 0]} scale={1.3} />
+			<WallsCorredor />
+			<PlatformCorredor />
+		</>
+	);
+};
 
 export default Corredor;
