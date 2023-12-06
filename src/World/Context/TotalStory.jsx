@@ -8,6 +8,7 @@ import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
 import PrimerEscenario from "../MundoVirtual/PrimerEscenario/PrimerEscenario";
+import SegundoEscenario from "../MundoVirtual/SegundoEscenario/SegundoEscenario";
 
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -292,6 +293,30 @@ const Story = {
 			<Raven key={2} position={[6, 1, 0]} />
 		],
 		currentScenary: "s8",
+		nextScenery: "s9",
+		thereIsMission: false,
+		levels: [
+			{
+				log: genericLog,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s9: {
+		camera: { position: [5, 8, 5]  },
+		component: <SegundoEscenario />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />
+		],
+		currentScenary: "s9",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [
