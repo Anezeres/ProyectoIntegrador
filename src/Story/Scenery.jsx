@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { refContext } from "../World/Context/refContext";
 import useSound from "use-sound";
 
-export default function Scenery({ levels, nextScenery, thereIsMission }) {
+export default function Scenery({ levels, nextScenery, currentScenary, thereIsMission }) {
 	const { storyProgress, updateStoryProgress } = useContext(refContext);
 
 	const [currentStep, setCurrentStep] = useState(0);
@@ -61,11 +61,6 @@ export default function Scenery({ levels, nextScenery, thereIsMission }) {
 				setCurrentLevel(0);
 				window.location.href = "/" + nextScenery;
 				//webHistory.push("/" + nextScenery);
-
-				return updateStoryProgress({
-					scenery: nextScenery,
-					currentLevel: storyProgress.currentLevel + 1,
-				});
 			} else {
 				setCurrentName("");
 				setCurrentStep(0);

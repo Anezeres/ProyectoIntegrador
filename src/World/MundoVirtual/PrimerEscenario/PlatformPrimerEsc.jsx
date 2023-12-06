@@ -36,7 +36,6 @@ const PlatformPrimerEsc = () => {
     return (
         <>
             {floors}
-
         </>
     )
 

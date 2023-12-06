@@ -26,9 +26,7 @@ const PrimerEscenario = () => {
             <PuertaSciFi/>
             <Capsula/>
             <Cubos/>
-
             <WallsPrimerEsc/>
-
         </>
     )
 
