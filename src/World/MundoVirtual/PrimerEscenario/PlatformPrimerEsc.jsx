@@ -10,7 +10,7 @@ const PlatformPrimerEsc = () => {
 
 
     const propsTexture = useTexture({
-        map: PATH + 'SueloMatrix.png'
+        map: PATH + 'SueloMatrix3.png'
     })
 
     const floorPositions = [
