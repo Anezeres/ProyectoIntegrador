@@ -2,6 +2,7 @@ import React, { useContext, useRef } from "react";
 import { useGLTF, useHelper } from "@react-three/drei";
 import { BoxHelper } from "three";
 import { refContext } from "../../Context/refContext";
+import { CuboidCollider, RigidBody } from "@react-three/rapier";
 
 
 const ObjetosAbuela = (props) => {
@@ -91,6 +92,27 @@ const ObjetosAbuela = (props) => {
 					position={[-2.582, -0.004, -1.005]}
 				/>
 			</group>
+
+			<RigidBody type="fixed" colliders={false}>
+                <group scale={1.1} rotation-y={Math.PI / 2} position={[2.6, 0, 2.6]}>
+                    {/* Mesa */}
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.office_table_001.geometry}
+                        material={materials.Material}
+                        position={[-2.894, -0.006, 0.728]}
+                    />
+                    <mesh
+                        castShadow
+                        receiveShadow
+                        geometry={nodes.office_table_001.geometry}
+                        material={materials.Material}
+                        position={[-1.3, -0.006, 0.728]}
+                    />
+                </group>
+                <CuboidCollider args={[0.5, 0.5, 2.2]} position={[-15, 0.5, -5.2]} />
+            </RigidBody>
 		</group>
 	);
 }

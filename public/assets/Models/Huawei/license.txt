@@ -1,0 +1,11 @@
+Model Information:
+* title:	Huawei Y560 4G Mobile Phone
+* source:	https://sketchfab.com/3d-models/huawei-y560-4g-mobile-phone-45c813a9fac4458ead1f90280826c0a4
+* author:	Amir Olphat (https://sketchfab.com/amirolphat)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Huawei Y560 4G Mobile Phone" (https://sketchfab.com/3d-models/huawei-y560-4g-mobile-phone-45c813a9fac4458ead1f90280826c0a4) by Amir Olphat (https://sketchfab.com/amirolphat) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
