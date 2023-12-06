@@ -6,6 +6,7 @@ import Landing from "./pages/landing";
 import Story from "./World/Context/TotalStory.jsx";
 import RefContext from "./World/Context/RefContext.jsx";
 import { introState } from "./pages/intro.jsx";
+import SegundoEscenario from "./World/MundoVirtual/SegundoEscenario/SegundoEscenario.jsx";
 
 export default function App() {
 	return (
@@ -28,6 +29,24 @@ export default function App() {
 								</Route>
 							);
 						})}
+						<Route path="/s9">
+							<div id="canvas-container">
+								<Canvas camera={{ position: [5, 8, 5] }}>
+									<Experience>
+										<SegundoEscenario/>
+										{s1.characters[0]}
+									</Experience>
+								</Canvas>
+								<Loader />
+								<Scenery
+									story={Story}
+									levels={s1.levels}
+									nextScenery="s2"
+									thereIsMission={s1.thereIsMission}
+								/>
+							</div>
+						</Route>
+						;
 						{Object.keys(Story).map((key) => {
 							return (
 								<Route path={`/${key}`} key={key}>

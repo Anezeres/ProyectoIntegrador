@@ -1,10 +1,12 @@
 import { OrbitControls } from "@react-three/drei";
-import WallsPrimerEsc from "./WallsPrimerEsc";
-import PlatformPrimerEsc from "./PlatformPrimerEsc";
 import { useContext } from "react";
 import { cameraContext } from "../../Context/cameraContext";
+import PlatformSegundoEsc from "./PlatformSegundoEsc";
+import WallsSegundoEsc from "./WallsSegundoEsc";
+import Carrito from "./Carrito";
+import Drone from "./Drone";
 
-const PrimerEscenario = () => {
+const SegundoEscenario = () => {
 
     const { camera } = useContext(cameraContext)
 
@@ -19,11 +21,15 @@ const PrimerEscenario = () => {
     return (
         <>
             <OrbitControls makeDefault target={[0, 2, 0]}/>
-            <PlatformPrimerEsc/>
-            <WallsPrimerEsc/>
+            <PlatformSegundoEsc/>
+            <Carrito/>
+            <Drone/>
+
+            <WallsSegundoEsc/>
+
         </>
     )
 
 }
 
-export default PrimerEscenario;
+export default SegundoEscenario;
