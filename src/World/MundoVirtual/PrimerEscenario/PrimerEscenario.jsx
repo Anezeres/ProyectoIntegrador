@@ -16,11 +16,9 @@ const PrimerEscenario = () => {
 
     return (
         <>
-            <OrbitControls makeDefault target={[8, 6, -4]}/>
+            <OrbitControls makeDefault target={[5, -10, -20]}/>
             <PlatformPrimerEsc/>
-
             <WallsPrimerEsc/>
-
         </>
     )
 

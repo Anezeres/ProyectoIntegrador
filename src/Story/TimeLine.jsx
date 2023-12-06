@@ -4,7 +4,8 @@ import { refContext } from "../World/Context/refContext";
 
 
 
-const TimeLine = () => {
+
+const TimeLine = (props) => {
     const { changePosition, playAnimation, playAnimationWithDuration, stopAnimation, rotate, teleport, xanderBodyRef, moveMesh, newPosition } = useContext(characterContext)
     const { storyProgress } = useContext(refContext);
 
@@ -25,7 +26,8 @@ const TimeLine = () => {
             }
         }
         console.log(storyProgress.currentLevel)
-        switch (storyProgress.scenery) {
+        console.log(props.ruta)
+        switch (props.ruta) {
             case "s1":
                 switch (storyProgress.currentLevel) {
                     case 0:
@@ -52,6 +54,7 @@ const TimeLine = () => {
             case "s2":
                 switch (storyProgress.currentLevel) {
                     case 0:
+                        playAnimation("Idle", "Xander")
                         break;
                     case 1:
                         break;
@@ -60,6 +63,25 @@ const TimeLine = () => {
             case "s3":
                 switch (storyProgress.currentLevel) {
                     case 0:
+                        playAnimation("Idle", "Xander")
+                        break;
+                    case 1:
+                        break;
+                }
+                break;
+            case "s4":
+                switch (storyProgress.currentLevel) {
+                    case 0:
+                        playAnimation("Idle", "Xander")
+                        break;
+                    case 1:
+                        break;
+                }
+                break;
+            case "s8":
+                switch (storyProgress.currentLevel) {
+                    case 0:
+                        playAnimation("Idle", "Xander")
                         break;
                     case 1:
                         break;

@@ -7,10 +7,9 @@ import CharacterContext from "./World/Context/CharacterContext.jsx";
 import CameraContext from "./World/Context/CameraContext.jsx";
 import TimeLine from "./Story/TimeLine.jsx";
 
-const Experience = ({ children }) => {
+const Experience = ({ children, ...props }) => {
 	const [loaded, setLoaded] = useState(false);
 	const [loadedCharaters, setLoadedCharacters] = useState(false);
-
 	useEffect(() => {
 		// Simula una carga asíncrona (puede ser una petición de red, etc.)
 		setTimeout(() => {
@@ -31,7 +30,7 @@ const Experience = ({ children }) => {
 						{/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
 						{loaded && children}
 						{loaded && <Controls />}
-						{loadedCharaters && <TimeLine />}
+						{loadedCharaters && <TimeLine ruta={props.ruta}/>}
 					</Physics>
 				</CameraContext>
 			</CharacterContext>

@@ -7,6 +7,7 @@ import CuartoAbuela from "../SecondFloor/CuartoAbuela/CuartoAbuela";
 import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
 import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
+import PrimerEscenario from "../MundoVirtual/PrimerEscenario/PrimerEscenario";
 
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -14,88 +15,87 @@ Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
 		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
 		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem`;
 
-export const s1 = {
-	camera: { position: [-1, 4, 0] },
-
-	component: <SecondFloor />,
-	characters: [
-		<Xander key={1} position={[-18, 1, -10.5]} />,
-	],
-	nextScenery: "s2",
-	thereIsMission: true,
-
-	levels: [
-		{
-			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
-			dialogs: [
-				{
-					name: "Xander",
-					lines: `Me pregunto si la tecnología que nos rodea nos ha acercado o alejado de la humanidad. `,
-				},
-				{
-					name: "Xander",
-					lines: "A veces, me siento como un espectador en lugar de un participante en la vida real.",
-				},
-				{
-					name: "Xander",
-					lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
-				},
-				{
-					name: "Xander",
-					lines: "Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
-				}
-			],
-		},
-		{
-			log: "",
-			dialogs: [
-				{
-					name: "Xander (Despierta)",
-					lines:
-						" Bien… Son las 6:30 am, es bastante temprano la verdad. ¿Quién se despierta a estas horas hoy en día? ",
-				},
-				{
-					name: "Evelyn (A través del intercomunicador)",
-					lines: "¿Xander!!! Está despierto mijo? ",
-				},
-				{
-					name: "Xander",
-					lines: `Por supuesto, Solo las abuelas están despiertas a estas horas. 
-                        Sí abuela, ya desperté, ¿te puedo ayudar en algo? `,
-				},
-				{
-					name: "Evelyn",
-					lines: "Si mijo, ¿podrías venir a la cocina?",
-				},
-			],
-		},
-		{
-			showLog: true,
-			log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
-			dialogs: [
-				{
-					name: "Xander",
-					lines: "Vale, ya voy.",
-				},
-				{
-					name: "Evelyn",
-					lines: "¡Gracias! ",
-				},
-			],
-		},
-	],
-};
 const Story = {
+	s1: {
+		camera: { position: [-1, 4, 0] },
+		component: <SecondFloor />,
+		characters: [
+			<Xander key={1} position={[-18, 1, -10.5]} />,
+		],
+		currentScenary: "s1",
+		nextScenery: "s2",
+		thereIsMission: true,
+		levels: [
+			{
+				log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Me pregunto si la tecnología que nos rodea nos ha acercado o alejado de la humanidad. `,
+					},
+					{
+						name: "Xander",
+						lines: "A veces, me siento como un espectador en lugar de un participante en la vida real.",
+					},
+					{
+						name: "Xander",
+						lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+					},
+					{
+						name: "Xander",
+						lines: "Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
+					}
+				],
+			},
+			{
+				log: "",
+				dialogs: [
+					{
+						name: "Xander (Despierta)",
+						lines:
+							" Bien… Son las 6:30 am, es bastante temprano la verdad. ¿Quién se despierta a estas horas hoy en día? ",
+					},
+					{
+						name: "Evelyn (A través del intercomunicador)",
+						lines: "¿Xander!!! Está despierto mijo? ",
+					},
+					{
+						name: "Xander",
+						lines: `Por supuesto, Solo las abuelas están despiertas a estas horas. 
+                        Sí abuela, ya desperté, ¿te puedo ayudar en algo? `,
+					},
+					{
+						name: "Evelyn",
+						lines: "Si mijo, ¿podrías venir a la cocina?",
+					},
+				],
+			},
+			{
+				showLog: true,
+				log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: "Vale, ya voy.",
+					},
+					{
+						name: "Evelyn",
+						lines: "¡Gracias! ",
+					},
+				],
+			},
+		],
+	},
 	s2: {
 		camera: { position: [-1, 4, 4] },
-		thereIsMission: true,
 		component: <Corredor />,
 		characters: [
 			<Xander key={1} position={[1, 0.3, 1]} scale={1.4} />,
 			<Abuela key={2} position={[6, 0.2, -7]} scale={1.4} />,
-			<Raven key={3} position={[10, 0.3, -7]} />
 		],
+		currentScenery: "s2",
 		nextScenery: "s3",
+		thereIsMission: true,
 		levels: [
 			{
 				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
@@ -159,12 +159,12 @@ const Story = {
 		],
 	},
 	s3: {
-		thereIsMission: false,
-
 		camera: { position: [1, 3, 6] },
 		component: <CuartoAbuela />,
 		characters: [<Xander position={[9, 2, 5]} scale={1.5} />],
+		currentScenary: "s3",
 		nextScenery: "intro-6",
+		thereIsMission: false,
 		levels: [
 			{
 				log: `Xander tiene un dispositivo en su chaqueta que le permite comunicarse de manera instantánea. Un SynthiCom modelo 2048, todos tienen uno de estos hoy en día. Estos dispositivos pusieron de moda el llamar las personas. Los chats instantaneos y los mensajes de audio quedaron a un lado.
@@ -264,12 +264,36 @@ const Story = {
 		],
 	},
 	s4: {
-		thereIsMission: false,
-
 		camera: { position: [1, 3, 6] },
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
+		currentScenary: "s4",
+		nextScenery: "s8",
+		thereIsMission: false,
+		levels: [
+			{
+				log: genericLog,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s8: {
+		camera: { position: [-5, 8, 8] },
+		component: <PrimerEscenario />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />
+		],
+		currentScenary: "s8",
 		nextScenery: "tapaq",
+		thereIsMission: false,
 		levels: [
 			{
 				log: genericLog,
@@ -285,12 +309,12 @@ const Story = {
 		],
 	},
 	tapaq: {
-		thereIsMission: false,
-
 		camera: { position: [1, 3, 6] },
 		component: <CuartoPadres />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
-		nextScenery: "s2",
+		currentScenary: "tapaq",
+		nextScenery: "s1",
+		thereIsMission: false,
 		levels: [
 			{
 				log: genericLog,
