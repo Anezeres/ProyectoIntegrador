@@ -1,6 +1,7 @@
 import Abuela from "../Personajes/Abuela";
-import Personajes from "../Personajes/Personajes";
 import Xander from "../Personajes/Xander";
+import Raven from "../Personajes/Raven";
+
 import Corredor from "../SecondFloor/Corredor/Corredor";
 import CuartoAbuela from "../SecondFloor/CuartoAbuela/CuartoAbuela";
 import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
@@ -17,7 +18,9 @@ export const s1 = {
 	camera: { position: [-1, 4, 0] },
 
 	component: <SecondFloor />,
-	characters: [<Personajes />],
+	characters: [
+		<Xander key={1} position={[-18, 1, -10.5]} />,
+	],
 	nextScenery: "s2",
 	thereIsMission: true,
 
@@ -31,20 +34,20 @@ export const s1 = {
 				},
 				{
 					name: "Xander",
-					lines:"A veces, me siento como un espectador en lugar de un participante en la vida real.",
+					lines: "A veces, me siento como un espectador en lugar de un participante en la vida real.",
 				},
 				{
 					name: "Xander",
-					lines:"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+					lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
 				},
 				{
 					name: "Xander",
-					lines:"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
+					lines: "Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
 				}
 			],
 		},
 		{
-			log:"",
+			log: "",
 			dialogs: [
 				{
 					name: "Xander (Despierta)",
@@ -90,6 +93,7 @@ const Story = {
 		characters: [
 			<Xander key={1} position={[1, 0.3, 1]} scale={1.4} />,
 			<Abuela key={2} position={[6, 0.2, -7]} scale={1.4} />,
+			<Raven key={3} position={[10, 0.3, -7]} />
 		],
 		nextScenery: "s3",
 		levels: [
