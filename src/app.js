@@ -8,6 +8,7 @@ import Story, { s1 } from "./World/Context/TotalStory.jsx";
 import { Loader } from "@react-three/drei";
 import RefContext from "./World/Context/RefContext.jsx";
 import { introState } from "./pages/intro.jsx";
+import PrimerEscenario from "./World/MundoVirtual/PrimerEscenario/PrimerEscenario";
 
 export default function App() {
 	return (
@@ -47,6 +48,24 @@ export default function App() {
 								/>
 							</div>
 						</Route>
+
+						<Route path="/s8">
+							<div id="canvas-container">
+								<Canvas camera={{ position: [5, 8, 5] }}>
+									<Experience>
+										<PrimerEscenario/>
+										{s1.characters[0]}
+									</Experience>
+								</Canvas>
+								<Loader />
+								<Scenery
+									story={Story}
+									levels={s1.levels}
+									nextScenery="s2"
+									thereIsMission={s1.thereIsMission}
+								/>
+							</div>
+						</Route>
 						;
 						{Object.keys(Story).map((key) => {
 							return (
@@ -69,6 +88,7 @@ export default function App() {
 						<Route path="/">
 							<Landing />
 						</Route>
+
 					</Switch>
 				</Router>
 			</RefContext>

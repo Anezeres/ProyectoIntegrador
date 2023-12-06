@@ -1,24 +1,24 @@
 import { useTexture } from "@react-three/drei";
-import Floor from "../../Scene/Floor";
 import { RigidBody } from "@react-three/rapier";
+import Floor from "../../Scene/Floor";
 
-const PlatformCorredor = () => {
+const PlatformPrimerEsc = () => {
 
-    const PATH = "/assets/Textures/Wood/"
+    const PATH = "/assets/Textures/Matrix/"
 
 
 
 
     const propsTexture = useTexture({
-        map: PATH + 'woodColor.jpg'
+        map: PATH + 'SueloMatrix.png'
     })
 
     const floorPositions = [
         [0, 0, 0],
         [8, 0, 0],
         [-8, 0, 0],
-        [8, 0, -8],
-        [16, 0, -8],
+        
+        
     ];
 
     const floors = floorPositions.map((position, index) => (
@@ -42,4 +42,4 @@ const PlatformCorredor = () => {
 
 }
 
-export default PlatformCorredor;
+export default PlatformPrimerEsc;

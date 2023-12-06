@@ -5,18 +5,22 @@ import { refContext } from "../../Context/refContext";
 import { useContext } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { cameraContext } from "../../Context/cameraContext";
+import Huawei from "./Huawei";
+
+
+
 
 const CuartoAbuela = () => {
-	// const { camera } = useContext(cameraContext);
+	/* const { camera } = useContext(cameraContext);
 
-	// const moveCamera = () => {
-	// 	console.log(camera);
-	// 	camera.position.x = 12;
-	// 	camera.position.z = 16;
-	// 	camera?.position.y = 7;
-	// };
+	const moveCamera = () => {
+		console.log(camera);
+		camera.position.x = 12;
+		camera.position.z = 16;
+		camera?.position.y = 7;
+	};
 
-	// moveCamera();
+	moveCamera(); */
 
 	return (
 		<>
@@ -24,6 +28,7 @@ const CuartoAbuela = () => {
 			<ObjetosAbuela position={[0, 0, 0]} scale={1.3} />
 			<PlatformAbuela />
 			<WallsAbuela />
+			<Huawei/>
 		</>
 	);
 };
