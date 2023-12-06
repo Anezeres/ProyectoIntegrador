@@ -2,47 +2,46 @@ import { useContext, useEffect } from "react";
 import { characterContext } from "../Context/characterContext";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
-//import { useFrame } from "@react-three/fiber";
-//import { atom, useAtom } from "jotai";
 
 
-//export const xanderBodyRef = atom(null);
+//export const ravenBodyRef = atom(null);
 
 
 
-const Xander = ({ position, ...props }) => {
-    //const [bodyRef, setBodyRef] = useAtom(xanderBodyRef);
+const Raven = ({ position, ...props }) => {
 
-    const {
-        xanderRef,
-        xanderModel,
-        xanderBodyRef,
-        moveTo,
-        newPositionXander,
-        setNewPositionXander,
-        setLastPositionXander,
-        changePosition,
-        moveXander,
-        arrayPositionXander
+    const { 
+        ravenRef, 
+        ravenModel, 
+        ravenBodyRef, 
+        moveTo, 
+        newPositionRaven, 
+        setNewPositionRaven, 
+        setLastPositionRaven, 
+        changePosition, 
+        moveRaven, 
+        arrayPositionRaven, 
+        playAnimation 
     } = useContext(characterContext)
+    
+    const { nodes, materials } = ravenModel;
 
-    const { nodes, materials } = xanderModel;
 
-
+    useEffect(() => {
+        playAnimation('Idle','Raven')
+    }, []);
 
     useFrame(() => {
-        if (xanderBodyRef.current) {
-            //console.log("x: ", xanderBodyRef.current.translation().x.toFixed(1), 'z: ', xanderBodyRef.current.translation().z.toFixed(1))
-            //console.log(newPosition[0])
-            if (moveXander) {
-                if (xanderBodyRef.current.translation().x.toFixed(1) != newPositionXander[0].toFixed(1) || xanderBodyRef.current.translation().z.toFixed(1) != newPositionXander[2].toFixed(1)) {
-                    moveTo(newPositionXander, 'Xander')
+        if (ravenBodyRef.current) {
+            if (moveRaven) {
+                if (ravenBodyRef.current.translation().x.toFixed(1) != newPositionRaven[0].toFixed(1) || ravenBodyRef.current.translation().z.toFixed(1) != newPositionRaven[2].toFixed(1)) {
+                    moveTo(newPositionRaven, 'Raven')
                 } else {
-                    changePosition(arrayPositionXander, 'Xander')
+                    changePosition(arrayPositionRaven, 'Raven')
                 }
             }
             //hace que el personaje siempre este bien orientado
-            xanderBodyRef.current.setRotation({
+            ravenBodyRef.current.setRotation({
                 x: 0,
                 y: 0,
                 z: 0,
@@ -52,22 +51,22 @@ const Xander = ({ position, ...props }) => {
     });
 
     useEffect(() => {
-        setNewPositionXander(position)
-        setLastPositionXander(position)
+        setNewPositionRaven(position)
+        setLastPositionRaven(position)
     }, []);
 
     return (
         <RigidBody
-            ref={xanderBodyRef}
+            ref={ravenBodyRef}
             density={100}
             friction={1}
             restitution={0}
             position={position}
             colliders={false}
-            name="Xander"
+            name="raven"
         >
             <group
-                ref={xanderRef}
+                ref={ravenRef}
                 scale={1.5}
                 dispose={null}
             >
@@ -78,12 +77,8 @@ const Xander = ({ position, ...props }) => {
                             geometry={nodes.EyeLeft.geometry}
                             material={materials.Wolf3D_Eye}
                             skeleton={nodes.EyeLeft.skeleton}
-                            morphTargetDictionary={
-                                nodes.EyeLeft.morphTargetDictionary
-                            }
-                            morphTargetInfluences={
-                                nodes.EyeLeft.morphTargetInfluences
-                            }
+                            morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
+                            morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
                             castShadow
                         />
                         <skinnedMesh
@@ -91,12 +86,8 @@ const Xander = ({ position, ...props }) => {
                             geometry={nodes.EyeRight.geometry}
                             material={materials.Wolf3D_Eye}
                             skeleton={nodes.EyeRight.skeleton}
-                            morphTargetDictionary={
-                                nodes.EyeRight.morphTargetDictionary
-                            }
-                            morphTargetInfluences={
-                                nodes.EyeRight.morphTargetInfluences
-                            }
+                            morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
+                            morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
                             castShadow
                         />
                         <skinnedMesh
@@ -104,6 +95,13 @@ const Xander = ({ position, ...props }) => {
                             geometry={nodes.Wolf3D_Body.geometry}
                             material={materials.Wolf3D_Body}
                             skeleton={nodes.Wolf3D_Body.skeleton}
+                            castShadow
+                        />
+                        <skinnedMesh
+                            name="Wolf3D_Glasses"
+                            geometry={nodes.Wolf3D_Glasses.geometry}
+                            material={materials.Wolf3D_Glasses}
+                            skeleton={nodes.Wolf3D_Glasses.skeleton}
                             castShadow
                         />
                         <skinnedMesh
@@ -118,12 +116,8 @@ const Xander = ({ position, ...props }) => {
                             geometry={nodes.Wolf3D_Head.geometry}
                             material={materials.Wolf3D_Skin}
                             skeleton={nodes.Wolf3D_Head.skeleton}
-                            morphTargetDictionary={
-                                nodes.Wolf3D_Head.morphTargetDictionary
-                            }
-                            morphTargetInfluences={
-                                nodes.Wolf3D_Head.morphTargetInfluences
-                            }
+                            morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+                            morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
                             castShadow
                         />
                         <skinnedMesh
@@ -152,12 +146,8 @@ const Xander = ({ position, ...props }) => {
                             geometry={nodes.Wolf3D_Teeth.geometry}
                             material={materials.Wolf3D_Teeth}
                             skeleton={nodes.Wolf3D_Teeth.skeleton}
-                            morphTargetDictionary={
-                                nodes.Wolf3D_Teeth.morphTargetDictionary
-                            }
-                            morphTargetInfluences={
-                                nodes.Wolf3D_Teeth.morphTargetInfluences
-                            }
+                            morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+                            morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
                             castShadow
                         />
                         <primitive object={nodes.Hips} />
@@ -170,4 +160,4 @@ const Xander = ({ position, ...props }) => {
 };
 
 
-export default Xander;
+export default Raven;

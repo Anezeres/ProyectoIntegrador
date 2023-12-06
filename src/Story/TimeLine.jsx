@@ -15,7 +15,8 @@ const TimeLine = () => {
                     [-15, xanderBodyRef.current.translation().y, -8],
                     [-17, xanderBodyRef.current.translation().y, -8],
                     [-17, xanderBodyRef.current.translation().y, -4.8],
-                    [-7, xanderBodyRef.current.translation().y, -4.8]],
+                    [-7, xanderBodyRef.current.translation().y, -4.8],
+                    [-7, xanderBodyRef.current.translation().y, -4.3]],
                     'Xander',
                     'Idle');
             } catch (error) {
@@ -44,7 +45,7 @@ const TimeLine = () => {
                         break;
                     case 2:
                         case2()
-                        
+
                         break;
                 }
                 break;

@@ -4,14 +4,19 @@ import { CylinderCollider, RigidBody } from "@react-three/rapier";
 
 
 export function Abuela({ position, ...props }) {
-    const { abuelaRef, abuelaModel, abuelaBodyRef, playAnimationWithDuration, playAnimation, stopAnimation } = useContext(characterContext)
+    const {
+        abuelaRef,
+        abuelaModel,
+        abuelaBodyRef,
+        playAnimation
+    } = useContext(characterContext)
 
     const { nodes, materials } = abuelaModel;
 
     useEffect(() => {
-        playAnimation('Idle','Abuela')
+        playAnimation('Idle', 'Abuela')
     }, []);
-    
+
     return (
         <RigidBody
             ref={abuelaBodyRef}

@@ -1,15 +1,8 @@
-import { KeyboardControls, OrbitControls } from "@react-three/drei"
-import Fondo from "./Fondo";
-import { AxesHelper } from "three";
-import Cuarto from "./World/Cuarto";
 
-import Sotano from "./World/Sotano/Sotano.jsx";
-import SecondFloor from "./World/SecondFloor/SecondFloor";
-import RefContext from "./World/Context/RefContext.jsx";
-import Personajes from "./World/Personajes/Personajes";
+
 import Controls from "./World/Controls/Controls";
-import { Physics, RigidBody, CuboidCollider } from "@react-three/rapier";
-import { Children, useEffect, useState } from "react";
+import { Physics } from "@react-three/rapier";
+import { useEffect, useState } from "react";
 import CharacterContext from "./World/Context/CharacterContext.jsx";
 import CameraContext from "./World/Context/CameraContext.jsx";
 import TimeLine from "./Story/TimeLine.jsx";
@@ -35,7 +28,6 @@ const Experience = ({ children }) => {
 					<Physics>
 						<ambientLight intensity={0.5} />
 						<directionalLight position={[10, 10, 5]} intensity={2} />
-
 						{/* <axesHelper args={[5]} position={[0, 0, 0]} /> */}
 						{loaded && children}
 						{loaded && <Controls />}
