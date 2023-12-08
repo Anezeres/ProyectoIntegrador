@@ -21,23 +21,30 @@ const Xander = ({ position, ...props }) => {
 
     useFrame(() => {
         if (xanderBodyRef.current) {
-            console.log("x: ", xanderBodyRef.current.translation().x.toFixed(1), 'z: ', xanderBodyRef.current.translation().z.toFixed(1))
-            //console.log(newPosition[0])
-            if (move) {
-                if (xanderBodyRef.current.translation().x.toFixed(1) != newPosition[0].toFixed(1) || xanderBodyRef.current.translation().z.toFixed(1) != newPosition[2].toFixed(1)) {
-                    moveTo(newPosition, 'Xander')
-                } else {
-                    changePosition(arrayPosition, 'Xander')
-                }
-            }
-            //hace que el personaje siempre este bien orientado
-            xanderBodyRef.current.setRotation({
-                x: 0,
-                y: 0,
-                z: 0,
-                w: 1
-            }, true)
-        }
+					//console.log(newPosition[0])
+					if (move) {
+						if (
+							xanderBodyRef.current.translation().x.toFixed(1) !=
+								newPosition[0].toFixed(1) ||
+							xanderBodyRef.current.translation().z.toFixed(1) !=
+								newPosition[2].toFixed(1)
+						) {
+							moveTo(newPosition, "Xander");
+						} else {
+							changePosition(arrayPosition, "Xander");
+						}
+					}
+					//hace que el personaje siempre este bien orientado
+					xanderBodyRef.current.setRotation(
+						{
+							x: 0,
+							y: 0,
+							z: 0,
+							w: 1,
+						},
+						true
+					);
+				}
     });
 
     useEffect(() => {

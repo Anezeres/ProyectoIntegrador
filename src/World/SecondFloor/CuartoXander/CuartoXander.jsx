@@ -17,12 +17,9 @@ import ObjetosMoverXander from "./ObjetosMoverXander";
 import { RigidBody } from "@react-three/rapier";
 import Cuadro from "../../Scene/Cuadro";
 import useSound from "use-sound";
+import { Audio, AudioListener, AudioLoader } from "three";
 
 const CuartoXander = () => {
-	const [playSound] = useSound("assets/sounds/ambient.mp3", {
-		volume: 0.1,
-		loop: true,
-	});
 	const PATH = "/assets/Textures/Cuadros/";
 
 	const pintura = useTexture({
@@ -37,11 +34,35 @@ const CuartoXander = () => {
 		camera.position.z = 2;
 		camera.position.y = 6;
 	};
-
+	//aqwuiuio
 	moveCamera();
+	let sound = {};
 	useEffect(() => {
-		playSound();
+		setTimeout(() => {
+			sonidoDeFondo();
+		}, 1000);
+
+		return () => {
+			sound.stop();
+		};
 	}, []);
+	const sonidoDeFondo = () => {
+		const listener = new AudioListener();
+		//cameraRef.current.add(listener);
+
+		// Crear una fuente de audio global
+		sound = new Audio(listener);
+
+		// Cargar un sonido y configurarlo como el buffer del objeto de audio
+		const audioLoader = new AudioLoader();
+		audioLoader.load("/assets/sounds/s1-ambient.mp3", (buffer) => {
+			sound.setBuffer(buffer);
+
+			sound.setVolume(0.2);
+			sound.play();
+		});
+		sound.setLoop(true);
+	};
 
 	return (
 		<>
