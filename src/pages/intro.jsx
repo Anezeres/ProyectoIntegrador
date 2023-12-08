@@ -1,13 +1,38 @@
 import "./intro.css";
+import React, { useRef, useEffect, Suspense, useState } from "react";
+
+import { Audio, AudioListener, AudioLoader } from "three";
+import { useSound } from "use-sound";
 
 export default function Intro({ imageId }) {
-	const [playSound] = useSound("assets/sounds/ambient.mp3", {
-		volume: 0.1,
-		loop: true,
-	});
+	useEffect(() => {
+		sonidoDeFondo();
+
+		return () => {
+			sound.stop();
+		};
+	}, []);
+	let sound = {};
+	const sonidoDeFondo = () => {
+		const listener = new AudioListener();
+		//cameraRef.current.add(listener);
+
+		// Crear una fuente de audio global
+		sound = new Audio(listener);
+
+		// Cargar un sonido y configurarlo como el buffer del objeto de audio
+		const audioLoader = new AudioLoader();
+		audioLoader.load("/assets/sounds/ambient.mp3", (buffer) => {
+			sound.setBuffer(buffer);
+
+			sound.setVolume(0.3);
+			sound.play();
+		});
+		sound.setLoop(true);
+	};
+
 	return (
 		<div className="App">
-			{playSound()}
 			<div className="image-container">
 				<div className="image-row">
 					<img src={`./images/0${imageId}.jpg`} alt="Image 01" />
@@ -17,8 +42,7 @@ export default function Intro({ imageId }) {
 	);
 }
 
-import React, { useRef, useEffect, Suspense } from "react";
-import { useSound } from "use-sound";
+
 const Video = () => {
 	const videoRef = useRef(null);
 	const [playSound] = useSound("assets/sounds/aleatales-intro.mp3", {

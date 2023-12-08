@@ -7,10 +7,10 @@ import ObjetosCorredor from "./ObjetosCorredor";
 import PlatformCorredor from "./PlatformCorredor";
 import WallsCorredor from "./WallsCorredor";
 import { refContext } from "../../Context/refContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CuadrosCorredor from "./CuadrosCorredor";
 import { cameraContext } from "../../Context/cameraContext";
-
+import { Audio, AudioListener, AudioLoader } from "three";
 const Corredor = () => {
 	const { camera } = useContext(cameraContext);
 
@@ -21,6 +21,33 @@ const Corredor = () => {
 	};
 
 	moveCamera();
+	let sound = {};
+	useEffect(() => {
+		setTimeout(() => {
+			sonidoDeFondo();
+		}, 1000);
+
+		return () => {
+			sound.stop();
+		};
+	}, []);
+	const sonidoDeFondo = () => {
+		const listener = new AudioListener();
+		//cameraRef.current.add(listener);
+
+		// Crear una fuente de audio global
+		sound = new Audio(listener);
+
+		// Cargar un sonido y configurarlo como el buffer del objeto de audio
+		const audioLoader = new AudioLoader();
+		audioLoader.load("/assets/sounds/s1-ambient.mp3", (buffer) => {
+			sound.setBuffer(buffer);
+
+			sound.setVolume(0.2);
+			sound.play();
+		});
+		sound.setLoop(true);
+	};
 
 	return (
 		<>
