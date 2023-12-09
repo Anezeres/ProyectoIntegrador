@@ -22,7 +22,7 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 		volume: 0.3,
 	});
 	const [playDramaticSound] = useSound("assets/sounds/dramatic-hit.wav", {
-		volume: 0.4,
+		volume: 0.5,
 		loop: true,
 	});
 	const webHistory = useHistory();

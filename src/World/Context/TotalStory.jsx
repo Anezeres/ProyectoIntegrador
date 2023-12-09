@@ -20,9 +20,7 @@ const Story = {
 	s1: {
 		camera: { position: [-1, 4, 0] },
 		component: <SecondFloor />,
-		characters: [
-			<Xander key={1} position={[-18, 1, -10.5]} />,
-		],
+		characters: [<Xander key={1} position={[-18, 1, -10.5]} />],
 		currentScenary: "s1",
 		nextScenery: "s2",
 		thereIsMission: true,
@@ -36,16 +34,19 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: "A veces, me siento como un espectador en lugar de un participante en la vida real.",
+						lines:
+							"A veces, me siento como un espectador en lugar de un participante en la vida real.",
 					},
 					{
 						name: "Xander",
-						lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+						lines:
+							"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
 					},
 					{
 						name: "Xander",
-						lines: "Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
-					}
+						lines:
+							"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
+					},
 				],
 			},
 			{
@@ -91,7 +92,7 @@ const Story = {
 		camera: { position: [-1, 4, 4] },
 		component: <Corredor />,
 		characters: [
-			<Xander key={1} position={[1, 0.3, 1]} scale={1.4} />,
+			<Xander key={1} position={[-6.2, 1, -3.2]} scale={1.4} />,
 			<Abuela key={2} position={[6, 0.2, -7]} scale={1.4} />,
 		],
 		currentScenery: "s2",
@@ -290,7 +291,7 @@ const Story = {
 		component: <PrimerEscenario />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />
+			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenary: "s8",
 		nextScenery: "s9",
@@ -310,11 +311,11 @@ const Story = {
 		],
 	},
 	s9: {
-		camera: { position: [5, 8, 5]  },
+		camera: { position: [5, 8, 5] },
 		component: <SegundoEscenario />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />
+			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenary: "s9",
 		nextScenery: "tapaq",

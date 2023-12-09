@@ -118,7 +118,7 @@ const Objetos = (props) => {
 					receiveShadow
 					geometry={nodes.camera_001.geometry}
 					material={materials.Material}
-					position={[2, 0.12, 1]}
+					position={[4.5, 0.26, -2.5]}
 					rotation={[0, -Math.PI / 2, 0]}
 					ref={cameraRef}
 					onClick={moverCamara}
@@ -278,7 +278,7 @@ const Objetos = (props) => {
 
 			{/* Mesita Pequeña */}
 
-			<group position={[14, 0, 0.4]} scale={1.2} rotation-y={-Math.PI / 2}>
+			<group position={[11, 0, 0.4]} scale={1.2} rotation-y={-Math.PI / 2}>
 				<mesh
 					castShadow
 					receiveShadow
@@ -288,7 +288,7 @@ const Objetos = (props) => {
 				/>
 			</group>
 
-			<group rotation-y={Math.PI / 2} position={[11.7, 0, -5.8]}>
+			<group rotation-y={Math.PI / 2} position={[8.7, 0, -5.8]}>
 				<mesh
 					castShadow
 					receiveShadow
@@ -337,7 +337,7 @@ const Objetos = (props) => {
 					receiveShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[13, 0.33, -5.5]} /* [13, 0.33, -5.5] */
+					position={[10, 0.33, -5.5]} /* [13, 0.33, -5.5] */
 					onClick={moverSalsaTomate}
 					ref={salsaRef}
 				/>
@@ -346,7 +346,7 @@ const Objetos = (props) => {
 					receiveShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[13, 0.33, -6]}
+					position={[10, 0.33, -6]}
 					onClick={moverSalsaTomate2}
 					ref={salsaRef2}
 				/>
@@ -355,7 +355,7 @@ const Objetos = (props) => {
 					receiveShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[13, 0.33, -6.5]}
+					position={[10, 0.33, -6.5]}
 					onClick={moverSalsaTomate3}
 					ref={salsaRef3}
 				/>
@@ -368,7 +368,7 @@ const Objetos = (props) => {
 					receiveShadow
 					geometry={nodes.dish_001.geometry}
 					material={materials.Material}
-					position={[8.7, 0.22, -3.8]} /* [8.7, 0.22, -3.8] */
+					position={[7, 0.22, -3.8]} /* [8.7, 0.22, -3.8] */
 					onClick={moverDulces}
 					ref={dulcesRef}
 				/>

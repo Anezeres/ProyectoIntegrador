@@ -30,9 +30,9 @@ const CuartoXander = () => {
 
 	const moveCamera = () => {
 		console.log(camera);
-		camera.position.x = -12;
-		camera.position.z = 2;
-		camera.position.y = 6;
+		camera.position.x = -18.5;
+		camera.position.z = -3.5;
+		camera.position.y = 5.5;
 	};
 	//aqwuiuio
 	moveCamera();
@@ -66,7 +66,13 @@ const CuartoXander = () => {
 
 	return (
 		<>
-			<OrbitControls makeDefault target={[-12, 0, -8]} />
+			<OrbitControls
+				enableRotate={false}
+				enablePan={false}
+				enableZoom={false}
+				makeDefault
+				target={[-13, 0, -11]}
+			/>
 			<Computador />
 			<Arcade />
 			<Basura />

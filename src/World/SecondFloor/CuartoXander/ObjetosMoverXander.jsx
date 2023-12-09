@@ -129,7 +129,7 @@ const ObjetosMoverXander = (props) => {
 					receiveShadow
 					geometry={nodes.clothes_002.geometry}
 					material={materials.Material}
-					position={[-12.7, 0.14, -5.7]}
+					position={[-12.4, 0.14, -5.8]}
 					ref={toallaRef}
 					onClick={moverToalla}
 				/>
@@ -141,7 +141,7 @@ const ObjetosMoverXander = (props) => {
 					receiveShadow
 					geometry={nodes.clothes_002.geometry}
 					material={materials.Material}
-					position={[-12.7, 0.14, -3.7]}
+					position={[-10.7, 0.14, -5]}
 					ref={toallaRef2}
 					onClick={moverToalla2}
 				/>
