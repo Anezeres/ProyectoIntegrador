@@ -51,7 +51,7 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 
 		if (
 			dialogs[currentStep + 1]?.name &&
-			"Xander (mientras suena el SynthiCom)" == dialogs[currentStep + 1].name
+			"Xander (mientras suena el Celular)" == dialogs[currentStep + 1].name
 		) {
 			playRingSound();
 			playDramaticSound();

@@ -6,9 +6,19 @@ import Pantalla from "./Pantalla";
 import Panel from "./Panel";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import { Audio, AudioListener, AudioLoader } from "three";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { cameraContext } from "../Context/cameraContext";
 
 const Sotano = () => {
+	const { camera } = useContext(cameraContext);
+
+	const moveCamera = () => {
+		camera.position.x = 1.8;
+		camera.position.z = 6.8;
+		camera.position.y = 4;
+	};
+
+	moveCamera();
 	const PATH = "/assets/Textures/Wood/";
 
 	const propsTexture = useTexture({
@@ -44,7 +54,7 @@ const Sotano = () => {
 
 	return (
 		<>
-			<OrbitControls makeDefault target={[3, 0, -4]} />
+			<OrbitControls makeDefault target={[0, 0, 0]} />
 
 			{/* <Fondo /> */}
 			{/* <Cuarto rotation-y={-Math.PI}/> */}

@@ -100,7 +100,7 @@ const Story = {
 		thereIsMission: true,
 		levels: [
 			{
-				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -118,7 +118,7 @@ const Story = {
 			},
 			{
 				showLog: true,
-				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -181,10 +181,10 @@ const Story = {
 						`,
 					},
 					{
-						name: "Xander (mientras suena el SynthiCom)",
+						name: "Xander (mientras suena el Celular)",
 						lines: `Qué extraño sonido. 
 						
-						Así no suena mi Synthi. Bueno, voy a contestar.`,
+						Es el celular de mi abuela, debería usar usar un SynthiCom. Bueno, voy a contestar.`,
 					},
 					{
 						name: "Desconocido",

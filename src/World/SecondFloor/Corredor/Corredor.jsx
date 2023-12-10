@@ -23,9 +23,10 @@ const Corredor = () => {
 		camera.position.y = 4;
 	};
 
-	moveCamera();
 	let sound = {};
 	useEffect(() => {
+		moveCamera();
+
 		setTimeout(() => {
 			sonidoDeFondo();
 		}, 1000);
@@ -45,7 +46,7 @@ const Corredor = () => {
 			state.camera.position.x = MathUtils.lerp(
 				state.camera.position.x,
 				11,
-				0.009
+				0.003
 			);
 			state.camera.position.y = MathUtils.lerp(
 				state.camera.position.y,
@@ -55,7 +56,7 @@ const Corredor = () => {
 			state.camera.position.z = MathUtils.lerp(
 				state.camera.position.z,
 				-3.5,
-				0.02
+				0.002
 			);
 		}
 	});
@@ -79,7 +80,13 @@ const Corredor = () => {
 
 	return (
 		<>
-			<OrbitControls makeDefault target={target} />
+			<OrbitControls
+				enableRotate={false}
+				enablePan={false}
+				enableZoom={false}
+				makeDefault
+				target={target}
+			/>
 			<Escalera />
 			<Panel position={[-5, 1.5, -3]} rotation-y={-Math.PI / 2} />
 			<Pantalla position={[-11.8, 2, 0]} />

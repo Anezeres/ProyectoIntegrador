@@ -269,7 +269,7 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={8} />,
 		characters: [""],
-		nextScenery: "s1",
+		nextScenery: "s4",
 		levels: [
 			{
 				log: "Dale clic en siguiente para continuar con la historia",
