@@ -186,6 +186,15 @@ const TimeLine = (props) => {
                         rotate(Math.PI / 2, 'Xander')
                         break;
                     case 1:
+                        changePosition([
+                            [4, xanderBodyRef.current.translation().y, 0],
+                            [4, xanderBodyRef.current.translation().y, 2]],
+                            'Xander',
+                            'Idle',
+                            () => {
+                                stopAnimation('Xander')
+                                playAnimation("Idle",'Xander')
+                            })
                         break;
                 }
                 break;
