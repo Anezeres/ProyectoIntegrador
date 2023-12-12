@@ -361,7 +361,7 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={7} />,
 		characters: [""],
-		nextScenery: "intro-8",
+		nextScenery: "s4",
 		levels: [
 			{
 				log: "Dale clic en siguiente para continuar con la historia.",
@@ -392,7 +392,41 @@ export const introState = [
 					},
 					{
 						name: "Evelyn",
-						lines: `El mundo virtual se ha vuelto tierra de nadie, un lugar que hoy en dia no debes estar ahi cariño.`,
+						lines: `Se ha vuelto peligroso, es tierra de nadie ahora, un lugar que hoy en dia no debes estar ahi cariño.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Lo bueno es que a ti no te gusta esas cosas y no te pasara nada.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Dicen los rumores que las personas que están dentro pueden afectarnos a nosotros...
+						
+						que raro, no entiendo como eso puede pasar.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Pero bueno son solo rumores.`
+					},
+					{
+						name: "Xander",
+						lines: `Wow abuela… Sabes mucho ¿Alguna vez entraste?`
+					},
+					{
+						name: "Evelyn",
+						lines: `Hace mucho tiempo Xander, pero ya solo esos cachivaches están en el sótano, guardando polvo.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Mírate Xander, Cada vez te pareces más a tu papá, su generación creció en ese ambiente, estaba interesado en las mismas cosas hace muchos años.`
+					},
+					{
+						name: "Xander",
+						lines: `jajaja, Si la verdad, bueno Abuela seguiré limpiando.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Esta bien cariño.`
 					},
 				],
 			},
@@ -403,7 +437,7 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={8} />,
 		characters: [""],
-		nextScenery: "s4",
+		nextScenery: "intro-9",
 		levels: [
 			{
 				log: "Dale clic en siguiente para continuar con la historia.",
