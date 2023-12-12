@@ -1,13 +1,38 @@
 import "./intro.css";
+import React, { useRef, useEffect, Suspense, useState } from "react";
+
+import { Audio, AudioListener, AudioLoader } from "three";
+import { useSound } from "use-sound";
 
 export default function Intro({ imageId }) {
-	const [playSound] = useSound("assets/sounds/ambient.mp3", {
-		volume: 0.1,
-		loop: true,
-	});
+	useEffect(() => {
+		sonidoDeFondo();
+
+		return () => {
+			sound.stop();
+		};
+	}, []);
+	let sound = {};
+	const sonidoDeFondo = () => {
+		const listener = new AudioListener();
+		//cameraRef.current.add(listener);
+
+		// Crear una fuente de audio global
+		sound = new Audio(listener);
+
+		// Cargar un sonido y configurarlo como el buffer del objeto de audio
+		const audioLoader = new AudioLoader();
+		audioLoader.load("/assets/sounds/ambient.mp3", (buffer) => {
+			sound.setBuffer(buffer);
+
+			sound.setVolume(0.3);
+			sound.play();
+		});
+		sound.setLoop(true);
+	};
+
 	return (
 		<div className="App">
-			{playSound()}
 			<div className="image-container">
 				<div className="image-row">
 					<img src={`./images/0${imageId}.jpg`} alt="Image 01" />
@@ -17,8 +42,7 @@ export default function Intro({ imageId }) {
 	);
 }
 
-import React, { useRef, useEffect, Suspense } from "react";
-import { useSound } from "use-sound";
+
 const Video = () => {
 	const videoRef = useRef(null);
 	const [playSound] = useSound("assets/sounds/aleatales-intro.mp3", {
@@ -84,7 +108,7 @@ export const introState = [
 		nextScenery: "intro-1",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [],
 			},
 		],
@@ -98,7 +122,7 @@ export const introState = [
 		nextScenery: "intro-2",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -132,11 +156,24 @@ export const introState = [
 		nextScenery: "intro-3",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
-						lines: `Una enfermedad devastadora atacó a mis padres. Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo. Mis lágrimas no cesaron durante días.`,
+						lines: `Una enfermedad devastadora atacó a mis padres.`,
+					},
+					{
+						name: "Xander ",
+						lines: `Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo.`,
+					},
+					{
+						name: "Xander ",
+						lines: `Mis lágrimas... 
+						
+						
+						
+						
+						no cesaron durante días.`,
 					},
 				],
 			},
@@ -151,7 +188,7 @@ export const introState = [
 		nextScenery: "intro-4",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia. Virtual Organs (Órganos Virtuales).",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -175,7 +212,7 @@ export const introState = [
 		nextScenery: "intro-5",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -194,13 +231,21 @@ export const introState = [
 		nextScenery: "s1",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander",
 						lines: `No lo lograron...`,
 					},
-				],
+					{
+						name: "Xander",
+						lines: `No alcanzaron a reunir el dinero suficiente y mi odio por ese Hacker solo queda en el fondo de mi alma.`,
+					},
+					{
+						name: "Xander",
+						lines: `Mi abuela Evelyn me quiero como una madre… y yo la quiero a ella, estamos juntos desde entonces, no se que haría sin mi abuela.`,
+					},
+				]
 			},
 		],
 	},
@@ -212,11 +257,101 @@ export const introState = [
 		nextScenery: "intro-7",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia. MV (Mundo Virtual)",
 				dialogs: [
 					{
-						name: "Xander ",
-						lines: `Investigando sobre nexo digital`,
+						name: "Xander (Con lagrimas en sus ojos y corazón acelerado)",
+						lines: `No... 
+						
+						
+						
+						
+						
+						
+						
+						
+						Noooo. 
+						
+						
+						
+						
+						
+						
+						Nooooo.`,
+					},
+					{
+						name: "Xander (Con lagrimas en sus ojos y corazón acelerado)",
+						lines: `No puede estar pasando esto otra vez.`,
+					},
+					{
+						name: "Xander (Con lagrimas en sus ojos y corazón acelerado)",
+						lines: `No puedo permitirlo... 
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						no puedo perder a otro familiar por las mismas razones.`,
+					},
+					{
+						name: "Xander",
+						lines: `Pero...
+						
+						
+						
+						
+						
+						
+						
+
+
+
+						
+						
+						¿qué hago?`,
+					},
+					{
+						name: "Xander",
+						lines: `Tendré que ir en busca de ese hacker, pero ... 
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						¿cómo?`,
+					},
+					{
+						name: "Xander",
+						lines: `Tendré que investigar muchísimo sobre cómo funciona el hacking para poder encontrarlo.`
+					},
+					{
+						name: "Xander",
+						lines: `Convertirme en hacker...`
+					},
+					{
+						name: "Xander",
+						lines: `No imposible... 
+						
+						
+						
+						no tengo tiempo y se muy poco...`
+					},
+					{
+						name: "Xander",
+						lines: `Aunque recuerdo algo... 
+						
+						el Mundo Virtual.`
 					},
 				],
 			},
@@ -227,14 +362,72 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={7} />,
 		characters: [""],
-		nextScenery: "intro-8",
+		nextScenery: "s4",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
-						name: "Xander ",
-						lines: `Investigando sobre nexo digital`,
+						name: "Xander (Ya mas tranquilo)",
+						lines: `Abuela… ¿Hace cuanto cerraron el MV?`
+					},
+					{
+						name: "Evelyn (Sorprendida)",
+						lines: `¿Porque lo preguntas? Pensé que esas cosas no te interesaban.`
+					},
+					{
+						name: "Xander",
+						lines: `Pues… leí algo sobre eso ayer, hablaban de un tal META, supuestamente querían crear su propio MV...`
+					},
+					{
+						name: "Evelyn",
+						lines: `jajaja cariño, pues… 
+						
+
+
+						han pasado muchas cosas los últimos años, pero no lo han cerrado.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Ha cambiado mucho, desde que se puede minar criptomonedas en el Mundo Virtual.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Se ha vuelto peligroso, es tierra de nadie ahora, un lugar que hoy en dia no debes estar ahi cariño.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Lo bueno es que a ti no te gusta esas cosas y no te pasara nada.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Dicen los rumores que las personas que están dentro pueden afectarnos a nosotros...
+						
+						que raro, no entiendo como eso puede pasar.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Pero bueno son solo rumores.`
+					},
+					{
+						name: "Xander",
+						lines: `Wow abuela… Sabes mucho ¿Alguna vez entraste?.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Hace mucho tiempo Xander, pero ya solo esos cachivaches están en el sótano, guardando polvo.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Mírate Xander, Cada vez te pareces más a tu papá, su generación creció en ese ambiente, estaba interesado en las mismas cosas hace muchos años.`
+					},
+					{
+						name: "Xander",
+						lines: `jajaja, Si la verdad, bueno Abuela seguiré limpiando.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Esta bien cariño.`
 					},
 				],
 			},
@@ -245,10 +438,57 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={8} />,
 		characters: [""],
-		nextScenery: "s1",
+		nextScenery: "s5",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Esta lleno de polvo.`,
+					},
+					{
+						name: "Xander",
+						lines: `Se puede notar como es diferente a las cosas de hoy en dia.`,
+					},
+					{
+						name: "Xander",
+						lines: `Como funcionara? solo se que esta prendido por esta luz al costado.`,
+					},
+					{
+						name: "Xander (Se coloca el artefacto)",
+						lines: `Solo hay una forma de saberlo.`,
+					},
+					{
+						name: "Xander",
+						lines: `Asi funcionaba las cosas antes?... no siento nada.`,
+					},
+					{
+						name: "Xander",
+						lines: `Creo que ya esta funcionando...`,
+					},
+					{
+						name: "Xander (Sintiéndose Mareado)",
+						lines: `Siento como si me fuera a desma...`,
+					},
+					{
+						name: "Xander (Cae)",
+						lines: `...`,
+					},
+				],
+				
+			},
+		],
+	},
+	{
+		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
+		component: <Intro imageId={9} />,
+		characters: [""],
+		nextScenery: "s5",
+		levels: [
+			{
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander",

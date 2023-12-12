@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { characterContext } from "../Context/characterContext";
+import { characterContext } from "../../Context/characterContext";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 //import { useFrame } from "@react-three/fiber";
@@ -23,7 +23,9 @@ const Xander = ({ position, ...props }) => {
         setLastPositionXander,
         changePosition,
         moveXander,
-        arrayPositionXander
+        arrayPositionXander,
+        finalAnimation,
+        callBack
     } = useContext(characterContext)
 
     const { nodes, materials } = xanderModel;
@@ -36,9 +38,9 @@ const Xander = ({ position, ...props }) => {
             //console.log(newPosition[0])
             if (moveXander) {
                 if (xanderBodyRef.current.translation().x.toFixed(1) != newPositionXander[0].toFixed(1) || xanderBodyRef.current.translation().z.toFixed(1) != newPositionXander[2].toFixed(1)) {
-                    moveTo(newPositionXander, 'Xander')
+                    moveTo(newPositionXander, 'Walking', 'Xander')
                 } else {
-                    changePosition(arrayPositionXander, 'Xander')
+                    changePosition(arrayPositionXander, 'Xander', finalAnimation, callBack)
                 }
             }
             //hace que el personaje siempre este bien orientado
@@ -64,6 +66,7 @@ const Xander = ({ position, ...props }) => {
             restitution={0}
             position={position}
             colliders={false}
+            {...props}
             name="Xander"
         >
             <group

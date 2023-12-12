@@ -1,108 +1,111 @@
 import { useState, useEffect, useContext } from "react";
 import Dialogs from "../Components/Dialogs";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { refContext } from "../World/Context/refContext";
 import useSound from "use-sound";
+import { refContext } from "../Context/refContext";
 
-export default function Scenery({ levels, nextScenery, currentScenary, thereIsMission }) {
-	const { storyProgress, updateStoryProgress } = useContext(refContext);
-
-	const [currentStep, setCurrentStep] = useState(0);
-	const [currentLevel, setCurrentLevel] = useState(0);
-	const [currentName, setCurrentName] = useState("");
-	const [currentLines, setCurrentLines] = useState("");
+export default function Scenery({ levels, nextScenery, currentScenery, thereIsMission }) {
+	const { storyProgress, updateStoryProgress, isPaused } = useContext(refContext);
 	const [logVisible, setLogVisible] = useState(false);
-	// POR AHORA TODO CON LEVEL CERO
-	const [dialogs, setDialogs] = useState(levels[0]?.dialogs);
 	const [log, setLog] = useState(levels[0]?.log);
+
+	//Carga los sonidos
 	const [playSound] = useSound("assets/sounds/click.mp3", {
 		volume: 0.1,
 	});
 	const [playRingSound] = useSound("assets/sounds/ring.m4a", {
-		volume: 0.3,
+		volume: 0.1,
 	});
-	const webHistory = useHistory();
+	const [playDramaticSound] = useSound("assets/sounds/dramatic-hit.wav", {
+		volume: 0.5,
+		loop: true,
+	});
 
-	useEffect(() => {
-		dialogs[currentStep] && setCurrentName(dialogs[currentStep].name);
-		setCurrentLines(dialogs[currentStep].lines);
-	}, [currentStep]);
-
-	useEffect(() => {
-		setDialogs(levels[currentLevel].dialogs);
-		setLog(levels[currentLevel].log);
-	}, [currentLevel]);
-
+	//Continua la historia
 	function setNextStep() {
-		if (
-			!storyProgress.missionDone &&
-			thereIsMission &&
-			currentLevel === levels.length - 1
-		) {
-			return setLogVisible(true); // va a mostrar el log cuando se acaban los niveles para que termine la mision del escenario
-		}
-		levels[currentLevel].dialogs[currentStep + 1] &&
-			setCurrentStep((currentStep) => currentStep + 1);
-		setCurrentName("");
-
-		if (
-			dialogs[currentStep + 1]?.name &&
-			"Xander (mientras suena el SynthiCom)" == dialogs[currentStep + 1].name
-		) {
-			playRingSound();
-		}
-		if (currentStep === dialogs.length - 1) {
-			if (levels[currentLevel + 1] && levels[currentLevel + 1].showLog) {
-				setLogVisible(true);
-			}
-			if (currentLevel === levels.length - 1) {
-				setCurrentName(""); //hacer esto cada vez que cambié el step
-				setCurrentStep(0);
-				setCurrentLevel(0);
+		if (storyProgress.currentStep === levels[storyProgress.currentLevel].dialogs.length - 1) {
+			if (storyProgress.currentLevel === levels.length - 1) {//Cuando cambia de escenario
+				updateStoryProgress({
+					scenery: nextScenery,
+					currentLevel: 0,
+				});
 				window.location.href = "/" + nextScenery;
-				//webHistory.push("/" + nextScenery);
 			} else {
-				setCurrentName("");
-				setCurrentStep(0);
-				setCurrentLevel(currentLevel + 1);
-				levels[currentLevel + 1] &&
-					setDialogs(levels[currentLevel + 1].dialogs);
-				return updateStoryProgress({
-					scenery: storyProgress.scenery,
+				updateStoryProgress({//Cuando cambia de nivel
 					currentLevel: storyProgress.currentLevel + 1,
 				});
 			}
+		} else {
+			updateStoryProgress({//Cuando cambia de a siguiente dialogo
+				currentStep: storyProgress.currentStep + 1,
+			});
+		}
+
+		//Sonido
+		if (
+			storyProgress.currentLevel === 0 && storyProgress.scenery === 's3' && storyProgress.currentStep == 0
+		) {
+			playRingSound();
+		}
+
+		if (
+			storyProgress.currentLevel === 1 && storyProgress.scenery === 's3' && storyProgress.currentStep == 0
+		) {
+			playDramaticSound();
 		}
 	}
+
+
+	//Muestra o no el log
 	const handleShowLog = () => {
 		setLogVisible(!logVisible);
 	};
 
+	//Actualiza el log
+	useEffect(() => {
+		setLog(levels[storyProgress.currentLevel].log);
+	}, [storyProgress.currentStep, storyProgress.currentLevel]);
+
+	//Actualiza el escenario en el estado global
+	useEffect(() => {
+		updateStoryProgress({
+			scenery: currentScenery,
+		});
+	}, []);
+
 	return (
 		<>
 			<div className="app-container">
-				{/* <div className="text-white">{log}</div> */}
-
-				{currentName == dialogs[currentStep].name ? (
-					<>
-						<Dialogs name={currentName} lines={currentLines} speed={30} />
-						<PapelComponent
-							log={log}
-							visible={logVisible}
-							handleShowLog={handleShowLog}
-						/>
-					</>
-				) : null}
+				<>
+					<Dialogs levels={levels} />
+					<PapelComponent
+						log={log}
+						visible={logVisible}
+						handleShowLog={handleShowLog}
+					/>
+				</>
 				<button
 					onClick={() => {
 						playSound();
-						setNextStep();
+
+						if (levels[storyProgress.currentLevel].showLog) {
+							if (storyProgress.missionDone && thereIsMission) {
+								setNextStep() //puede continuar
+							} else if (!storyProgress.missionDone && thereIsMission) {
+								handleShowLog() //abre el log
+							}
+						} else if (!isPaused) { //si no esta pausado sigue la historia
+							setNextStep();
+						}
 					}}
-					className="text-lg bg-[#4cdef8] font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3"
+					className={
+						`text-lg  font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 border-2 border-solid select-none
+						${logVisible ? 'mr-52' : ''} 
+						${isPaused ? 'bg-[#765ff5] text-gray-300 border-[#765ff5]' : 'bg-[#4cdef8] border-[#4cdef8]'}`
+					}
 				>
-					Siguiente
+					{logVisible ? "Entendido" : `${isPaused ? 'Espera' : 'Siguiente'}`}
 				</button>
-			</div>
+			</div >
 		</>
 	);
 }

@@ -1,12 +1,11 @@
 import { Canvas } from "@react-three/fiber";
 import Experience from "./Experience";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Scenery from "./Story/Scenery";
 import Landing from "./pages/landing";
-import Story from "./World/Context/TotalStory.jsx";
-import RefContext from "./World/Context/RefContext.jsx";
+import RefContext from "./Context/RefContext.jsx";
 import { introState } from "./pages/intro.jsx";
-import SegundoEscenario from "./World/MundoVirtual/SegundoEscenario/SegundoEscenario.jsx";
+import Story from "./Story/TotalStory.jsx";
 
 export default function App() {
 	return (
@@ -28,12 +27,11 @@ export default function App() {
 									)}
 								</Route>
 							);
-						})}
-						;
+						})};
 						{Object.keys(Story).map((key) => {
 							return (
 								<Route path={`/${key}`} key={key}>
-									<Canvas camera={Story[key].camera}>
+									<Canvas camera={Story[key].camera} shadows >
 										<Experience ruta={key}>
 											{Story[key].component}
 											{Story[key].characters.map((character) => character)}
@@ -43,7 +41,7 @@ export default function App() {
 										story={Story}
 										levels={Story[key].levels}
 										nextScenery={Story[key].nextScenery}
-										currentScenary={Story[key].currentScenary}
+										currentScenery={Story[key].currentScenery}
 										thereIsMission={Story[key].thereIsMission}
 									/>
 								</Route>
@@ -52,7 +50,6 @@ export default function App() {
 						<Route path="/">
 							<Landing />
 						</Route>
-
 					</Switch>
 				</Router>
 			</RefContext>
