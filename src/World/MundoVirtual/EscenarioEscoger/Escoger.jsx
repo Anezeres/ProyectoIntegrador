@@ -1,12 +1,12 @@
 import { OrbitControls } from "@react-three/drei";
 
 import { useContext } from "react";
-import { cameraContext } from "../../Context/cameraContext";
 import PuertaSciFi from "./PuertaSciFi";
 import PlatformEscoger from "./PlatformEscoger";
 import WallsEscoger from "./WallsEscoger";
 import ObjetosEscoger from "./ObjetosEscoger";
 import TextoEscoger from "./TextoEscoger";
+import { cameraContext } from "../../../Context/cameraContext";
 
 const Escoger = () => {
 

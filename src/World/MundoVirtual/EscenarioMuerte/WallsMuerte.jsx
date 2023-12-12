@@ -1,7 +1,7 @@
 import { useTexture } from "@react-three/drei";
 import { BoxGeometry } from "three";
-import Floor from "../../Scene/Floor";
 import { RigidBody } from "@react-three/rapier";
+import Floor from "../../ComponentesGlobales/Floor";
 
 const WallsMuerte = () => {
 

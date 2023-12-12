@@ -9,9 +9,8 @@ import Sotano from "../World/Scenerys/Sotano/Sotano";
 import PrimerEscenario from "../World/MundoVirtual/PrimerEscenario/PrimerEscenario";
 import SegundoEscenario from "../World/MundoVirtual/SegundoEscenario/SegundoEscenario";
 import CuartoXander from "../World/Scenerys/CuartoXander/CuartoXander";
-import Escoger from "../MundoVirtual/EscenarioEscoger/Escoger";
-import Muerte from "../MundoVirtual/EscenarioMuerte/Muerte";
-
+import Muerte from "../World/MundoVirtual/EscenarioMuerte/Muerte"
+import Escoger from "../World/MundoVirtual/EscenarioEscoger/Escoger";
 
 const Story = {
 	s1: {
@@ -506,7 +505,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: genericLog,
+				log: '',
 				dialogs: [
 					{
 						name: "Xander",
@@ -530,7 +529,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: genericLog,
+				log: '',
 				dialogs: [
 					{
 						name: "Xander",

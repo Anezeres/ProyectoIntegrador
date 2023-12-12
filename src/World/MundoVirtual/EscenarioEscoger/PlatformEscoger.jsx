@@ -1,6 +1,6 @@
 import { useTexture } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
-import Floor from "../../Scene/Floor";
+import Floor from "../../ComponentesGlobales/Floor";
 
 const PlatformEscoger = () => {
 

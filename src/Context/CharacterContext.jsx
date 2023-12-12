@@ -56,7 +56,7 @@ const CharacterContext = ({ children }) => {
 
     //Muestra las animaciones de xander
 
-    console.log(animationsXander)
+    //console.log(animationsXander)
     //console.log(animationsAbuela)
     //console.log(animationsRaven)
 

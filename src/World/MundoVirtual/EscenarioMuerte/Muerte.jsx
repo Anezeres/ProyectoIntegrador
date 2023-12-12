@@ -1,11 +1,10 @@
 import { OrbitControls } from "@react-three/drei";
-
 import { useContext } from "react";
-import { cameraContext } from "../../Context/cameraContext";
 import PlatformMuerte from "./PlatformMuerte";
 import WallsMuerte from "./WallsMuerte";
 import Computer from "./Computador";
 import SciFiChair from "./SciFiChair";
+import { cameraContext } from "../../../Context/cameraContext";
 
 const Muerte = () => {
 

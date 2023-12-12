@@ -1,9 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import { useGLTF, useHelper } from "@react-three/drei";
 import { BoxHelper } from "three";
-import { cameraContext } from "../../Context/cameraContext";
 import { CuboidCollider, RigidBody } from "@react-three/rapier";
-import { refContext } from "../../Context/refContext";
+import { refContext } from "../../../Context/refContext";
+import { cameraContext } from "../../../Context/cameraContext";
 
 const ObjetosEscoger = (props) => {
 	const { nodes, materials } = useGLTF(
