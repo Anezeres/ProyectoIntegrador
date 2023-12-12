@@ -43,7 +43,7 @@ export default function Dialogs({ levels }) {
 					ref={typewriter}
 					words={[currentLines]}
 					loop={1}
-					typeSpeed={10}
+					typeSpeed={13}
 				/>
 				<br />
 			</div>

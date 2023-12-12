@@ -232,7 +232,15 @@ export const introState = [
 						name: "Xander",
 						lines: `No lo lograron...`,
 					},
-				],
+					{
+						name: "Xander",
+						lines: `No alcanzaron a reunir el dinero suficiente y mi odio por ese Hacker solo queda en el fondo de mi alma.`,
+					},
+					{
+						name: "Xander",
+						lines: `Mi abuela Evelyn me quiero como una madre… y yo la quiero a ella, estamos juntos desde entonces, no se que haría sin mi abuela.`,
+					},
+				]
 			},
 		],
 	},

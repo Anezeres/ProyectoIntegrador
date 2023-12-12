@@ -97,7 +97,7 @@ const Corredor = () => {
 			<Pantalla position={[-11.8, 2, 0]} />
 			<MesaSciFi />
 			<CuadrosCorredor />
-			<ObjetosCorredor position={[0, 0, 0]} scale={1.3} />
+			<ObjetosCorredor scale={1.3} />
 			<WallsCorredor />
 			<PlatformCorredor />
 			<Iluminacion />

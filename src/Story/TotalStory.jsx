@@ -54,6 +54,18 @@ const Story = {
 					{
 						name: "Xander (Despierta)",
 						lines:
+							`...     
+							
+							
+
+
+
+
+							¿Qué horas son?`,
+					},
+					{
+						name: "Xander",
+						lines:
 							" Bien… Son las 6:30 am, es bastante temprano la verdad. ¿Quién se despierta a estas horas hoy en día? ",
 					},
 					{
@@ -63,6 +75,15 @@ const Story = {
 					{
 						name: "Xander",
 						lines: `Por supuesto, Solo las abuelas están despiertas a estas horas. 
+
+
+
+
+
+
+
+
+
                         Sí abuela, ya desperté, ¿te puedo ayudar en algo? `,
 					},
 					{
@@ -126,15 +147,21 @@ const Story = {
 			},
 			{
 				showLog: true,
-				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa. da clic en los objetos desorganizados para poder continuar",
 				dialogs: [
 					{
-						name: "Xander",
+						name: "Xander (*le entrega su cafe recién hecho)",
 						lines: "Listo abuela, aquí está, espero te guste.",
 					},
 					{
 						name: "Evelyn",
 						lines: `Gracias cariño.
+
+
+
+
+
+
 						Bueno… está bien, prefiero hacerlo a la antigua, las cafeteras de hoy solo les quitan el sabor.
 						`,
 					},
@@ -143,8 +170,12 @@ const Story = {
 						lines: "Jajaja, siempre dices lo mismo abuela.",
 					},
 					{
+						name: "Evelyn",
+						lines: "¿Me puedes ayudar con otra cosita?",
+					},
+					{
 						name: "Xander",
-						lines: "Sí, claro abuela",
+						lines: "Sí, claro abuela.",
 					},
 					{
 						name: "Evelyn",
@@ -158,11 +189,20 @@ const Story = {
 					{
 						name: "Evelyn",
 						lines:
-							"Puedes revisar mi habitación y  revisar el sótano. Las cosas de tus padres están allí. Cogiendo polvo.",
+							`Revisa por favor mi habitación y
+							
+
+
+							el sótano también. Las cosas de tus padres están allí. Cogiendo polvo.`,
+					},
+					{
+						name: "Evelyn",
+						lines:
+							`Voy a salir a comprar algo para el desayuno, no me demoro.`,
 					},
 					{
 						name: "Xander",
-						lines: "Bueno, abuela. Primero voy a revisar tu habitación.",
+						lines: "Bueno, abuela. Voy a acomodar tu habitación.",
 					},
 				],
 			},

@@ -40,7 +40,7 @@ const Objetos = (props) => {
 	const moverCamara = () => {
 		moveObjectToPositionSmoothly(
 			cameraRef,
-			[0, 0.36, -0.8],
+			[2.9, 0, -0.8],
 			800,
 			() => {
 				// Esta función se ejecutará cuando la animación termine
@@ -111,13 +111,12 @@ const Objetos = (props) => {
 
 	return (
 		<group {...props} dispose={null}>
-			<group scale={2}>
+			<group scale={2} position={[9, 0.5, -4.9]}>
 				{/* Camara */}
 				<mesh
 					castShadow
 					geometry={nodes.camera_001.geometry}
 					material={materials.Material}
-					position={[2, 0.10, 1]}
 					rotation={[0, -Math.PI / 2, 0]}
 					ref={cameraRef}
 					onClick={moverCamara}
@@ -317,7 +316,7 @@ const Objetos = (props) => {
 					castShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[15, 0.48, -5.5]}
+					position={[14.7, 0.48, -5.5]}
 					onClick={moverSalsaTomate}
 					ref={salsaRef}
 					scale={1.3}
@@ -335,7 +334,7 @@ const Objetos = (props) => {
 					castShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[15, 1.6, -8]}
+					position={[8.6, 0.5, -6.7]}
 					onClick={moverSalsaTomate3}
 					ref={salsaRef3}
 					scale={1.3}

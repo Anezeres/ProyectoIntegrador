@@ -8,8 +8,8 @@ const Iluminacion = () => {
     const spotLightRef1 = useRef()
     const spotLightRef2 = useRef()
     const spotLightRef3 = useRef()
-    const pointLightRef1= useRef()
-    const pointLightRef2= useRef()
+    // const pointLightRef1= useRef()
+    // const pointLightRef2= useRef()
 
 
     const spotlight1 = useMemo(() => new SpotLight('#fff'), []);
@@ -20,8 +20,8 @@ const Iluminacion = () => {
     //useHelper(spotLightRef1, SpotLightHelper);
     //useHelper(spotLightRef2, SpotLightHelper);
     //useHelper(spotLightRef3, SpotLightHelper);
-    useHelper(pointLightRef1, PointLightHelper,1,'white');
-    useHelper(pointLightRef2, PointLightHelper,1,'white');
+    // useHelper(pointLightRef1, PointLightHelper,1,'white');
+    // useHelper(pointLightRef2, PointLightHelper,1,'white');
 
     return (
         <>
@@ -68,18 +68,18 @@ const Iluminacion = () => {
                 />
                 <primitive object={spotlight3.target} position={[12, 0, -8]} />
             </group>
-            <pointLight
+            {/* <pointLight
                 ref={pointLightRef1}
-                position={[-9, 0, 0]} 
+                position={[-9, 2, 0]} 
                 intensity={4} 
                 color={"orange"}
             />
             <pointLight
                 ref={pointLightRef2}
-                position={[0, 0, 0]} 
+                position={[2, 2, 1]} 
                 intensity={4} 
                 color={"orange"}
-            />
+            /> */}
         </>
     );
 
