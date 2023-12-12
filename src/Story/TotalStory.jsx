@@ -35,7 +35,8 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vació.",
+						lines:
+							"Desde la muerte de mis padres no he sido el mismo, todo es un poco... vació.",
 					},
 					{
 						name: "Xander",
@@ -49,8 +50,7 @@ const Story = {
 				dialogs: [
 					{
 						name: "Xander (Despierta)",
-						lines:
-							`...     
+						lines: `...     
 							
 							
 
@@ -84,7 +84,8 @@ const Story = {
 					},
 					{
 						name: "Evelyn",
-						lines: "Si mijo, ¿podrías venir a la cocina? pero organiza tu cuarto primero!.",
+						lines:
+							"Si mijo, ¿podrías venir a la cocina? pero organiza tu cuarto primero!.",
 					},
 				],
 			},
@@ -184,8 +185,7 @@ const Story = {
 					},
 					{
 						name: "Evelyn",
-						lines:
-							`Revisa por favor mi habitación y
+						lines: `Revisa por favor mi habitación y
 							
 
 
@@ -193,8 +193,7 @@ const Story = {
 					},
 					{
 						name: "Evelyn",
-						lines:
-							`Voy a salir a comprar algo para el desayuno, no me demoro.`,
+						lines: `Voy a salir a comprar algo para el desayuno, no me demoro.`,
 					},
 					{
 						name: "Xander",
@@ -316,8 +315,7 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines:
-							"No es posible, seguro es una broma.",
+						lines: "No es posible, seguro es una broma.",
 					},
 					{
 						name: "Xander",
@@ -337,7 +335,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: '',
+				log: "",
 				dialogs: [
 					{
 						name: "Xander",
@@ -352,14 +350,12 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: `Pero si no quiero perder a mi abuela....`
+						lines: `Pero si no quiero perder a mi abuela....`,
 					},
 					{
 						name: "Xander",
 						lines: `tengo que encontrar los artefactos que usaba ella.`,
 					},
-
-
 				],
 			},
 			{
@@ -390,7 +386,7 @@ const Story = {
 					{
 						name: "Xander (Buscando desesperadamente)",
 						lines: `Solo me estoy deprimiendo en este lugar con tantos recuerdos...`,
-					}
+					},
 				],
 			},
 			{
@@ -513,7 +509,7 @@ const Story = {
 		camera: { position: [-5, 8, 8] },
 		component: <PrimerEscenario />,
 		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
+			<Xander key={1} position={[-11, 7, 0]} />,
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenery: "s7",
@@ -521,6 +517,8 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
+				log: "Debes eliminar esos cubos para poder pasar",
+				showLog: true,
 				log: "",
 				dialogs: [
 					{
@@ -538,12 +536,60 @@ const Story = {
 			<Xander key={1} position={[-4, 1, 0]} />,
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
-		currentScenery: "s8",
+		currentScenery: "s6",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [
 			{
-				log: '',
+				log: "",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s10: {
+		camera: { position: [8, 8, 5] },
+		component: <Escoger />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />,
+		],
+		currentScenary: "s9",
+		nextScenery: "tapaq",
+		thereIsMission: false,
+		levels: [
+			{
+				log: "",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s11: {
+		camera: { position: [8, 8, 5] },
+		component: <Muerte />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />,
+		],
+		currentScenary: "s9",
+		nextScenery: "tapaq",
+		thereIsMission: false,
+		levels: [
+			{
+				log: "",
 				dialogs: [
 					{
 						name: "Xander",
@@ -564,7 +610,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: '',
+				log: "",
 				dialogs: [
 					{
 						name: "Juan David",
