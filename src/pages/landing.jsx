@@ -15,7 +15,7 @@ export default function Landing() {
 				<ul className="flex space-x-4">
 					<li>
 						<a
-							className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white rounded-lg"
+							className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white rounded-lg hover:text-white"
 							href="/intro-0"
 						>
 							Jugar
@@ -23,7 +23,7 @@ export default function Landing() {
 					</li>
 					<li>
 						<a
-							className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white rounded-lg"
+							className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white rounded-lg hover:text-white"
 							href="#contenido"
 						>
 							Saber más
@@ -31,19 +31,27 @@ export default function Landing() {
 					</li>
 					<li>
 						<a
-							className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white rounded-lg"
+							className="btn btn-blue bg-blue-500 hover:bg-blue-700 text-white rounded-lg hover:text-white"
 							href="#contenido"
 						>
 							Log in
 						</a>
 					</li>
 				</ul>
-				{/* <div>
-					<a href="/intro-0" className="ml-4 text-white ">
-						Log in
-					</a>
-				</div> */}
 			</nav>
+			<div className="flex justify-center row bg-white ">
+				<img
+					width={600}
+					src="/images/juego-en-caja.png"
+					alt="juego virtual oddesy"
+				/>
+				<section className="gameplay-container ">
+					<img src="/images/gameplay1.png" alt="xander en su habitación" />
+					<img src="/images/gameplay2.png" alt="xander en su habitación" />
+					<img src="/images/gameplay3.png" alt="xander en su habitación" />
+					<img src="/images/gameplay4.png" alt="xander en su habitación" />
+				</section>
+			</div>
 
 			<div className="flex  flex-col items-center justify-between p-24 w-full  ">
 				<section id="contenido" className="  p-8">
