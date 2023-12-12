@@ -35,7 +35,7 @@ export default function Intro({ imageId }) {
 		<div className="App">
 			<div className="image-container">
 				<div className="image-row">
-					<img src={`./images/0${imageId}.jpg`} alt="Image 01" />
+					<img src={`./images/${imageId}.jpg`} alt="Image 01" />
 				</div>
 			</div>
 		</div>
@@ -485,15 +485,73 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={9} />,
 		characters: [""],
-		nextScenery: "s5",
+		nextScenery: "intro-10",
 		levels: [
 			{
 				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander",
-						lines: `Investigando sobre nexo digital`,
+						lines: `Vale, he vuelto, ese mundo se ve demasiado imponente para mi.`,
 					},
+					{
+						name: "Xander",
+						lines: `No creo haber encontrado nada ahi para ayudar a mi abuela.`,
+					},
+					{
+						name: "Xander",
+						lines: `... Ahora tengo que idear una manera diferente para salvarla`,
+					},
+					{
+						name: "Xander (Mientras el celular suena)",
+						lines: `Solo tengo que...`,
+					},
+					{
+						name: "Xander (Revisa el celular)",
+						lines: `No, por favor nooo...`,
+					},
+					{
+						name: "Xander (Contesta)",
+						lines: `Por favor no le hagas daño...`,
+					},
+					{
+						name: "Xander",
+						lines: `No me has dado tiempo...`,
+					},
+					{
+						name: "Desconocido",
+						lines: `...`,
+					}
+				],
+			},
+		],
+	},
+	{
+		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
+		component: <Intro imageId={10} />,
+		characters: [""],
+		nextScenery: "gameOver",
+		levels: [
+			{
+				log: "Dale clic en siguiente para continuar con la historia.",
+				dialogs: [
+					{
+						name: "Desconocido",
+						lines: `Ibas tan bien, pero igual de tonto que tu Padre.`,
+					},
+					{
+						name: "Desconocido",
+						lines: `Ya crees que un niñato como tu va a poder pagarme los BitCoins estando en el mundo real.`,
+					},
+					{
+						name: "Desconocido",
+						lines: `Mandale saludos a tu abuela de mi parte.`,
+					},
+					{
+						name: "Xander (Histérico)",
+						lines: `NOOOOOO POR FAVOR NOOOOO....`,
+					}
 				],
 			},
 		],
