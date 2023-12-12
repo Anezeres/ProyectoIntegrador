@@ -180,7 +180,7 @@ const Story = {
 					{
 						name: "Evelyn",
 						lines:
-							"¿Podrías organizar la casita? No has ordenado tu cuarto en años. Desde que acabó la guerra de Ucrania.",
+							" ¿Podrías organizar la casita? No has ordenado tu cuarto en años.",
 					},
 					{
 						name: "Xander",
@@ -365,10 +365,8 @@ const Story = {
 				log: genericLog,
 				dialogs: [
 					{
-						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
-						
-						Un simple recuerdo.`,
+						name: "Raven",
+						lines: `Tu realidad está apunto de cambiar`,
 					},
 				],
 			},
