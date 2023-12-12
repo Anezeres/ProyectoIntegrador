@@ -10,11 +10,6 @@ import PrimerEscenario from "../World/MundoVirtual/PrimerEscenario/PrimerEscenar
 import CuartoXander from "../World/Scenerys/CuartoXander/CuartoXander";
 import SegundoEscenario from "../World/MundoVirtual/SegundoEscenario/SegundoEscenario";
 
-const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
-		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
-		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
-		quidem		quod		quibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem`;
 
 const Story = {
 	s1: {
@@ -336,7 +331,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: genericLog,
+				log: '',
 				dialogs: [
 					{
 						name: "Xander",
@@ -344,7 +339,103 @@ const Story = {
 						
 
 						
+
+
+
 						Un simple recuerdo.`,
+					},
+					{
+						name: "Xander",
+						lines: `Pero si no quiero perder a mi abuela....`
+					},
+					{
+						name: "Xander",
+						lines: `tengo que encontrar los artefactos que usaba ella.`,
+					},
+
+
+				],
+			},
+			{
+				log: `Que harías tu si fueras Xander?`,
+				dialogs: [
+					{
+						name: "Xander (Buscando)",
+						lines: `No lo veo por ningún lado... recuerdo que era parecido a unas gafas.`,
+					},
+					{
+						name: "Xander (Buscando)",
+						lines: `No... 
+						
+						
+						
+						
+						Aquí no.`,
+					},
+				],
+			},
+			{
+				log: `Que harías tu si fueras Xander?`,
+				dialogs: [
+					{
+						name: "Xander (Buscando desesperadamente)",
+						lines: `¿¡Donde esta!?`,
+					},
+					{
+						name: "Xander (Buscando desesperadamente)",
+						lines: `Solo me estoy reprimiendo en este lugar con tantos recuerdos...`,
+					}
+				],
+			},
+			{
+				log: `Que harías tu si fueras Xander?`,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Aquí esta... 
+						
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+
+						
+						si que tiene polvo, pero enciende.`,
+					},
+					{
+						name: "Xander",
+						lines: `Discúlpame Abuela...`,
 					},
 				],
 			},
@@ -362,7 +453,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: genericLog,
+				log: "",
 				dialogs: [
 					{
 						name: "Raven",
@@ -384,7 +475,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: genericLog,
+				log: '',
 				dialogs: [
 					{
 						name: "Xander",
@@ -405,7 +496,7 @@ const Story = {
 		thereIsMission: false,
 		levels: [
 			{
-				log: genericLog,
+				log: '',
 				dialogs: [
 					{
 						name: "Juan David",

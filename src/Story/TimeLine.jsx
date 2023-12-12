@@ -126,10 +126,53 @@ const TimeLine = (props) => {
             case "s4":
                 switch (storyProgress.currentLevel) {
                     case 0:
+                        
                         setIsPaused(false)
+                        setTimeout(() => {
+                            teleport({ x: 0, y: 0, z: 0 }, 'Xander')
+                        }, 20)
                         playAnimation("Idle", "Xander")
                         break;
                     case 1:
+                        stopAnimation('Xander')
+                        setIsPaused(true)
+                        changePosition([
+                            [-2, xanderBodyRef.current.translation().y, 0],
+                            [-2, xanderBodyRef.current.translation().y, 3]],
+                            'Xander',
+                            'Idle',
+                            () => {
+                                stopAnimation('Xander')
+                                rotate(-Math.PI / 2, 'Xander')
+                                playAnimation('Searching', 'Xander')
+                                setIsPaused(false)
+                            })
+                        break;
+                    case 2:
+                        stopAnimation('Xander')
+                        rotate(Math.PI / 2, 'Xander')
+                        setIsPaused(true)
+                        changePosition([
+                            [-2, xanderBodyRef.current.translation().y, -3]],
+                            'Xander',
+                            'Idle',
+                            () => {
+                                stopAnimation('Xander')
+                                rotate(Math.PI / 2, 'Xander')
+                                playAnimation('Searching', 'Xander')
+                                setIsPaused(false)
+                            })
+                        break;
+                    case 3:
+                        setIsPaused(true)
+                        stopAnimation('Xander')
+                        rotate(Math.PI / 2, 'Xander')
+                        playAnimation('Finding', 'Xander', 13.70)
+                        setTimeout(() => { 
+                            teleport({ x: -2, y: xanderBodyRef.current.translation().y, z: 1.4 }, 'Xander') 
+                            playAnimation('Idle','Xander') 
+                            setIsPaused(false)
+                        }, 13700)
                         break;
                 }
                 break;
