@@ -99,11 +99,12 @@ const TimeLine = (props) => {
             case "s3":
                 switch (storyProgress.currentLevel) {
                     case 0:
-                        teleport({ x: 9, y: 1, z: 5 },"Xander")
+                        teleport({ x: 9, y: 1, z: 5 }, "Xander")
                         setIsPaused(false)
                         playAnimation("Idle", "Xander")
                         break;
                     case 1:
+                        setIsPaused(true)
                         stopAnimation('Xander')
                         changePosition([
                             [9, xanderBodyRef.current.translation().y, 6],
@@ -113,6 +114,7 @@ const TimeLine = (props) => {
                             () => {
                                 stopAnimation('Xander')
                                 playAnimation("Idle", "Xander")
+                                setIsPaused(false)
                             })
                         break;
                     case 2:

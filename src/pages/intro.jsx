@@ -168,7 +168,12 @@ export const introState = [
 					},
 					{
 						name: "Xander ",
-						lines: `Mis lágrimas no cesaron durante días.`,
+						lines: `Mis lágrimas... 
+						
+						
+						
+						
+						no cesaron durante días.`,
 					},
 				],
 			},
@@ -252,11 +257,101 @@ export const introState = [
 		nextScenery: "intro-7",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia.",
+				log: "Dale clic en siguiente para continuar con la historia. MV (Mundo Virtual)",
 				dialogs: [
 					{
-						name: "Xander ",
-						lines: `Investigando sobre nexo digital`,
+						name: "Xander (Con lagrimas en sus ojos y corazón acelerado)",
+						lines: `No... 
+						
+						
+						
+						
+						
+						
+						
+						
+						Noooo. 
+						
+						
+						
+						
+						
+						
+						Nooooo.`,
+					},
+					{
+						name: "Xander (Con lagrimas en sus ojos y corazón acelerado)",
+						lines: `No puede estar pasando esto otra vez.`,
+					},
+					{
+						name: "Xander (Con lagrimas en sus ojos y corazón acelerado)",
+						lines: `No puedo permitirlo... 
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						no puedo perder a otro familiar por las mismas razones.`,
+					},
+					{
+						name: "Xander",
+						lines: `Pero...
+						
+						
+						
+						
+						
+						
+						
+
+
+
+						
+						
+						¿qué hago?`,
+					},
+					{
+						name: "Xander",
+						lines: `Tendré que ir en busca de ese hacker, pero ... 
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						¿cómo?`,
+					},
+					{
+						name: "Xander",
+						lines: `Tendré que investigar muchísimo sobre cómo funciona el hacking para poder encontrarlo.`
+					},
+					{
+						name: "Xander",
+						lines: `Convertirme en hacker...`
+					},
+					{
+						name: "Xander",
+						lines: `No imposible... 
+						
+						
+						
+						no tengo tiempo y se muy poco...`
+					},
+					{
+						name: "Xander",
+						lines: `Aunque recuerdo algo... 
+						
+						el Mundo Virtual.`
 					},
 				],
 			},
@@ -273,8 +368,32 @@ export const introState = [
 				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
-						name: "Xander ",
-						lines: `Investigando sobre nexo digital`,
+						name: "Xander (Ya mas tranquilo)",
+						lines: `Abuela… ¿Hace cuanto cerraron el MV?`
+					},
+					{
+						name: "Evelyn (Sorprendida)",
+						lines: `¿Porque lo preguntas? Pensé que esas cosas no te interesaban.`
+					},
+					{
+						name: "Xander",
+						lines: `Pues… leí algo sobre eso ayer, hablaban de un tal META, supuestamente querían crear su propio MV...`
+					},
+					{
+						name: "Evelyn",
+						lines: `jajaja cariño, pues… 
+						
+
+
+						han pasado muchas cosas los últimos años, pero no lo han cerrado.`
+					},
+					{
+						name: "Evelyn",
+						lines: `Ha cambiado mucho, desde que se puede minar criptomonedas en el Mundo Virtual.`
+					},
+					{
+						name: "Evelyn",
+						lines: `El mundo virtual se ha vuelto tierra de nadie, un lugar que hoy en dia no debes estar ahi cariño.`
 					},
 				],
 			},

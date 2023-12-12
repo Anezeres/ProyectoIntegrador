@@ -43,26 +43,26 @@ const Corredor = () => {
 		};
 	}, []);
 
-	useFrame((state) => {
-		// salsa posicion [13, 0.33, -6]
-		if (moviendoCamara) {
-			state.camera.position.x = MathUtils.lerp(
-				state.camera.position.x,
-				11,
-				0.003
-			);
-			state.camera.position.y = MathUtils.lerp(
-				state.camera.position.y,
-				3,
-				0.005
-			);
-			state.camera.position.z = MathUtils.lerp(
-				state.camera.position.z,
-				-3.5,
-				0.002
-			);
-		}
-	});
+	// useFrame((state) => {
+	// 	// salsa posicion [13, 0.33, -6]
+	// 	if (moviendoCamara) {
+	// 		state.camera.position.x = MathUtils.lerp(
+	// 			state.camera.position.x,
+	// 			11,
+	// 			0.003
+	// 		);
+	// 		state.camera.position.y = MathUtils.lerp(
+	// 			state.camera.position.y,
+	// 			3,
+	// 			0.005
+	// 		);
+	// 		state.camera.position.z = MathUtils.lerp(
+	// 			state.camera.position.z,
+	// 			-3.5,
+	// 			0.002
+	// 		);
+	// 	}
+	// });
 	const sonidoDeFondo = () => {
 		const listener = new AudioListener();
 		//cameraRef.current.add(listener);
