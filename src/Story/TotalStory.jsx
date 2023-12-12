@@ -7,9 +7,10 @@ import CuartoAbuela from "../World/Scenerys/CuartoAbuela/CuartoAbuela";
 import CuartoPadres from "../World/Scenerys/CuartoPadres/CuartoPadres";
 import Sotano from "../World/Scenerys/Sotano/Sotano";
 import PrimerEscenario from "../World/MundoVirtual/PrimerEscenario/PrimerEscenario";
-import CuartoXander from "../World/Scenerys/CuartoXander/CuartoXander";
 import SegundoEscenario from "../World/MundoVirtual/SegundoEscenario/SegundoEscenario";
-
+import CuartoXander from "../World/Scenerys/CuartoXander/CuartoXander";
+import Muerte from "../World/MundoVirtual/EscenarioMuerte/Muerte"
+import Escoger from "../World/MundoVirtual/EscenarioEscoger/Escoger";
 
 const Story = {
 	s1: {
@@ -332,7 +333,7 @@ const Story = {
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.2} />],
 		currentScenery: "s4",
-		nextScenery: "intro-9",
+		nextScenery: "intro-8",
 		thereIsMission: false,
 		levels: [
 			{
@@ -388,7 +389,7 @@ const Story = {
 					},
 					{
 						name: "Xander (Buscando desesperadamente)",
-						lines: `Solo me estoy reprimiendo en este lugar con tantos recuerdos...`,
+						lines: `Solo me estoy deprimiendo en este lugar con tantos recuerdos...`,
 					}
 				],
 			},
@@ -476,6 +477,54 @@ const Story = {
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenery: "s6",
+		nextScenery: "tapaq",
+		thereIsMission: false,
+		levels: [
+			{
+				log: '',
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s10: {
+		camera: { position: [8, 8, 5]  },
+		component: <Escoger />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />
+		],
+		currentScenary: "s9",
+		nextScenery: "tapaq",
+		thereIsMission: false,
+		levels: [
+			{
+				log: '',
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s11: {
+		camera: { position: [8, 8, 5]  },
+		component: <Muerte />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />
+		],
+		currentScenary: "s9",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [
