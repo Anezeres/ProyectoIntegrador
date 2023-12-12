@@ -134,10 +134,6 @@ const Story = {
 						name: "Evelyn",
 						lines: `Desde que tuve la operación en el corazón me he sentido un poco cansada.`,
 					},
-					{
-						name: "Xander",
-						lines: "Claro abuela, dame un momento.",
-					},
 				],
 			},
 			{
@@ -145,7 +141,11 @@ const Story = {
 				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa. da clic en los objetos desorganizados para poder continuar",
 				dialogs: [
 					{
-						name: "Xander (*le entrega su cafe recién hecho)",
+						name: "Xander",
+						lines: "Claro abuela, dame un momento.",
+					},
+					{
+						name: "Xander (le entrega su cafe recién hecho)",
 						lines: "Listo abuela, aquí está, espero te guste.",
 					},
 					{
@@ -266,8 +266,8 @@ const Story = {
 							"Tengo un código, Xander, un código que podría salvar o arruinar tu existencia.Tengo la llave del Virtual Organs de tu abuela. Pero no te preocupes, estoy dispuesto a hacer un trato contigo.",
 					},
 					{
-						name: "Xander",
-						lines: "(Preocupado) ¿Un trato? ¿Qué quieres?",
+						name: "Xander(Preocupado)",
+						lines: "¿Un trato? ¿Qué quieres?",
 					},
 					{
 						name: "Desconocido",
@@ -280,13 +280,13 @@ const Story = {
 							"Pero... ¿por qué debería confiar en ti? ¿Cómo sé que cumplirás tu parte del trato?",
 					},
 					{
-						name: "Desconocido",
-						lines: "(Ríe) Desconfiar es un lujo que no te puedes permitir.",
+						name: "Desconocido (Ríe)",
+						lines: "Desconfiar es un lujo que no te puedes permitir.",
 					},
 					{
-						name: "Desconocido",
+						name: "Desconocido (Ríe)",
 						lines:
-							"(Ríe) Pero si valoras la vida de tu abuela, no te conviene desafiarme. Tienes  2 semanas para conseguir el dinero y seguir mis instrucciones. Si no lo haces, las consecuencias serán desastrosas.",
+							"Pero si valoras la vida de tu abuela, no te conviene desafiarme. Tienes  2 semanas para conseguir el dinero y seguir mis instrucciones. Si no lo haces, las consecuencias serán desastrosas.",
 					},
 					{
 						name: "Xander",
@@ -310,13 +310,18 @@ const Story = {
 						lines: "¿Cómo conseguiste el acceso al VOG de mi abuela?",
 					},
 					{
-						name: "Desconocido (antes de colgar)",
+						name: "Desconocido (Antes de colgar)",
 						lines: "Solo obedece...",
 					},
 					{
 						name: "Xander",
 						lines:
-							"No es posible, seguro es una broma. Voy a investigar un poco. No creo que sea cierto. No es posible acceder a un VOG de manera remota ¿O sí?",
+							"No es posible, seguro es una broma.",
+					},
+					{
+						name: "Xander",
+						lines:
+							"No creo que sea cierto. No es posible acceder a un VOG de manera remota... ¿O sí?",
 					},
 				],
 			},
@@ -428,7 +433,7 @@ const Story = {
 
 
 
-						
+
 
 						
 						si que tiene polvo, pero enciende.`,
