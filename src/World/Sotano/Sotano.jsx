@@ -54,7 +54,13 @@ const Sotano = () => {
 
 	return (
 		<>
-			<OrbitControls makeDefault target={[0, 0, 0]} />
+			<OrbitControls
+				enableRotate={false}
+				enablePan={false}
+				enableZoom={false}
+				makeDefault
+				target={[0, 0, 0]}
+			/>
 
 			{/* <Fondo /> */}
 			{/* <Cuarto rotation-y={-Math.PI}/> */}
