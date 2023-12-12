@@ -12,7 +12,7 @@ import { cameraContext } from "../../../Context/cameraContext";
 
 const CuartoAbuela = () => {
 	const { camera } = useContext(cameraContext);
-	const { storyProgress } = useContext(refContext)
+	const { storyProgress } = useContext(refContext);
 	const [target, setTarget] = useState([12, 4, 8]);
 	const [moviendoCamara, setMoviendoCamara] = useState(false);
 
@@ -20,24 +20,30 @@ const CuartoAbuela = () => {
 		//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
 		//console.log("storyProgress.scenery: ", storyProgress.scenery)
 		//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
-		if (storyProgress.currentStep == 0 && storyProgress.currentLevel == 2 && storyProgress.scenery == 's3') {
+		if (
+			storyProgress.currentStep == 0 &&
+			storyProgress.currentLevel == 2 &&
+			storyProgress.scenery == "s3"
+		) {
 			setMoviendoCamara(true);
-			setTarget([9, 2, 5]);
+			setTarget([9, 1.5, 5.6]);
 		}
 	}, [storyProgress.currentLevel, storyProgress.currentStep]);
-
+	useEffect(() => {
+		moveCamera();
+	}, []);
 	useFrame((state) => {
 		// Xander posicion [9, 2, 5]
 		if (moviendoCamara) {
 			state.camera.position.x = MathUtils.lerp(
 				state.camera.position.x,
-				8,
-				0.009
+				4,
+				0.004
 			);
 			state.camera.position.y = MathUtils.lerp(
 				state.camera.position.y,
 				3.1,
-				0.005
+				0.0005
 			);
 			state.camera.position.z = MathUtils.lerp(
 				state.camera.position.z,
@@ -51,8 +57,6 @@ const CuartoAbuela = () => {
 		camera.position.z = 9;
 		camera.position.y = 3;
 	};
-
-	moveCamera();
 
 	return (
 		<>
