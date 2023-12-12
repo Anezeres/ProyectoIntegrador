@@ -11,7 +11,7 @@ const WallsPrimerEsc = () => {
 
 
     const propsTexture = useTexture({
-        map: PATH + 'Matrix.png'
+        map: PATH + 'Matrix2.png'
     })
 
 
@@ -21,6 +21,11 @@ const WallsPrimerEsc = () => {
             <RigidBody type="fixed" debug>
                 <Floor rotation-x={Math.PI/2}  rotation-z={Math.PI/2} position={[12,4,0]} textures={propsTexture}/>
                 <Floor rotation-x={Math.PI/2} position={[8,4,-4]} textures={propsTexture}/>
+
+
+                <Floor rotation-x={Math.PI/2} rotation-z={Math.PI/2} position={[0,4,0]} textures={propsTexture}/>
+                <Floor rotation-x={Math.PI/2} rotation-z={-Math.PI/2} position={[0,4,0]} textures={propsTexture}/>
+
                 <Floor rotation-x={Math.PI/2} position={[0,4,-4]} textures={propsTexture}/>
                 <Floor rotation-x={Math.PI/2} position={[-8,4,-4]} textures={propsTexture}/>
 

@@ -3,6 +3,9 @@ import WallsPrimerEsc from "./WallsPrimerEsc";
 import PlatformPrimerEsc from "./PlatformPrimerEsc";
 import { useContext } from "react";
 import { cameraContext } from "../../Context/cameraContext";
+import PuertaSciFi from "./PuertaSciFi";
+import Capsula from "./Capsula";
+import Cubos from "./Cubos";
 
 const PrimerEscenario = () => {
 
@@ -20,6 +23,9 @@ const PrimerEscenario = () => {
         <>
             <OrbitControls makeDefault target={[0, 2, 0]}/>
             <PlatformPrimerEsc/>
+            <PuertaSciFi/>
+            <Capsula/>
+            <Cubos/>
             <WallsPrimerEsc/>
         </>
     )

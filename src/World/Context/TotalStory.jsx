@@ -8,6 +8,7 @@ import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
 import Sotano from "../Sotano/Sotano";
 import PrimerEscenario from "../MundoVirtual/PrimerEscenario/PrimerEscenario";
 import CuartoXander from "../SecondFloor/CuartoXander/CuartoXander";
+import SegundoEscenario from "../MundoVirtual/SegundoEscenario/SegundoEscenario";
 
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -19,9 +20,7 @@ const Story = {
 	s1: {
 		camera: { position: [-1, 4, 0] },
 		component: <CuartoXander />,
-		characters: [
-			<Xander key={1} position={[-18, 1, -10.5]} />,
-		],
+		characters: [<Xander key={1} position={[-18, 1, -10.5]} />],
 		currentScenary: "s1",
 		nextScenery: "s2",
 		thereIsMission: true,
@@ -36,7 +35,8 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: "A veces, me siento como un espectador en lugar de un participante en la vida real.",
+						lines:
+							"A veces, me siento como un espectador en lugar de un participante en la vida real.",
 					},
 					{
 						name: "Xander",
@@ -44,8 +44,9 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: "Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
-					}
+						lines:
+							"Por suerte tengo a mi abuela Evelyn, siempre me ha cuidado... Yo... La quiero mucho.",
+					},
 				],
 			},
 			{
@@ -98,7 +99,7 @@ const Story = {
 		camera: { position: [-1, 4, 4] },
 		component: <Corredor />,
 		characters: [
-			<Xander key={1} position={[1, 0.3, 1]} scale={1.4} />,
+			<Xander key={1} position={[-6.2, 1, -3.2]} scale={1.4} />,
 			<Abuela key={2} position={[6, 0.2, -7]} scale={1.4} />,
 		],
 		currentScenery: "s2",
@@ -106,7 +107,7 @@ const Story = {
 		thereIsMission: true,
 		levels: [
 			{
-				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -124,7 +125,7 @@ const Story = {
 			},
 			{
 				showLog: true,
-				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el suelo del pasillo. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
+				log: "Antes de hacer el café ayuda a la abuela a recoger las cosas que está sobre la mesa de la sala. Hay una cámara de las antiguas en el sofá. Xander la dejó ahí en un descuido. Será mejor que la pongas sobre la mesa.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -187,10 +188,10 @@ const Story = {
 						`,
 					},
 					{
-						name: "Xander (mientras suena el SynthiCom)",
+						name: "Xander (mientras suena el Celular)",
 						lines: `Qué extraño sonido. 
 						
-						Así no suena mi Synthi. Bueno, voy a contestar.`,
+						Es el celular de mi abuela, debería usar usar un SynthiCom. Bueno, voy a contestar.`,
 					},
 					{
 						name: "Desconocido",
@@ -297,9 +298,33 @@ const Story = {
 		component: <PrimerEscenario />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />
+			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenary: "s5",
+		nextScenery: "s6",
+		thereIsMission: false,
+		levels: [
+			{
+				log: genericLog,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s6: {
+		camera: { position: [5, 8, 5] },
+		component: <SegundoEscenario />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />,
+		],
+		currentScenary: "s6",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [

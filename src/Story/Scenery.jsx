@@ -23,6 +23,12 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 		volume: 0.3,
 	});
 
+	const [playDramaticSound] = useSound("assets/sounds/dramatic-hit.wav", {
+		volume: 0.5,
+		loop: true,
+	});
+	const webHistory = useHistory();
+
 
 
 
@@ -36,7 +42,11 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 					currentLevel: 0,
 				});
 
-				window.location.href = "/" + nextScenery;
+				if (nextScenery[0] == "s") {
+					window.location.href = "/" + nextScenery;
+				} else {
+					webHistory.push("/" + nextScenery);
+				}
 			} else {
 				updateStoryProgress({
 					currentLevel: storyProgress.currentLevel + 1,
@@ -50,10 +60,11 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 
 		//Sonido
 		if (
-			levels[storyProgress.currentLevel].dialogs[storyProgress.currentStep + 1]?.name &&
-			"Xander (mientras suena el SynthiCom)" == levels[storyProgress.currentLevel].dialogs[storyProgress.currentStep + 1]?.name
+			dialogs[currentStep + 1]?.name &&
+			"Xander (mientras suena el Celular)" == dialogs[currentStep + 1].name
 		) {
 			playRingSound();
+			playDramaticSound();
 		}
 
 	}

@@ -264,7 +264,7 @@ const Objetos = (props) => {
 
 			{/* Mesita Pequeña */}
 
-			<group position={[14, 0, 0.4]} scale={1.2} rotation-y={-Math.PI / 2}>
+			<group position={[11, 0, 0.4]} scale={1.2} rotation-y={-Math.PI / 2}>
 				<mesh
 					receiveShadow
 					geometry={nodes.coffee_table_001.geometry}
@@ -273,7 +273,7 @@ const Objetos = (props) => {
 				/>
 			</group>
 
-			<group rotation-y={Math.PI / 2} position={[11.7, 0, -5.8]}>
+			<group rotation-y={Math.PI / 2} position={[8.7, 0, -5.8]}>
 				<mesh
 					castShadow
 					geometry={nodes.sofa_001.geometry}
@@ -326,7 +326,7 @@ const Objetos = (props) => {
 					castShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[13, 0.33, -6]}
+					position={[10, 0.33, -6]}
 					onClick={moverSalsaTomate2}
 					ref={salsaRef2}
 					scale={1.3}
@@ -348,7 +348,7 @@ const Objetos = (props) => {
 					castShadow
 					geometry={nodes.dish_001.geometry}
 					material={materials.Material}
-					position={[8.7, 0.22, -3.8]} /* [8.7, 0.22, -3.8] */
+					position={[7, 0.22, -3.8]} /* [8.7, 0.22, -3.8] */
 					onClick={moverDulces}
 					ref={dulcesRef}
 					scale={1.3}
