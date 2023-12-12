@@ -70,26 +70,26 @@ const TimeLine = (props) => {
                 switch (storyProgress.currentLevel) {
                     case 0:
                         setIsPaused(false)
-                        setTimeout(() => { 
+                        setTimeout(() => {
                             teleport({ x: -7, y: 0.2, z: -3.2 }, 'Xander')
                             teleport({ x: 6, y: 0.2, z: -7 }, 'Abuela')
                         }, 20)
                         rotate(Math.PI / 3, 'Abuela')
                         playAnimation('Idle', 'Abuela', null)
                         playAnimation('Idle', 'Xander', null)
-                        setTimeout(() => { 
+                        setTimeout(() => {
                             stopAnimation('Xander')
                             changePosition([
                                 [-7, xanderBodyRef.current.translation().y, -0],
                                 [8, xanderBodyRef.current.translation().y, -0],
-                                [8, xanderBodyRef.current.translation().y, -6]],    
-                            'Xander',
-                            'Idle',
-                            () => {
-                                stopAnimation('Xander')
-                                rotate(Math.PI / 3, 'Xander')
-                                playAnimation('Idle', 'Xander', null)
-                            })
+                                [8, xanderBodyRef.current.translation().y, -6]],
+                                'Xander',
+                                'Idle',
+                                () => {
+                                    stopAnimation('Xander')
+                                    rotate(Math.PI / 3, 'Xander')
+                                    playAnimation('Idle', 'Xander', null)
+                                })
                         }, 2000)
                         break;
                     case 1:
@@ -99,11 +99,24 @@ const TimeLine = (props) => {
             case "s3":
                 switch (storyProgress.currentLevel) {
                     case 0:
+                        teleport({ x: 9, y: 1, z: 5 },"Xander")
                         setIsPaused(false)
                         playAnimation("Idle", "Xander")
                         break;
+                    case 1:
+                        stopAnimation('Xander')
+                        changePosition([
+                            [9, xanderBodyRef.current.translation().y, 6],
+                            [5.3, xanderBodyRef.current.translation().y, 6]],
+                            'Xander',
+                            'Idle',
+                            () => {
+                                stopAnimation('Xander')
+                                playAnimation("Idle", "Xander")
+                            })
+                        break;
                     case 2:
-                        stopAnimation("Xander")
+                        stopAnimation('Xander')
                         playAnimation("TalkingPhone", "Xander")
                         break;
                 }
