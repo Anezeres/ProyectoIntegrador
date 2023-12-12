@@ -411,7 +411,7 @@ export const introState = [
 					},
 					{
 						name: "Xander",
-						lines: `Wow abuela… Sabes mucho ¿Alguna vez entraste?`
+						lines: `Wow abuela… Sabes mucho ¿Alguna vez entraste?.`
 					},
 					{
 						name: "Evelyn",
@@ -438,7 +438,54 @@ export const introState = [
 		thereIsMission: false,
 		component: <Intro imageId={8} />,
 		characters: [""],
-		nextScenery: "intro-9",
+		nextScenery: "s5",
+		levels: [
+			{
+				log: "Dale clic en siguiente para continuar con la historia.",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Esta lleno de polvo.`,
+					},
+					{
+						name: "Xander",
+						lines: `Se puede notar como es diferente a las cosas de hoy en dia.`,
+					},
+					{
+						name: "Xander",
+						lines: `Como funcionara? solo se que esta prendido por esta luz al costado.`,
+					},
+					{
+						name: "Xander (Se coloca el artefacto)",
+						lines: `Solo hay una forma de saberlo.`,
+					},
+					{
+						name: "Xander",
+						lines: `Asi funcionaba las cosas antes?... no siento nada.`,
+					},
+					{
+						name: "Xander",
+						lines: `Creo que ya esta funcionando...`,
+					},
+					{
+						name: "Xander (Sintiéndose Mareado)",
+						lines: `Siento como si me fuera a desma...`,
+					},
+					{
+						name: "Xander (Cae)",
+						lines: `...`,
+					},
+				],
+				
+			},
+		],
+	},
+	{
+		camera: { position: [-1, 4, 0] },
+		thereIsMission: false,
+		component: <Intro imageId={9} />,
+		characters: [""],
+		nextScenery: "s5",
 		levels: [
 			{
 				log: "Dale clic en siguiente para continuar con la historia.",

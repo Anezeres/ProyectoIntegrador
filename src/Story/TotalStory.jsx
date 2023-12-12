@@ -332,7 +332,7 @@ const Story = {
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.2} />],
 		currentScenery: "s4",
-		nextScenery: "intro-9",
+		nextScenery: "intro-8",
 		thereIsMission: false,
 		levels: [
 			{
@@ -388,7 +388,7 @@ const Story = {
 					},
 					{
 						name: "Xander (Buscando desesperadamente)",
-						lines: `Solo me estoy reprimiendo en este lugar con tantos recuerdos...`,
+						lines: `Solo me estoy deprimiendo en este lugar con tantos recuerdos...`,
 					}
 				],
 			},
