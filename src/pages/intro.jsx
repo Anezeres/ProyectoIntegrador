@@ -449,7 +449,7 @@ export const introState = [
 					},
 					{
 						name: "Xander",
-						lines: `Se puede notar como es diferente a las cosas de hoy en dia.`,
+						lines: `Se puede notar como es de diferente a las cosas de hoy en dia.`,
 					},
 					{
 						name: "Xander",

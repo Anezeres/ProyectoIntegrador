@@ -410,32 +410,6 @@ const Story = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 						
 						si que tiene polvo, pero enciende.`,
 					},
@@ -448,14 +422,102 @@ const Story = {
 		],
 	},
 	s5: {
+		camera: { position: [8, 8, 5]  },
+		component: <Escoger />,
+		characters: [
+			<Xander key={1} position={[-2, 20, 0]} />
+		],
+		currentScenary: "s5",
+		nextScenery: "tapaq",
+		thereIsMission: true,
+		levels: [
+			{
+				log: '',
+				dialogs: [
+					{
+						name: "Xander (Aparece y Cae)",
+						lines: `Auch.`,
+					},
+					{
+						name: "Xander",
+						lines: `¿Donde estoy?... ¿en el Mundo Virtual?.`,
+					},
+					{
+						name: "Xander",
+						lines: `Ya podrían programarlo mejor, caer de los cielos no es una buena invitación.`,
+					},
+					{
+						name: "Xander",
+						lines: `Pero admito que mi puerta atrás mio esta bien programado, es similar a mi casa. sera la salida?`,
+					},
+					{
+						name: "Xander",
+						lines: `¿Y eso de enfrente es la entrada al VM?.`,
+					},
+					{
+						name: "Xander",
+						lines: `Es muy diferente a lo que pense que era...`,
+					},
+					{
+						name: "Xander (Dudoso)",
+						lines: `Si entro al mundo virtual, no creo poder volver aunque quiera, por amor a mi abuela.`,
+					},
+					{
+						name: "Xander (Dudoso)",
+						lines: `Aunque no sé, si al cruzar esa puerta, este la solución para salvarla a ella.`,
+					},
+					{
+						name: "Xander (Dudoso)",
+						lines: `Pero si me devuelvo podre mirar otras maneras en el mundo real.`,
+					},
+					
+				],
+			},
+			{
+				log: "¡Xander Debe tomar una decisión para salvar a su abuela! volver al mundo y arreglar las cosas en el mundo que conoce, o aventurarse al Mundo Virtual, sin saber que si haya encontrará la manera de salvar a su abuela. Elige dando clic en la decisión que tomes.",
+				showLog: true,
+				dialogs: [
+					{
+						name: "Xander (Dudoso)",
+						lines: `¿Que debo hacer?`,
+					},
+				],
+			},
+		],
+	},
+	s6: {
+		camera: { position: [8, 8, 5]  },
+		component: <Muerte />,
+		characters: [
+			<Xander key={1} position={[-4, 1, 0]} />,
+			<Raven key={2} position={[6, 1, 0]} />
+		],
+		currentScenary: "s6",
+		nextScenery: "intro-9",
+		thereIsMission: false,
+		levels: [
+			{
+				log: '',
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						
+						Un simple recuerdo.`,
+					},
+				],
+			},
+		],
+	},
+	s7: {
 		camera: { position: [-5, 8, 8] },
 		component: <PrimerEscenario />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
-		currentScenery: "s5",
-		nextScenery: "s6",
+		currentScenery: "s7",
+		nextScenery: "s8",
 		thereIsMission: false,
 		levels: [
 			{
@@ -469,62 +531,14 @@ const Story = {
 			},
 		],
 	},
-	s6: {
+	s8: {
 		camera: { position: [5, 8, 5] },
 		component: <SegundoEscenario />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
-		currentScenery: "s6",
-		nextScenery: "tapaq",
-		thereIsMission: false,
-		levels: [
-			{
-				log: '',
-				dialogs: [
-					{
-						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
-						
-						Un simple recuerdo.`,
-					},
-				],
-			},
-		],
-	},
-	s10: {
-		camera: { position: [8, 8, 5]  },
-		component: <Escoger />,
-		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />
-		],
-		currentScenary: "s9",
-		nextScenery: "tapaq",
-		thereIsMission: false,
-		levels: [
-			{
-				log: '',
-				dialogs: [
-					{
-						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
-						
-						Un simple recuerdo.`,
-					},
-				],
-			},
-		],
-	},
-	s11: {
-		camera: { position: [8, 8, 5]  },
-		component: <Muerte />,
-		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />
-		],
-		currentScenary: "s9",
+		currentScenery: "s8",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [

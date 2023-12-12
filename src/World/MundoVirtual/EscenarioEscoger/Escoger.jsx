@@ -7,6 +7,7 @@ import WallsEscoger from "./WallsEscoger";
 import ObjetosEscoger from "./ObjetosEscoger";
 import TextoEscoger from "./TextoEscoger";
 import { cameraContext } from "../../../Context/cameraContext";
+import Iluminacion from "./Iluminacion";
 
 const Escoger = () => {
 
@@ -28,6 +29,7 @@ const Escoger = () => {
             <WallsEscoger/>
             <ObjetosEscoger/>
             <TextoEscoger/>
+            <Iluminacion/>
         </>
     )
 

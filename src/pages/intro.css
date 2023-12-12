@@ -27,7 +27,7 @@ body {
 }
 
 .image-row img {
-  max-width: 42%; /* Cambia el tamaño de las imágenes según tus necesidades */
+  max-width: 80%; /* Cambia el tamaño de las imágenes según tus necesidades */
   border-radius: 15px; /* Borde redondeado */
   border: 2px solid #4d205a; /* Borde azul oscuro */
   box-shadow: 0 0 10px #d775f4;

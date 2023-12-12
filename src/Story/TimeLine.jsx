@@ -128,7 +128,7 @@ const TimeLine = (props) => {
             case "s4":
                 switch (storyProgress.currentLevel) {
                     case 0:
-                        
+
                         setIsPaused(false)
                         setTimeout(() => {
                             teleport({ x: 0, y: 0, z: 0 }, 'Xander')
@@ -170,11 +170,22 @@ const TimeLine = (props) => {
                         stopAnimation('Xander')
                         rotate(Math.PI / 2, 'Xander')
                         playAnimation('Finding', 'Xander', 13.70)
-                        setTimeout(() => { 
-                            teleport({ x: -2, y: xanderBodyRef.current.translation().y, z: 1.4 }, 'Xander') 
-                            playAnimation('Idle','Xander') 
+                        setTimeout(() => {
+                            teleport({ x: -2, y: xanderBodyRef.current.translation().y, z: 1.4 }, 'Xander')
+                            playAnimation('Idle', 'Xander')
                             setIsPaused(false)
                         }, 13700)
+                        break;
+                }
+                break;
+            case "s5":
+                switch (storyProgress.currentLevel) {
+                    case 0:
+                        setIsPaused(false)
+                        playAnimation("Idle", "Xander")
+                        rotate(Math.PI / 2, 'Xander')
+                        break;
+                    case 1:
                         break;
                 }
                 break;

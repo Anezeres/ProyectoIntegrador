@@ -11,7 +11,7 @@ const TextoEscoger = () => {
         <>
            <Center>
                 <Html
-                    position={[-4.3, 1.8, 5]}
+                    position={[-3,2,4]}
                     center
                     distanceFactor={12}
                     visible={false}
