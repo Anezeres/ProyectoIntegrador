@@ -1,6 +1,6 @@
 import { OrbitControls } from "@react-three/drei";
 import { useContext } from "react";
-import { cameraContext } from "../../Context/cameraContext";
+import { cameraContext } from "../../../Context/cameraContext";
 import PlatformSegundoEsc from "./PlatformSegundoEsc";
 import WallsSegundoEsc from "./WallsSegundoEsc";
 import Carrito from "./Carrito";

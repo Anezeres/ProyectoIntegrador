@@ -3,9 +3,9 @@ import Experience from "./Experience";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Scenery from "./Story/Scenery";
 import Landing from "./pages/landing";
-import Story from "./World/Context/TotalStory.jsx";
-import RefContext from "./World/Context/RefContext.jsx";
+import RefContext from "./Context/RefContext.jsx";
 import { introState } from "./pages/intro.jsx";
+import Story from "./Story/TotalStory.jsx";
 
 export default function App() {
 	return (
@@ -41,7 +41,7 @@ export default function App() {
 										story={Story}
 										levels={Story[key].levels}
 										nextScenery={Story[key].nextScenery}
-										currentScenary={Story[key].currentScenary}
+										currentScenery={Story[key].currentScenery}
 										thereIsMission={Story[key].thereIsMission}
 									/>
 								</Route>

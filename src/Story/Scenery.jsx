@@ -1,72 +1,57 @@
 import { useState, useEffect, useContext } from "react";
 import Dialogs from "../Components/Dialogs";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { refContext } from "../World/Context/refContext";
 import useSound from "use-sound";
+import { refContext } from "../Context/refContext";
 
-export default function Scenery({ levels, nextScenery, currentScenary, thereIsMission }) {
+export default function Scenery({ levels, nextScenery, currentScenery, thereIsMission }) {
 	const { storyProgress, updateStoryProgress, isPaused } = useContext(refContext);
-
 	const [logVisible, setLogVisible] = useState(false);
-
 	const [log, setLog] = useState(levels[0]?.log);
 
-	useEffect(() => {
-		setLog(levels[storyProgress.currentLevel].log);
-	}, [storyProgress.currentLevel]);
-
-	//Sonidos
+	//Carga los sonidos
 	const [playSound] = useSound("assets/sounds/click.mp3", {
 		volume: 0.1,
 	});
 	const [playRingSound] = useSound("assets/sounds/ring.m4a", {
-		volume: 0.3,
+		volume: 0.1,
 	});
-
 	const [playDramaticSound] = useSound("assets/sounds/dramatic-hit.wav", {
 		volume: 0.5,
 		loop: true,
 	});
-	const webHistory = useHistory();
-
-
-
 
 	//Continua la historia
 	function setNextStep() {
-		console.log("Entering setNextStep");
-
 		if (storyProgress.currentStep === levels[storyProgress.currentLevel].dialogs.length - 1) {
-			if (storyProgress.currentLevel === levels.length - 1) {
+			if (storyProgress.currentLevel === levels.length - 1) {//Cuando cambia de escenario
 				updateStoryProgress({
+					scenery: nextScenery,
 					currentLevel: 0,
 				});
-
-				if (nextScenery[0] == "s") {
-					window.location.href = "/" + nextScenery;
-				} else {
-					webHistory.push("/" + nextScenery);
-				}
+				window.location.href = "/" + nextScenery;
 			} else {
-				updateStoryProgress({
+				updateStoryProgress({//Cuando cambia de nivel
 					currentLevel: storyProgress.currentLevel + 1,
 				});
 			}
 		} else {
-			updateStoryProgress({
+			updateStoryProgress({//Cuando cambia de a siguiente dialogo
 				currentStep: storyProgress.currentStep + 1,
 			});
 		}
 
 		//Sonido
 		if (
-			dialogs[currentStep + 1]?.name &&
-			"Xander (mientras suena el Celular)" == dialogs[currentStep + 1].name
+			storyProgress.currentLevel === 0 && storyProgress.scenery === 's3' && storyProgress.currentStep == 0
 		) {
 			playRingSound();
-			playDramaticSound();
 		}
 
+		if (
+			storyProgress.currentLevel === 1 && storyProgress.scenery === 's3' && storyProgress.currentStep == 0
+		) {
+			playDramaticSound();
+		}
 	}
 
 
@@ -74,6 +59,18 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 	const handleShowLog = () => {
 		setLogVisible(!logVisible);
 	};
+
+	//Actualiza el log
+	useEffect(() => {
+		setLog(levels[storyProgress.currentLevel].log);
+	}, [storyProgress.currentStep, storyProgress.currentLevel]);
+
+	//Actualiza el escenario en el estado global
+	useEffect(() => {
+		updateStoryProgress({
+			scenery: currentScenery,
+		});
+	}, []);
 
 	return (
 		<>
@@ -102,9 +99,8 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 					}}
 					className={
 						`text-lg  font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 border-2 border-solid select-none
-						${logVisible ? 'mr-32' : ''} 
-						${isPaused ? 'bg-[#765ff5] text-gray-300 border-[#765ff5]' : 'bg-[#4cdef8] border-[#4cdef8]'}
-						`
+						${logVisible ? 'mr-52' : ''} 
+						${isPaused ? 'bg-[#765ff5] text-gray-300 border-[#765ff5]' : 'bg-[#4cdef8] border-[#4cdef8]'}`
 					}
 				>
 					{logVisible ? "Entendido" : `${isPaused ? 'Espera' : 'Siguiente'}`}

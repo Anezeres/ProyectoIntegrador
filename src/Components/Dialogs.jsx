@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import { refContext } from "../World/Context/refContext";
+import { refContext } from "../Context/refContext";
 
 /*  speed: milliseconds per letter */
 export default function Dialogs({ levels }) {
@@ -13,26 +13,24 @@ export default function Dialogs({ levels }) {
 	// POR AHORA TODO CON LEVEL CERO
 	const [dialogs, setDialogs] = useState(levels[0]?.dialogs);
 
+	//Actualiza cuando cambia de nivel
 	useEffect(() => {
 		setDialogs(levels[storyProgress.currentLevel].dialogs);
-		if (storyProgress.currentLevel === levels.length - 1) {
-			setCurrentName(dialogs[storyProgress.currentStep].name);
-			setCurrentLines(dialogs[storyProgress.currentStep].lines);
-			console.log('entre')
-		} else {
+		if (storyProgress.currentStep === 0) { //Para los casos en que el nivel solo tenga 1 dialogo
+			setCurrentName(levels[storyProgress.currentLevel].dialogs[storyProgress.currentStep].name);
+			setCurrentLines(levels[storyProgress.currentLevel].dialogs[storyProgress.currentStep].lines);
+		}else{
 			updateStoryProgress({
 				currentStep: 0,
 			});
 		}
-		
-		console.log("currentLevel:", storyProgress.currentLevel);
+
 	}, [storyProgress.currentLevel]);
 
+	//Actualiza cuando cambia al dialogo siguiente
 	useEffect(() => {
 		setCurrentName(dialogs[storyProgress.currentStep].name);
 		setCurrentLines(dialogs[storyProgress.currentStep].lines);
-		console.log("currentStep:", storyProgress.currentStep);
-		console.log("currentLine:", dialogs[storyProgress.currentStep].lines);
 
 	}, [storyProgress.currentStep]);
 

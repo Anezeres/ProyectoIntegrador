@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
-import { characterContext } from "../World/Context/characterContext";
-import { refContext } from "../World/Context/refContext";
+import { characterContext } from "../Context/characterContext";
+import { refContext } from "../Context/refContext";
+import { cameraContext } from "../Context/cameraContext";
 
 
 
@@ -8,6 +9,7 @@ import { refContext } from "../World/Context/refContext";
 const TimeLine = (props) => {
     const { changePosition, playAnimation, stopAnimation, rotate, teleport, xanderBodyRef, moveMesh, newPosition } = useContext(characterContext)
     const { storyProgress, setIsPaused } = useContext(refContext);
+    const { abrirPuerta, doorRef } = useContext(cameraContext)
 
     useEffect(() => {
         //console.log(storyProgress.currentLevel)
@@ -20,6 +22,7 @@ const TimeLine = (props) => {
                         playAnimation("Sleep", "Xander", null)
                         break;
                     case 1:
+                        abrirPuerta(doorRef)
                         stopAnimation('Xander')
                         playAnimation("WakeUp", "Xander", 5.733333110809326)
                         moveMesh([0, -1, 0], 'Xander')
@@ -67,8 +70,27 @@ const TimeLine = (props) => {
                 switch (storyProgress.currentLevel) {
                     case 0:
                         setIsPaused(false)
-                        playAnimation("Idle", "Xander")
-
+                        setTimeout(() => { 
+                            teleport({ x: -7, y: 0.2, z: -3.2 }, 'Xander')
+                            teleport({ x: 6, y: 0.2, z: -7 }, 'Abuela')
+                        }, 20)
+                        rotate(Math.PI / 3, 'Abuela')
+                        playAnimation('Idle', 'Abuela', null)
+                        playAnimation('Idle', 'Xander', null)
+                        setTimeout(() => { 
+                            stopAnimation('Xander')
+                            changePosition([
+                                [-7, xanderBodyRef.current.translation().y, -0],
+                                [8, xanderBodyRef.current.translation().y, -0],
+                                [8, xanderBodyRef.current.translation().y, -6]],    
+                            'Xander',
+                            'Idle',
+                            () => {
+                                stopAnimation('Xander')
+                                rotate(Math.PI / 3, 'Xander')
+                                playAnimation('Idle', 'Xander', null)
+                            })
+                        }, 2000)
                         break;
                     case 1:
                         break;
@@ -80,7 +102,9 @@ const TimeLine = (props) => {
                         setIsPaused(false)
                         playAnimation("Idle", "Xander")
                         break;
-                    case 1:
+                    case 2:
+                        stopAnimation("Xander")
+                        playAnimation("TalkingPhone", "Xander")
                         break;
                 }
                 break;

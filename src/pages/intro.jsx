@@ -108,7 +108,7 @@ export const introState = [
 		nextScenery: "intro-1",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [],
 			},
 		],
@@ -122,7 +122,7 @@ export const introState = [
 		nextScenery: "intro-2",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -156,11 +156,19 @@ export const introState = [
 		nextScenery: "intro-3",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
-						lines: `Una enfermedad devastadora atacó a mis padres. Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo. Mis lágrimas no cesaron durante días.`,
+						lines: `Una enfermedad devastadora atacó a mis padres.`,
+					},
+					{
+						name: "Xander ",
+						lines: `Recuerdo claramente el día en que mi abuela Evelyn tomó la valiente decisión de contármelo.`,
+					},
+					{
+						name: "Xander ",
+						lines: `Mis lágrimas no cesaron durante días.`,
 					},
 				],
 			},
@@ -175,7 +183,7 @@ export const introState = [
 		nextScenery: "intro-4",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia. Virtual Organs (Órganos Virtuales).",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -199,7 +207,7 @@ export const introState = [
 		nextScenery: "intro-5",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -218,7 +226,7 @@ export const introState = [
 		nextScenery: "s1",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander",
@@ -236,7 +244,7 @@ export const introState = [
 		nextScenery: "intro-7",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -254,7 +262,7 @@ export const introState = [
 		nextScenery: "intro-8",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander ",
@@ -272,7 +280,7 @@ export const introState = [
 		nextScenery: "s4",
 		levels: [
 			{
-				log: "Dale clic en siguiente para continuar con la historia",
+				log: "Dale clic en siguiente para continuar con la historia.",
 				dialogs: [
 					{
 						name: "Xander",

@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import WallsPrimerEsc from "./WallsPrimerEsc";
 import PlatformPrimerEsc from "./PlatformPrimerEsc";
 import { useContext } from "react";
-import { cameraContext } from "../../Context/cameraContext";
+import { cameraContext } from "../../../Context/cameraContext";
 import PuertaSciFi from "./PuertaSciFi";
 import Capsula from "./Capsula";
 import Cubos from "./Cubos";

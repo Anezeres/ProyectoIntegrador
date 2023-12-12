@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState, useRef } from "react";
-import { characterContext } from "../Context/characterContext";
+import { characterContext } from "../../Context/characterContext";
 import { useFrame } from '@react-three/fiber'
 //import { xanderBodyRef } from "../Personajes/Xander";
 //import { useAtom } from "jotai";

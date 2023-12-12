@@ -1,6 +1,6 @@
 import { useTexture } from "@react-three/drei";
 import { BoxGeometry } from "three";
-import Floor from "../../Scene/Floor";
+import Floor from "../../ComponentesGlobales/Floor";
 import { RigidBody } from "@react-three/rapier";
 
 const WallsSegundoEsc = () => {

@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { characterContext } from "../Context/characterContext";
+import { characterContext } from "../../Context/characterContext";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
 
