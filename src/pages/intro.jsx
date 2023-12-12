@@ -42,7 +42,6 @@ export default function Intro({ imageId }) {
 	);
 }
 
-
 const Video = () => {
 	const videoRef = useRef(null);
 	const [playSound] = useSound("assets/sounds/aleatales-intro.mp3", {
@@ -245,7 +244,7 @@ export const introState = [
 						name: "Xander",
 						lines: `Mi abuela Evelyn me quiero como una madre… y yo la quiero a ella, estamos juntos desde entonces, no se que haría sin mi abuela.`,
 					},
-				]
+				],
 			},
 		],
 	},
@@ -333,11 +332,11 @@ export const introState = [
 					},
 					{
 						name: "Xander",
-						lines: `Tendré que investigar muchísimo sobre cómo funciona el hacking para poder encontrarlo.`
+						lines: `Tendré que investigar muchísimo sobre cómo funciona el hacking para poder encontrarlo.`,
 					},
 					{
 						name: "Xander",
-						lines: `Convertirme en hacker...`
+						lines: `Convertirme en hacker...`,
 					},
 					{
 						name: "Xander",
@@ -345,13 +344,13 @@ export const introState = [
 						
 						
 						
-						no tengo tiempo y se muy poco...`
+						no tengo tiempo y se muy poco...`,
 					},
 					{
 						name: "Xander",
 						lines: `Aunque recuerdo algo... 
 						
-						el Mundo Virtual.`
+						el Mundo Virtual.`,
 					},
 				],
 			},
@@ -369,15 +368,15 @@ export const introState = [
 				dialogs: [
 					{
 						name: "Xander (Ya mas tranquilo)",
-						lines: `Abuela… ¿Hace cuanto cerraron el MV?`
+						lines: `Abuela… ¿Hace cuanto cerraron el MV?`,
 					},
 					{
 						name: "Evelyn (Sorprendida)",
-						lines: `¿Porque lo preguntas? Pensé que esas cosas no te interesaban.`
+						lines: `¿Porque lo preguntas? Pensé que esas cosas no te interesaban.`,
 					},
 					{
 						name: "Xander",
-						lines: `Pues… leí algo sobre eso ayer, hablaban de un tal META, supuestamente querían crear su propio MV...`
+						lines: `Pues… leí algo sobre eso ayer, hablaban de un tal META, supuestamente querían crear su propio MV...`,
 					},
 					{
 						name: "Evelyn",
@@ -385,15 +384,15 @@ export const introState = [
 						
 
 
-						han pasado muchas cosas los últimos años, pero no lo han cerrado.`
+						han pasado muchas cosas los últimos años, pero no lo han cerrado.`,
 					},
 					{
 						name: "Evelyn",
-						lines: `Ha cambiado mucho, desde que se puede minar criptomonedas en el Mundo Virtual.`
+						lines: `Ha cambiado mucho, desde que se puede minar criptomonedas en el Mundo Virtual.`,
 					},
 					{
 						name: "Evelyn",
-						lines: `El mundo virtual se ha vuelto tierra de nadie, un lugar que hoy en dia no debes estar ahi cariño.`
+						lines: `El mundo virtual se ha vuelto tierra de nadie, un lugar que hoy en dia no debes estar ahi cariño.`,
 					},
 				],
 			},
