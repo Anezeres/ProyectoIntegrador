@@ -46,7 +46,6 @@ const ObjetosAbuela = (props) => {
 				{" "}
 				{/* Cuarto de Abuela */}
 				<mesh /* rotation-y={Math.PI/2} */
-					castShadow
 					receiveShadow
 					geometry={nodes.door_001.geometry}
 					material={materials.Material}
@@ -55,7 +54,6 @@ const ObjetosAbuela = (props) => {
 					// onClick={abrirPuertaAbuela}
 				/>
 				<mesh
-					castShadow
 					receiveShadow
 					geometry={nodes.door_frame_001.geometry}
 					material={materials.Material}
@@ -68,14 +66,12 @@ const ObjetosAbuela = (props) => {
 			<group scale={1.5} rotation-y={-Math.PI / 2} position={[14.65, 0, 3.9]}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.closet_001.geometry}
 					material={materials.Material}
 					position={[0, 0, 0]}
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.closet_001.geometry}
 					material={materials.Material}
 					position={[1.28, 0, 0]}
@@ -86,7 +82,6 @@ const ObjetosAbuela = (props) => {
 				{/* Cama */}
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.bed_001.geometry}
 					material={materials.Material}
 					position={[-2.582, -0.004, -1.005]}
@@ -98,14 +93,12 @@ const ObjetosAbuela = (props) => {
                     {/* Mesa */}
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.office_table_001.geometry}
                         material={materials.Material}
                         position={[-2.894, -0.006, 0.728]}
                     />
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.office_table_001.geometry}
                         material={materials.Material}
                         position={[-1.3, -0.006, 0.728]}

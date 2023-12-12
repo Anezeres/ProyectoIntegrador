@@ -10,10 +10,10 @@ const Cuadro = (props, textures) => {
     return(
         <>
             <group {...props} dispose={null}>
-                <mesh  position={[0,4,-4]} scale={4} >
+                <mesh  position={[0,4,-4]} scale={4} receiveShadow castShadow>
                     <primitive object={cuadroSciFiModel.scene}/>
                 </mesh>
-                <mesh    scale={0.4} position={[0,4,-3.96]}>
+                <mesh scale={0.4} position={[0,4,-3.96]} receiveShadow castShadow>
                     <planeGeometry args={[5, 10, 1]}/>
                     <meshBasicMaterial {...props.textures} />
                 </mesh>

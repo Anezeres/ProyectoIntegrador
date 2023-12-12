@@ -10,6 +10,7 @@ import { refContext } from "../../Context/refContext";
 import { useContext } from "react";
 import CuadrosCorredor from "./CuadrosCorredor";
 import { cameraContext } from "../../Context/cameraContext";
+import Iluminacion from "./Iluminacion";
 
 const Corredor = () => {
 	const { camera } = useContext(cameraContext);
@@ -33,6 +34,7 @@ const Corredor = () => {
 			<ObjetosCorredor position={[0, 0, 0]} scale={1.3} />
 			<WallsCorredor />
 			<PlatformCorredor />
+			<Iluminacion/>
 		</>
 	);
 };

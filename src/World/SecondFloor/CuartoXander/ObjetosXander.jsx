@@ -27,7 +27,6 @@ const ObjetosXander = (props) => {
 
     const abrirPuertaXander = abrirPuerta(puertaXanderRef);
 
-    /* [0, 1, 0] */
 
     return (
         <group {...props} dispose={null} >
@@ -35,7 +34,6 @@ const ObjetosXander = (props) => {
 
             <group position={[-6, 0, -3]}> {/* Cuarto Xander  */}
                 <mesh  /* rotation-y={Math.PI/2} */
-                    castShadow
                     receiveShadow
                     geometry={nodes.door_001.geometry}
                     material={materials.Material}
@@ -44,7 +42,6 @@ const ObjetosXander = (props) => {
                     onClick={abrirPuertaXander}
                 />
                 <mesh
-                    castShadow
                     receiveShadow
                     geometry={nodes.door_frame_001.geometry}
                     material={materials.Material}
@@ -61,7 +58,6 @@ const ObjetosXander = (props) => {
                     {/* Ropa */}
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.bathroom_item_001.geometry}
                         material={materials.Material}
                     />
@@ -75,7 +71,6 @@ const ObjetosXander = (props) => {
                     {/* Cama */}
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.bed_001.geometry}
                         material={materials.Material}
                     />
@@ -87,14 +82,12 @@ const ObjetosXander = (props) => {
                     {/* Mesa */}
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.office_table_001.geometry}
                         material={materials.Material}
                         position={[-2.894, -0.006, 0.728]}
                     />
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.office_table_001.geometry}
                         material={materials.Material}
                         position={[-1.3, -0.006, 0.728]}
@@ -107,21 +100,18 @@ const ObjetosXander = (props) => {
                     {/* Closet Azul*/}
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.closet_002.geometry}
                         material={materials.Material}
                         position={[4.828, 0, -1.815]}
                     />
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.closet_002.geometry}
                         material={materials.Material}
                         position={[5.24, 0, -1.815]}
                     />
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.closet_002.geometry}
                         material={materials.Material}
                         position={[5.65, 0, -1.815]}
@@ -154,7 +144,6 @@ const ObjetosXander = (props) => {
                     {/* Silla Verde */}
                     <mesh
                         castShadow
-                        receiveShadow
                         geometry={nodes.kitchen_chair_001.geometry}
                         material={materials.Material}
                         position={[0, 0, 0]}

@@ -19,15 +19,13 @@ const Wall = (props) => {
 
             {/* Paredes*/}
             <mesh
-                castShadow
-                receiveShadow
                 geometry={nodes.Wall.geometry}
                 material={materials.White}
                 
             />
 
             
-            <mesh  position={[1,1,0]} scale={0.4}>
+            <mesh  position={[1,1,0]} scale={0.4} receiveShadow>
                 <planeGeometry args={[20, 20, 20]}/>
                 <meshBasicMaterial {...propsTexture}  />
             </mesh>

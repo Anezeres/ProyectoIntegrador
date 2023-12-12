@@ -18,9 +18,6 @@ const Huawei = () => {
                     center
                     distanceFactor={12}
                     visible={false}
-
-
-
                 >
                     <h2 className="song-text">*Suena*</h2>
                 </Html>

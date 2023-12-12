@@ -28,6 +28,7 @@ const ObjetosMoverXander = (props) => {
 			updateStoryProgress({ missionDone: true });
 		}
 	};
+	
 	const moverCocaCola = () => {
 		moveObjectToPositionSmoothly(
 			cocaColaRef,

@@ -6,7 +6,6 @@ import MesaControl from "./MesaControl";
 import ObjetosXander from "./ObjetosXander";
 import PlatformXander from "./PlatformXander";
 import WallsXander from "./WallsXander";
-import { useThree } from "@react-three/fiber";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import { cameraContext } from "../../Context/cameraContext";
 import { useContext, useEffect } from "react";
@@ -14,15 +13,20 @@ import SillaG from "./SillaG";
 import Monitor from "./Monitor";
 import Laptop from "./Laptop";
 import ObjetosMoverXander from "./ObjetosMoverXander";
-import { RigidBody } from "@react-three/rapier";
 import Cuadro from "../../Scene/Cuadro";
 import useSound from "use-sound";
+import Iluminacion from "./Iluminacion";
+import { } from 'three';
 
 const CuartoXander = () => {
+
+
+
 	const [playSound] = useSound("assets/sounds/ambient.mp3", {
 		volume: 0.1,
 		loop: true,
 	});
+
 	const PATH = "/assets/Textures/Cuadros/";
 
 	const pintura = useTexture({
@@ -39,6 +43,7 @@ const CuartoXander = () => {
 	};
 
 	moveCamera();
+
 	useEffect(() => {
 		playSound();
 	}, []);
@@ -59,6 +64,8 @@ const CuartoXander = () => {
 			<Monitor />
 			<Laptop />
 			<PlatformXander />
+			<Iluminacion />
+
 		</>
 	);
 };

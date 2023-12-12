@@ -5,9 +5,9 @@ import Raven from "../Personajes/Raven";
 import Corredor from "../SecondFloor/Corredor/Corredor";
 import CuartoAbuela from "../SecondFloor/CuartoAbuela/CuartoAbuela";
 import CuartoPadres from "../SecondFloor/CuartoPadres/CuartoPadres";
-import SecondFloor from "../SecondFloor/SecondFloor";
 import Sotano from "../Sotano/Sotano";
 import PrimerEscenario from "../MundoVirtual/PrimerEscenario/PrimerEscenario";
+import CuartoXander from "../SecondFloor/CuartoXander/CuartoXander";
 
 const genericLog = `Lorem ipsum dolor sit amet consectetur adipisicing elit.
 Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
@@ -18,7 +18,7 @@ Qu	ibusdam, voluptatum, voluptatem, quos quae voluptas quia	autem
 const Story = {
 	s1: {
 		camera: { position: [-1, 4, 0] },
-		component: <SecondFloor />,
+		component: <CuartoXander />,
 		characters: [
 			<Xander key={1} position={[-18, 1, -10.5]} />,
 		],
@@ -27,7 +27,8 @@ const Story = {
 		thereIsMission: true,
 		levels: [
 			{
-				log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
+				log: "",
+				showLog: false,
 				dialogs: [
 					{
 						name: "Xander",
@@ -39,7 +40,7 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vacio.",
+						lines: "Desde la muerte de mis padres no he sido el mismo, todo es un poco... vació.",
 					},
 					{
 						name: "Xander",
@@ -49,6 +50,7 @@ const Story = {
 			},
 			{
 				log: "",
+				showLog: false,
 				dialogs: [
 					{
 						name: "Xander (Despierta)",
@@ -66,21 +68,27 @@ const Story = {
 					},
 					{
 						name: "Evelyn",
-						lines: "Si mijo, ¿podrías venir a la cocina?",
+						lines: "Si mijo, ¿podrías venir a la cocina? pero organiza tu cuarto primero!.",
 					},
 				],
 			},
 			{
+				log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden para poder continuar.",
 				showLog: true,
-				log: "Xander duerme en su propia habitación que el mismo personalizó. Pero está un poco desordenada. Da clic en los objetos del suelo, las botellas de gaseosa y demás cosas que veas en desorden.",
 				dialogs: [
 					{
 						name: "Xander",
 						lines: "Vale, ya voy.",
 					},
+				],
+			},
+			{
+				log: "",
+				showLog: false,
+				dialogs: [
 					{
 						name: "Evelyn",
-						lines: "¡Gracias! ",
+						lines: "¡Gracias!",
 					},
 				],
 			},
@@ -139,7 +147,7 @@ const Story = {
 					{
 						name: "Evelyn",
 						lines:
-							" ¿Podrías organizar la casita? No has ordenado tu cuarto en años. Desde que acabó la guerra de Ucrania.",
+							"¿Podrías organizar la casita? No has ordenado tu cuarto en años. Desde que acabó la guerra de Ucrania.",
 					},
 					{
 						name: "Xander",
@@ -268,7 +276,7 @@ const Story = {
 		component: <Sotano />,
 		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
 		currentScenary: "s4",
-		nextScenery: "s8",
+		nextScenery: "intro-9",
 		thereIsMission: false,
 		levels: [
 			{
@@ -284,14 +292,14 @@ const Story = {
 			},
 		],
 	},
-	s8: {
+	s5: {
 		camera: { position: [-5, 8, 8] },
 		component: <PrimerEscenario />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
 			<Raven key={2} position={[6, 1, 0]} />
 		],
-		currentScenary: "s8",
+		currentScenary: "s5",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [

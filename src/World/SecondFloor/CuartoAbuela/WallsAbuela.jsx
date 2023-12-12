@@ -25,12 +25,12 @@ const WallsAbuela = () => {
             {/* Cuarto Padres */}
             <mesh position={[5.8,0.2,4]}>
                 <boxGeometry args={[3.48, 0.3, 0.3]} />
-                <meshBasicMaterial color="white" />
+                <meshStandardMaterial color="white" />
             </mesh>
 
             <mesh position={[10.7,0.2,4]}>
                 <boxGeometry args={[2.59, 0.3, 0.3]} />
-                <meshBasicMaterial color="white" />
+                <meshStandardMaterial color="white" />
             </mesh>
 
 

@@ -115,13 +115,13 @@ const Objetos = (props) => {
 				{/* Camara */}
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.camera_001.geometry}
 					material={materials.Material}
-					position={[2, 0.12, 1]}
+					position={[2, 0.10, 1]}
 					rotation={[0, -Math.PI / 2, 0]}
 					ref={cameraRef}
 					onClick={moverCamara}
+					scale={1.2}
 				/>
 			</group>
 
@@ -131,14 +131,12 @@ const Objetos = (props) => {
 				{/* Entrada Casa */}
 				<mesh /* rotation-y={Math.PI/2} Funcionalidad para Abrir la puerta*/
 					castShadow
-					receiveShadow
 					geometry={nodes.door_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.door_frame_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -150,7 +148,6 @@ const Objetos = (props) => {
 				{/* Cuarto Sotano */}
 				<mesh /* rotation-y={Math.PI/2} */
 					castShadow
-					receiveShadow
 					geometry={nodes.door_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -159,7 +156,6 @@ const Objetos = (props) => {
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.door_frame_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -171,7 +167,6 @@ const Objetos = (props) => {
 				{/* Cuarto Xander  */}
 				<mesh /* rotation-y={Math.PI/2} */
 					castShadow
-					receiveShadow
 					geometry={nodes.door_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -180,7 +175,6 @@ const Objetos = (props) => {
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.door_frame_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -192,7 +186,6 @@ const Objetos = (props) => {
 				{/* Cuarto de Padres */}
 				<mesh /* rotation-y={Math.PI/2} */
 					castShadow
-					receiveShadow
 					geometry={nodes.door_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -201,7 +194,6 @@ const Objetos = (props) => {
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.door_frame_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -213,7 +205,6 @@ const Objetos = (props) => {
 				{/* Cuarto de Abuela */}
 				<mesh /* rotation-y={Math.PI/2} */
 					castShadow
-					receiveShadow
 					geometry={nodes.door_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -222,7 +213,6 @@ const Objetos = (props) => {
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.door_frame_001.geometry}
 					material={materials.Material}
 					position={[0, 0.1, 0]}
@@ -235,7 +225,6 @@ const Objetos = (props) => {
 
 			<group rotation-y={Math.PI / 2} scale={1.1}>
 				<mesh
-					castShadow
 					receiveShadow
 					geometry={nodes.kitchen_table_001.geometry}
 					material={materials.Material}
@@ -247,7 +236,6 @@ const Objetos = (props) => {
 
 			<group rotation-y={Math.PI / 2}>
 				<mesh
-					castShadow
 					receiveShadow
 					geometry={nodes.kitchen_sink_001.geometry}
 					material={materials.Material}
@@ -259,7 +247,6 @@ const Objetos = (props) => {
 			<group rotation-y={Math.PI / 2} scale={1.3}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.fridge_001.geometry}
 					material={materials.Material}
 					position={[6.58, 0.14, 2.67]}
@@ -269,7 +256,6 @@ const Objetos = (props) => {
 			<group rotation-y={-Math.PI / 2} scale={1.3}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.tv_wall_001.geometry}
 					material={materials.Material}
 					position={[-4.7, 0.008, -11.5]}
@@ -280,7 +266,6 @@ const Objetos = (props) => {
 
 			<group position={[14, 0, 0.4]} scale={1.2} rotation-y={-Math.PI / 2}>
 				<mesh
-					castShadow
 					receiveShadow
 					geometry={nodes.coffee_table_001.geometry}
 					material={materials.Material}
@@ -291,7 +276,6 @@ const Objetos = (props) => {
 			<group rotation-y={Math.PI / 2} position={[11.7, 0, -5.8]}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.sofa_001.geometry}
 					material={materials.Material}
 					position={[0, 0, 0]}
@@ -302,7 +286,6 @@ const Objetos = (props) => {
 			<group scale={1.5} rotation-y={-Math.PI / 2} position={[9, 0, 0]}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.musical_instrument_001.geometry}
 					material={materials.Material}
 					position={[0, 0, 0]}
@@ -312,7 +295,6 @@ const Objetos = (props) => {
 			<group scale={1.5} rotation-y={-Math.PI / 2} position={[8.8, 0, 2.3]}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.scratching_post_001.geometry}
 					material={materials.Material}
 					position={[0, 0, 0]}
@@ -323,7 +305,6 @@ const Objetos = (props) => {
 				{/* Cafetera */}
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.coffee_machine_001.geometry}
 					material={materials.Material}
 					position={[4.5, 0.77, 2.2]}
@@ -334,30 +315,30 @@ const Objetos = (props) => {
 				{/* Salsa de Tomate */}
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[13, 0.33, -5.5]} /* [13, 0.33, -5.5] */
+					position={[15, 0.48, -5.5]} /* [13, 0.33, -5.5] */
 					onClick={moverSalsaTomate}
 					ref={salsaRef}
+					scale={1.3}
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
 					position={[13, 0.33, -6]}
 					onClick={moverSalsaTomate2}
 					ref={salsaRef2}
+					scale={1.3}
 				/>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
-					position={[13, 0.33, -6.5]}
+					position={[15, 1.6, -8]}
 					onClick={moverSalsaTomate3}
 					ref={salsaRef3}
+					scale={1.3}
 				/>
 			</group>
 
@@ -365,12 +346,12 @@ const Objetos = (props) => {
 			<group scale={1.5} position={[0, 0, 0]}>
 				<mesh
 					castShadow
-					receiveShadow
 					geometry={nodes.dish_001.geometry}
 					material={materials.Material}
 					position={[8.7, 0.22, -3.8]} /* [8.7, 0.22, -3.8] */
 					onClick={moverDulces}
 					ref={dulcesRef}
+					scale={1.3}
 				/>
 			</group>
 

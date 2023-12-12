@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { characterContext } from "./characterContext";
 const { useGLTF } = require("@react-three/drei");
 const { useAnimations } = require("@react-three/drei");
@@ -33,6 +33,8 @@ const CharacterContext = ({ children }) => {
     let [lastPositionRaven, setLastPositionRaven] = useState([new THREE.Vector3(0, 0, 0)]);
 
     let [arrayPositionXander, setArrayPositionXander] = useState([]);
+    let [finalAnimation, setFinalAnimation] = useState('')
+    let [callBack, setCallBack] = useState(null)
     let [arrayPositionAbuela, setArrayPositionAbuela] = useState([]);
     let [arrayPositionRaven, setArrayPositionRaven] = useState([]);
 
@@ -49,119 +51,91 @@ const CharacterContext = ({ children }) => {
 
 
     const [currentAnimationXander, setCurrentAnimationXander] = useState(null);
-    const [animationInProcess, setAnimationInProcess] = useState(false);
     const [currentAnimationAbuela, setCurrentAnimationAbuela] = useState(null);
     const [currentAnimationRaven, setCurrentAnimationRaven] = useState(null);
 
     //Muestra las animaciones de xander
 
-    console.log(animationsXander)
-    console.log(animationsRaven)
+    //console.log(animationsXander)
+    //console.log(animationsRaven)
 
-    //Realiza una animacion por un tiempo determinado
-    const playAnimationWithDuration = (animationName, character, duration) => {
+    //Realiza una animación por un tiempo determinado
+    const playAnimation = (animationName, character, duration = null) => {
         let currentAnimation;
-        let setCurrentAnimation;
         let actions;
-        if (character == 'Xander') {
-            currentAnimation = currentAnimationXander
-            setCurrentAnimation = setCurrentAnimationXander
-            actions = actionsXander
-        } else if (character == 'Abuela') {
-            currentAnimation = currentAnimationAbuela
-            setCurrentAnimation = setCurrentAnimationAbuela
-            actions = actionsAbuela
-        } else if (character == 'Raven') {
-            currentAnimation = currentAnimationRaven
-            setCurrentAnimation = setCurrentAnimationRaven
-            actions = actionsRaven
+
+        if (character === 'Xander') {
+            currentAnimation = currentAnimationXander;
+            actions = actionsXander;
+        } else if (character === 'Abuela') {
+            currentAnimation = currentAnimationAbuela;
+            actions = actionsAbuela;
+        } else if (character === 'Raven') {
+            currentAnimation = currentAnimationRaven;
+            actions = actionsRaven;
         }
 
-        if (currentAnimation !== null) {
+        if (currentAnimation) {
             currentAnimation.fadeOut(0.2);
         }
+        
+        const targetAnimation = actions[animationName];
+        targetAnimation.reset().fadeIn(0.2).play();
 
-        const action = actions[animationName];
-        action.fadeIn(0.2).play();
-        setCurrentAnimation(action);
-        setAnimationInProcess(true)
+        setCurrentAnimation(character, () => targetAnimation);
 
-        setTimeout(() => {
-
-            setAnimationInProcess(false)
-            stopAnimation(animationName, character)
-        }, (duration - 0.2) * 1000);
+        if (duration !== null) {
+            setTimeout(() => {
+                stopAnimation(character);
+            }, (duration - 0.2) * 1000);
+        }
 
     };
 
-    //Realiza una animacion en bucle
-    const playAnimation = (animationName, character) => {
+    const stopAnimation = (character) => {
         let currentAnimation;
-        let setCurrentAnimation;
-        let actions;
-        if (character == 'Xander') {
-            currentAnimation = currentAnimationXander
-            setCurrentAnimation = setCurrentAnimationXander
-            actions = actionsXander
-        } else if (character == 'Abuela') {
-            currentAnimation = currentAnimationAbuela
-            setCurrentAnimation = setCurrentAnimationAbuela
-            actions = actionsAbuela
-        } else if (character == 'Raven') {
-            currentAnimation = currentAnimationRaven
-            setCurrentAnimation = setCurrentAnimationRaven
-            actions = actionsRaven
+
+        if (character === 'Xander') {
+            currentAnimation = currentAnimationXander;
+        } else if (character === 'Abuela') {
+            currentAnimation = currentAnimationAbuela;
+        } else if (character === 'Raven') {
+            currentAnimation = currentAnimationRaven;
         }
 
-        if (actions[animationName] !== currentAnimation) {
-            if (currentAnimation !== null) {
-                // Detener la animación actual si hay una en curso
-                currentAnimation.fadeOut(0.2);
+        if (currentAnimation) {
+            currentAnimation.fadeOut(0.2)
+            setCurrentAnimation(character, () => null);
+        }
+    };
+
+    const setCurrentAnimation = (character, updater) => {
+        if (character === 'Xander') {
+            setCurrentAnimationXander(updater);
+        } else if (character === 'Abuela') {
+            setCurrentAnimationAbuela(updater);
+        } else if (character === 'Raven') {
+            setCurrentAnimationRaven(updater);
+        }
+    };
+
+    // Asegurarse de limpiar cualquier animación en desmontaje del componente
+    useEffect(() => {
+        return () => {
+            if (currentAnimationXander) {
+                currentAnimationXander.fadeOut(0.2)
             }
-
-            // Reproducir la animación seleccionada
-            const action = actions[animationName];
-            action.fadeIn(0.2).play();
-
-            // Actualizar el estado para rastrear la animación actual
-            setCurrentAnimation(action);
-        }
-    };
-
-    //Para una animacion
-    const stopAnimation = (animationName, character) => {
-        let currentAnimation;
-        let setCurrentAnimation;
-        let actions;
-        if (character == 'Xander') {
-            currentAnimation = currentAnimationXander
-            setCurrentAnimation = setCurrentAnimationXander
-            actions = actionsXander
-        } else if (character == 'Abuela') {
-            currentAnimation = currentAnimationAbuela
-            setCurrentAnimation = setCurrentAnimationAbuela
-            actions = actionsAbuela
-        } else if (character == 'Raven') {
-            currentAnimation = currentAnimationRaven
-            setCurrentAnimation = setCurrentAnimationRaven
-            actions = actionsRaven
-        }
-
-        const action = actions[animationName];
-        if (action) {
-            console.log(action)
-            action.fadeOut(0.2)
-            setCurrentAnimation(null);
-        } else {
-            console.error(`La animación "${animationName}" no está definida para el personaje "${character}".`);
-        }
-        setCurrentAnimation(null);
-
-    };
+            if (currentAnimationAbuela) {
+                currentAnimationAbuela.fadeOut(0.2)
+            }
+            if (currentAnimationRaven) {
+                currentAnimationRaven.fadeOut(0.2)
+            }
+        };
+    }, [currentAnimationXander, currentAnimationAbuela, currentAnimationRaven]);
 
     //Mueve el personaje (rigidBody)
-    const changePosition = (position, character, animationName) => {
-        console.log(position)
+    const changePosition = (position, character, animationName, callback) => {
         if (character == 'Xander') {
             setMoveXander(false)
         } else if (character == 'Abuela') {
@@ -178,9 +152,13 @@ const CharacterContext = ({ children }) => {
                 setMoveXander(true)
                 const newPositionArray = position.slice(1)
                 setArrayPositionXander(newPositionArray)
+                setFinalAnimation(animationName)
+                setCallBack(() => callback)
             } else {
-                playAnimation('Idle', 'Xander')
                 setArrayPositionXander([])
+                // Llama a la función de callback al final
+                callback && callback();
+                setCallBack(null)
             }
         } else if (character == 'Abuela') {
             if (position && Array.isArray(position) && position.length > 0) {
@@ -191,8 +169,11 @@ const CharacterContext = ({ children }) => {
                 const newPositionArray = position.slice(1)
                 setArrayPositionAbuela(newPositionArray)
             } else {
-                playAnimation('Idle', 'Abuela')
                 setArrayPositionAbuela([])
+                // Llama a la función de callback al final
+                if (callback) {
+                    callback();
+                }
             }
         } else if (character == 'Raven') {
             if (position && Array.isArray(position) && position.length > 0) {
@@ -203,15 +184,34 @@ const CharacterContext = ({ children }) => {
                 const newPositionArray = position.slice(1)
                 setArrayPositionRaven(newPositionArray)
             } else {
-                playAnimation('Idle', 'Raven')
                 setArrayPositionRaven([])
+                // Llama a la función de callback al final
+                if (callback) {
+                    callback();
+                }
             }
         }
 
     };
 
-    //Para mover el personaje a una posicion
-    const moveTo = (position, character) => {
+    //Para mover el personaje a una posición
+    const moveTo = (position, animationName, character) => {
+        let currentAnimation;
+        let actions;
+
+        if (character === 'Xander') {
+            currentAnimation = currentAnimationXander;
+            actions = actionsXander;
+        } else if (character === 'Abuela') {
+            currentAnimation = currentAnimationAbuela;
+            actions = actionsAbuela;
+        } else if (character === 'Raven') {
+            currentAnimation = currentAnimationRaven;
+            actions = actionsRaven;
+        }
+
+        const targetAnimation = actions[animationName];
+
         if (character == 'Xander') {
             const currentPos = xanderBodyRef.current.translation();
             let direccionX = 0
@@ -240,7 +240,9 @@ const CharacterContext = ({ children }) => {
                 z: currentPos.z + (velocidadMovimiento * direccionZ)
             }, true)
 
-            playAnimation('Walking', 'Xander')
+            if (targetAnimation && targetAnimation !== currentAnimation) {
+                playAnimation('Walking', 'Xander', null)
+            }
 
         } else if (character == 'Abuela') {
 
@@ -271,7 +273,9 @@ const CharacterContext = ({ children }) => {
                 z: currentPos.z + (velocidadMovimiento * direccionZ)
             }, true)
 
-            playAnimation('Walking', 'Abuela')
+            if (targetAnimation && targetAnimation !== currentAnimation) {
+                playAnimation('Walking', 'Abuela', null)
+            }
         } else if (character == 'Raven') {
             const currentPos = ravenBodyRef.current.translation();
             let direccionX = 0
@@ -300,7 +304,9 @@ const CharacterContext = ({ children }) => {
                 z: currentPos.z + (velocidadMovimiento * direccionZ)
             }, true)
 
-            playAnimation('Walking', 'Raven')
+            if (targetAnimation && targetAnimation !== currentAnimation) {
+                playAnimation('Walking', 'Raven', null)
+            }
         }
     };
 
@@ -310,7 +316,6 @@ const CharacterContext = ({ children }) => {
             // Calcular el ángulo de rotación
             const angle = Math.atan2(position[0] - xanderBodyRef.current.translation().x, position[2] - xanderBodyRef.current.translation().z);
 
-            console.log(angle)
             // Aplicar la rotación al personaje
             if (angle) {
                 xanderRef.current.rotation.y = angle
@@ -320,7 +325,6 @@ const CharacterContext = ({ children }) => {
             // Calcular el ángulo de rotación
             const angle = Math.atan2(position[0] - abuelaBodyRef.current.translation().x, position[2] - abuelaBodyRef.current.translation().z);
 
-            console.log(angle)
             // Aplicar la rotación al personaje
             if (angle) {
                 abuelaRef.current.rotation.y = angle
@@ -329,7 +333,6 @@ const CharacterContext = ({ children }) => {
             // Calcular el ángulo de rotación
             const angle = Math.atan2(position[0] - ravenBodyRef.current.translation().x, position[2] - ravenBodyRef.current.translation().z);
 
-            console.log(angle)
             // Aplicar la rotación al personaje
             if (angle) {
                 ravenRef.current.rotation.y = angle
@@ -415,11 +418,8 @@ const CharacterContext = ({ children }) => {
                     ravenModel,
                     actionsRaven,
                     currentAnimationRaven,
-                    playAnimationWithDuration,
                     playAnimation,
                     stopAnimation,
-                    animationInProcess,
-                    setAnimationInProcess,
                     walkingFront,
                     velocidadMovimiento,
                     moveTo,
@@ -451,6 +451,8 @@ const CharacterContext = ({ children }) => {
                     setArrayPositionAbuela,
                     arrayPositionRaven,
                     setArrayPositionRaven,
+                    callBack,
+                    finalAnimation
                 }
             }
         >

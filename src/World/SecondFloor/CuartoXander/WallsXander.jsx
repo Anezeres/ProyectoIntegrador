@@ -1,6 +1,4 @@
 import { useTexture } from "@react-three/drei";
-
-import { BoxGeometry } from "three";
 import Floor from "../../Scene/Floor";
 
 const WallsXander = () => {
@@ -27,12 +25,12 @@ const WallsXander = () => {
 
             <mesh position={[-5,0.2,-4]}>
                 <boxGeometry args={[2.59, 0.3, 0.3]} />
-                <meshBasicMaterial color="white" />
+                <meshStandardMaterial color="white" />
             </mesh>
 
             <mesh position={[-10,0.2,-4]}>
                 <boxGeometry args={[4.11, 0.3, 0.3]} />
-                <meshBasicMaterial color="white" />
+                <meshStandardMaterial color="white" />
             </mesh>
 
         </>

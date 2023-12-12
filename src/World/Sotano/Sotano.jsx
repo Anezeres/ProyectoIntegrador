@@ -5,13 +5,11 @@ import Escalera from "./Escalera";
 import Pantalla from "./Pantalla";
 import Panel from "./Panel";
 import { useTexture } from "@react-three/drei";
+import Iluminacion from "./Iluminacion";
 
 const Sotano = () => {
 
     const PATH = "/assets/Textures/Wood/"
-
-
-
 
     const propsTexture = useTexture({
         map: PATH + 'woodColor.jpg'
@@ -29,6 +27,7 @@ const Sotano = () => {
             <Escalera/>
             <Pantalla position={[-3.9,2,0]}/>
             <Panel/>
+            <Iluminacion/>
         </>
     )
 

@@ -10,9 +10,9 @@ const MesaControl = () => {
 
 
     return (
-        <RigidBody type="fixed" colliders={false}>
-            <mesh ref={MesaControlRef} position={[-12, -0.1, -8.5]} scale={[0.18,0.29,0.18]}  rotation-y={Math.PI}>
-                <primitive object={MesaControlModel.scene} />
+        <RigidBody type="fixed" colliders={false} >
+            <mesh ref={MesaControlRef} position={[-12, -0.1, -8.5]} scale={[0.18,0.29,0.18]}  rotation-y={Math.PI} castShadow>
+                <primitive object={MesaControlModel.scene}/>
             </mesh>
             <CuboidCollider args={[1.9,1,1.5]} position={[-12, 0.8, -8]}/>
         </RigidBody>

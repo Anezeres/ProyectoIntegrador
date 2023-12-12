@@ -5,75 +5,61 @@ import { refContext } from "../World/Context/refContext";
 import useSound from "use-sound";
 
 export default function Scenery({ levels, nextScenery, currentScenary, thereIsMission }) {
-	const { storyProgress, updateStoryProgress } = useContext(refContext);
+	const { storyProgress, updateStoryProgress, isPaused } = useContext(refContext);
 
-	const [currentStep, setCurrentStep] = useState(0);
-	const [currentLevel, setCurrentLevel] = useState(0);
-	const [currentName, setCurrentName] = useState("");
-	const [currentLines, setCurrentLines] = useState("");
 	const [logVisible, setLogVisible] = useState(false);
-	// POR AHORA TODO CON LEVEL CERO
-	const [dialogs, setDialogs] = useState(levels[0]?.dialogs);
+
 	const [log, setLog] = useState(levels[0]?.log);
+
+	useEffect(() => {
+		setLog(levels[storyProgress.currentLevel].log);
+	}, [storyProgress.currentLevel]);
+
+	//Sonidos
 	const [playSound] = useSound("assets/sounds/click.mp3", {
 		volume: 0.1,
 	});
 	const [playRingSound] = useSound("assets/sounds/ring.m4a", {
 		volume: 0.3,
 	});
-	const webHistory = useHistory();
 
-	useEffect(() => {
-		dialogs[currentStep] && setCurrentName(dialogs[currentStep].name);
-		setCurrentLines(dialogs[currentStep].lines);
-	}, [currentStep]);
 
-	useEffect(() => {
-		setDialogs(levels[currentLevel].dialogs);
-		setLog(levels[currentLevel].log);
-	}, [currentLevel]);
 
+
+	//Continua la historia
 	function setNextStep() {
-		if (
-			!storyProgress.missionDone &&
-			thereIsMission &&
-			currentLevel === levels.length - 1
-		) {
-			return setLogVisible(true); // va a mostrar el log cuando se acaban los niveles para que termine la mision del escenario
-		}
-		levels[currentLevel].dialogs[currentStep + 1] &&
-			setCurrentStep((currentStep) => currentStep + 1);
-		setCurrentName("");
+		console.log("Entering setNextStep");
 
-		if (
-			dialogs[currentStep + 1]?.name &&
-			"Xander (mientras suena el SynthiCom)" == dialogs[currentStep + 1].name
-		) {
-			playRingSound();
-		}
-		if (currentStep === dialogs.length - 1) {
-			if (levels[currentLevel + 1] && levels[currentLevel + 1].showLog) {
-				setLogVisible(true);
-			}
-			if (currentLevel === levels.length - 1) {
-				setCurrentName(""); //hacer esto cada vez que cambié el step
-				setCurrentStep(0);
-				setCurrentLevel(0);
+		if (storyProgress.currentStep === levels[storyProgress.currentLevel].dialogs.length - 1) {
+			if (storyProgress.currentLevel === levels.length - 1) {
+				updateStoryProgress({
+					currentLevel: 0,
+				});
+
 				window.location.href = "/" + nextScenery;
-				//webHistory.push("/" + nextScenery);
 			} else {
-				setCurrentName("");
-				setCurrentStep(0);
-				setCurrentLevel(currentLevel + 1);
-				levels[currentLevel + 1] &&
-					setDialogs(levels[currentLevel + 1].dialogs);
-				return updateStoryProgress({
-					scenery: storyProgress.scenery,
+				updateStoryProgress({
 					currentLevel: storyProgress.currentLevel + 1,
 				});
 			}
+		} else {
+			updateStoryProgress({
+				currentStep: storyProgress.currentStep + 1,
+			});
 		}
+
+		//Sonido
+		if (
+			levels[storyProgress.currentLevel].dialogs[storyProgress.currentStep + 1]?.name &&
+			"Xander (mientras suena el SynthiCom)" == levels[storyProgress.currentLevel].dialogs[storyProgress.currentStep + 1]?.name
+		) {
+			playRingSound();
+		}
+
 	}
+
+
+	//Muestra o no el log
 	const handleShowLog = () => {
 		setLogVisible(!logVisible);
 	};
@@ -81,28 +67,38 @@ export default function Scenery({ levels, nextScenery, currentScenary, thereIsMi
 	return (
 		<>
 			<div className="app-container">
-				{/* <div className="text-white">{log}</div> */}
-
-				{currentName == dialogs[currentStep].name ? (
-					<>
-						<Dialogs name={currentName} lines={currentLines} speed={30} />
-						<PapelComponent
-							log={log}
-							visible={logVisible}
-							handleShowLog={handleShowLog}
-						/>
-					</>
-				) : null}
+				<>
+					<Dialogs levels={levels} />
+					<PapelComponent
+						log={log}
+						visible={logVisible}
+						handleShowLog={handleShowLog}
+					/>
+				</>
 				<button
 					onClick={() => {
 						playSound();
-						setNextStep();
+
+						if (levels[storyProgress.currentLevel].showLog) {
+							if (storyProgress.missionDone && thereIsMission) {
+								setNextStep() //puede continuar
+							} else if (!storyProgress.missionDone && thereIsMission) {
+								handleShowLog() //abre el log
+							}
+						} else if (!isPaused) { //si no esta pausado sigue la historia
+							setNextStep();
+						}
 					}}
-					className="text-lg bg-[#4cdef8] font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3"
+					className={
+						`text-lg  font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 border-2 border-solid select-none
+						${logVisible ? 'mr-32' : ''} 
+						${isPaused ? 'bg-[#765ff5] text-gray-300 border-[#765ff5]' : 'bg-[#4cdef8] border-[#4cdef8]'}
+						`
+					}
 				>
-					Siguiente
+					{logVisible ? "Entendido" : `${isPaused ? 'Espera' : 'Siguiente'}`}
 				</button>
-			</div>
+			</div >
 		</>
 	);
 }

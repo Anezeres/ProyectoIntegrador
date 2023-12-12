@@ -17,7 +17,6 @@ const Objetos = (props) =>  {
         <group scale={1.6} rotation-y={Math.PI/2}>
             <mesh 
                 castShadow
-                receiveShadow
                 geometry={nodes.bathroom_item_001.geometry}
                 material={materials.Material}
                 position={[-1.15, 0.1, -1.72]}
@@ -29,7 +28,6 @@ const Objetos = (props) =>  {
         <group scale={1.4} rotation-y={Math.PI/2}>
             <mesh 
                 castShadow
-                receiveShadow
                 geometry={nodes.washing_machine_001.geometry}
                 material={materials.Material}
                 position={[-1.9, 0.1, -1.95]
@@ -42,7 +40,6 @@ const Objetos = (props) =>  {
         <group rotation-y={Math.PI/2} scale={1.1}>
             <mesh 
                 castShadow
-                receiveShadow
                 geometry={nodes.kitchen_table_001.geometry}
                 material={materials.Material}
                 position={[0, 0.14, -2.4]}
@@ -52,14 +49,12 @@ const Objetos = (props) =>  {
         {/* Puerta */}
         <group rotation-y={-Math.PI/2} position={[3, 0, -3]}>
             <mesh  /* rotation-y={Math.PI/2} Funcionalidad para Abrir la puerta*/ 
-            castShadow
             receiveShadow
             geometry={nodes.door_001.geometry}
             material={materials.Material}
             position={[0, 0.1, 0]}
             />
             <mesh 
-            castShadow
             receiveShadow
             geometry={nodes.door_frame_001.geometry}
             material={materials.Material}
@@ -69,14 +64,12 @@ const Objetos = (props) =>  {
 
         <group  position={[1, 2.6, -2.82]}>
             <mesh  rotation-y={Math.PI/2}
-            castShadow
             receiveShadow
             geometry={nodes.door_001.geometry}
             material={materials.Material}
             position={[0, 0.1, 0]}
             />
             <mesh 
-            castShadow
             receiveShadow
             geometry={nodes.door_frame_001.geometry}
             material={materials.Material}
@@ -94,7 +87,6 @@ const Objetos = (props) =>  {
         <group scale={1.3} >
             <mesh 
                 castShadow
-                receiveShadow
                 geometry={nodes.air_hockey_001.geometry}
                 material={materials.Material}
                 position={[0.7, 0.4, 1.4]}
@@ -107,7 +99,6 @@ const Objetos = (props) =>  {
         <group rotation-y={Math.PI/2}>
             <mesh 
                 castShadow
-                receiveShadow
                 geometry={nodes.kitchen_sink_001.geometry}
                 material={materials.Material}
                 position={[2, 0.14, -2.66]}
