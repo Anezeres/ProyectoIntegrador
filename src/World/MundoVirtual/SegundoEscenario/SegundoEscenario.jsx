@@ -34,7 +34,7 @@ const SegundoEscenario = () => {
 
 		// Cargar un sonido y configurarlo como el buffer del objeto de audio
 		const audioLoader = new AudioLoader();
-		audioLoader.load("/assets/sounds/ambient.mp3", (buffer) => {
+		audioLoader.load("/assets/sounds/virtual-ambient.m4a", (buffer) => {
 			sound.setBuffer(buffer);
 
 			sound.setVolume(0.3);

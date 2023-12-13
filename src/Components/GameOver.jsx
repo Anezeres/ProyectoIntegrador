@@ -11,7 +11,7 @@ const GameOver = () => {
 				<Typewriter
 					key={"currentLines"}
 					words={[
-						"No puedo creer que hayas vuelto... Tu abuela perdió la vida... Elige mejor la proxima vez",
+						"No puedo creer que hayas vuelto al mundo real... Tu abuela perdió la vida... Elige mejor la proxima vez",
 					]}
 					loop={1}
 					typeSpeed={13}

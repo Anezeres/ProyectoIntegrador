@@ -491,7 +491,7 @@ export const introState = [
 				dialogs: [
 					{
 						name: "Desconocido",
-						lines: `Ibas tan bien, pero igual de tonto que tu Padre.`,
+						lines: `Ibas tan bien, pero eres igual de tonto que tu Padre.`,
 					},
 					{
 						name: "Desconocido",

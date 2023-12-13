@@ -130,7 +130,7 @@ const TimeLine = (props) => {
 
                         setIsPaused(false)
                         setTimeout(() => {
-                            teleport({ x: 0, y: 0, z: 0 }, 'Xander')
+                            teleport({ x: 0, y: 0.5, z: 0 }, 'Xander')
                         }, 20)
                         playAnimation("Idle", "Xander")
                         break;

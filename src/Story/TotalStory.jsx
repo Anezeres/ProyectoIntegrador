@@ -331,7 +331,7 @@ const Story = {
 	s4: {
 		camera: { position: [1, 3, 6] },
 		component: <Sotano />,
-		characters: [<Xander position={[0, 0, 0]} scale={1.2} />],
+		characters: [<Xander position={[0, 1, 0]} scale={1.2} />],
 		currentScenery: "s4",
 		nextScenery: "intro-8",
 		thereIsMission: false,
