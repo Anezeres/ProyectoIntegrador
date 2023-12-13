@@ -18,7 +18,7 @@ const TextoEscoger = () => {
 					>
 						<button
 							onClick={() => {
-								window.location.href = "s4";
+								window.location.href = "s6";
 							}}
 							className="text-lg  font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 border-2 border-solid select-none bg-[#edecf6a5]  border-[#765ff5]"
 						>
@@ -36,7 +36,7 @@ const TextoEscoger = () => {
 					>
 						<button
 							onClick={() => {
-								window.location.href = "s6";
+								window.location.href = "s7";
 							}}
 							className="text-lg  font-bold text-[#283a74] py-2 px-4 rounded next-line-btn m-7 p-3 border-2 border-solid select-none bg-[#edecf6e3]  border-[#765ff5]"
 						>

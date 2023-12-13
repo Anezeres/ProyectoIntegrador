@@ -59,6 +59,8 @@ const Cubos = () => {
 				position={[-3, 2, -1.6]}
 				scale={1}
 				onClick={removeComponent1}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
@@ -70,6 +72,8 @@ const Cubos = () => {
 				position={[-3, 2, 1.6]}
 				scale={1}
 				onClick={removeComponent2}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
@@ -81,6 +85,8 @@ const Cubos = () => {
 				position={[-3, 5.1, 1.6]}
 				scale={1}
 				onClick={removeComponent3}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
@@ -92,6 +98,8 @@ const Cubos = () => {
 				position={[-3, 5.1, -1.6]}
 				scale={1}
 				onClick={removeComponent4}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
