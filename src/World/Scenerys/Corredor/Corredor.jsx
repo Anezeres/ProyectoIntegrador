@@ -107,10 +107,10 @@ const Corredor = () => {
 		return (
 			<>
 				<OrbitControls
-					// enableRotate={false}
-					// enablePan={false}
-					// enableZoom={false}
-					// makeDefault
+					enableRotate={false}
+					enablePan={false}
+					enableZoom={false}
+					makeDefault
 					target={target}
 				/>
 				<Escalera />
