@@ -93,7 +93,13 @@ const Escoger = () => {
 
 	return (
 		<>
-			<OrbitControls makeDefault target={target} />
+			<OrbitControls
+				enableRotate={false}
+				enablePan={false}
+				enableZoom={false}
+				makeDefault
+				target={target}
+			/>
 			<PlatformEscoger />
 			<PuertaSciFi />
 			<WallsEscoger />

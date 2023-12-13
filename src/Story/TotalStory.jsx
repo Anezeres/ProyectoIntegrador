@@ -567,7 +567,7 @@ const Story = {
 					{
 						name: "Desconocido",
 						lines: `...`,
-					}
+					},
 				],
 			},
 		],
@@ -575,9 +575,7 @@ const Story = {
 	s7: {
 		camera: { position: [-5, 8, 8] },
 		component: <PrimerEscenario />,
-		characters: [
-			<Xander key={1} position={[-11, 1, 0]} />,
-		],
+		characters: [<Xander key={1} position={[-11, 1, 0]} />],
 		currentScenery: "s7",
 		nextScenery: "s8",
 		thereIsMission: true,
@@ -624,11 +622,10 @@ const Story = {
 						name: "Xander",
 						lines: `Como lo suponía, este mundo no funciona igual.`,
 					},
-
 				],
 			},
 			{
-				log: "",
+				log: "Dale a siguiente",
 				dialogs: [
 					{
 						name: "Xander",
@@ -671,7 +668,7 @@ const Story = {
 			<Raven key={2} position={[-3.3, 1, -9]} scale={1.1}/>,
 		],
 		currentScenery: "s8",
-		nextScenery: "Continuara",
+		nextScenery: "continuara",
 		thereIsMission: false,
 		levels: [
 			{

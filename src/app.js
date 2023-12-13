@@ -6,6 +6,8 @@ import Landing from "./pages/landing";
 import RefContext from "./Context/RefContext.jsx";
 import { introState } from "./pages/intro.jsx";
 import Story from "./Story/TotalStory.jsx";
+import GameOver from "./Components/GameOver.jsx";
+import Continuara from "./Components/Continuara.jsx";
 
 export default function App() {
 	return (
@@ -13,6 +15,12 @@ export default function App() {
 			<RefContext>
 				<Router>
 					<Switch>
+						<Route exact path="/continuara">
+							<Continuara />
+						</Route>
+						<Route exact path="/gameover">
+							<GameOver />
+						</Route>
 						{introState.map((state, index) => {
 							return (
 								<Route key={index} exact path={`/intro-${index}`}>
@@ -27,11 +35,11 @@ export default function App() {
 									)}
 								</Route>
 							);
-						})};
+						})}
 						{Object.keys(Story).map((key) => {
 							return (
 								<Route path={`/${key}`} key={key}>
-									<Canvas camera={Story[key].camera} shadows >
+									<Canvas camera={Story[key].camera} shadows>
 										<Experience ruta={key}>
 											{Story[key].component}
 											{Story[key].characters.map((character) => character)}

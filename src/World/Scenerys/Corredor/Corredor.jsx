@@ -21,69 +21,70 @@ const Corredor = () => {
 	const [moviendoCamara, setMoviendo] = useState(false);
 	const [target, setTarget] = useState([8, 0, -4]);
     let [zVelocidad, setZVelocidad] = useState(0.0002);
-		const moveCamera = () => {
-			camera.position.x = -10;
-			camera.position.z = 2;
-			camera.position.y = 4;
+	const [posicionFinal, setPosicionFinal] = useState({ x: 11, y: 3, z: -3.5 });
+	const moveCamera = () => {
+		camera.position.x = -10;
+		camera.position.z = 2;
+		camera.position.y = 4;
+	};
+
+	let sound = {};
+	useEffect(() => {
+		moveCamera();
+
+		setTimeout(() => {
+			sonidoDeFondo();
+		}, 1000);
+
+		setTimeout(() => {
+			setMoviendo(true);
+			setTarget([13, 0.33, -6]);
+		}, 2500);
+		setTimeout(() => {
+			setZVelocidad(0.005);
+		}, 22000);
+
+		return () => {
+			sound.stop();
 		};
+	}, []);
 
-		let sound = {};
-		useEffect(() => {
-			moveCamera();
+	useEffect(() => {
+		//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
+		//console.log("storyProgress.scenery: ", storyProgress.scenery)
+		//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
+		if (
+			storyProgress.currentStep == 1 &&
+			storyProgress.currentLevel == 1 &&
+			storyProgress.scenery == "s2"
+		) {
+			//movera la camara en "Listo abuela, aqui esta, espero te gusto" o cerca
+			setTarget([6, 0.33, -6]);
+			setPosicionFinal({ ...posicionFinal, x: 8, z: -1 });
+		}
+	}, [storyProgress.currentLevel, storyProgress.currentStep]);
 
-			setTimeout(() => {
-				sonidoDeFondo();
-			}, 1000);
+	useFrame((state) => {
+		// salsa posicion [13, 0.33, -6]
+		if (moviendoCamara) {
+			state.camera.position.x = MathUtils.lerp(
+				state.camera.position.x,
+				posicionFinal.x,
+				0.0015
+			);
+			state.camera.position.y = MathUtils.lerp(
+				state.camera.position.y,
+				posicionFinal.y,
+				0.005
+			);
 
-			setTimeout(() => {
-				setMoviendo(true);
-				setTarget([13, 0.33, -6]);
-			}, 2500);
-			setTimeout(() => {
-				setZVelocidad(0.005);
-			}, 22000);
-
-			return () => {
-				sound.stop();
-			};
-		}, []);
-
-		useEffect(() => {
-			//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
-			//console.log("storyProgress.scenery: ", storyProgress.scenery)
-			//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
-			if (
-				storyProgress.currentStep == 1 &&
-				storyProgress.currentLevel == 1 &&
-				storyProgress.scenery == "s2"
-			) {
-				//movera la camara en "Listo abuela, aqui esta, espero te gusto" o cerca
-				//Cambio de target creo que es
-			}
-	
-		}, [storyProgress.currentLevel, storyProgress.currentStep]);
-
-		useFrame((state) => {
-			// salsa posicion [13, 0.33, -6]
-			if (moviendoCamara) {
-				state.camera.position.x = MathUtils.lerp(
-					state.camera.position.x,
-					11,
-					0.0015
-				);
-				state.camera.position.y = MathUtils.lerp(
-					state.camera.position.y,
-					3,
-					0.005
-				);
-
-				state.camera.position.z = MathUtils.lerp(
-					state.camera.position.z,
-					-3.5,
-					zVelocidad
-				);
-			}
-		});
+			state.camera.position.z = MathUtils.lerp(
+				state.camera.position.z,
+				posicionFinal.z,
+				zVelocidad
+			);
+		}
+	});
 		
 		const sonidoDeFondo = () => {
 			const listener = new AudioListener();
@@ -107,10 +108,10 @@ const Corredor = () => {
 		return (
 			<>
 				<OrbitControls
-					// enableRotate={false}
-					// enablePan={false}
-					// enableZoom={false}
-					// makeDefault
+					enableRotate={false}
+					enablePan={false}
+					enableZoom={false}
+					makeDefault
 					target={target}
 				/>
 				<Escalera />
