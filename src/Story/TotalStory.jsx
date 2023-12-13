@@ -488,9 +488,7 @@ const Story = {
 	s6: {
 		camera: { position: [8, 8, 5] },
 		component: <Muerte />,
-		characters: [
-			<Xander key={1} position={[0.2, 1, -0.5]} scale={1.2} />,
-		],
+		characters: [<Xander key={1} position={[0.2, 1, -0.5]} scale={1.2} />],
 		currentScenery: "s6",
 		nextScenery: "intro-9",
 		thereIsMission: false,
@@ -523,8 +521,8 @@ const Story = {
 					{
 						name: "Xander (Revisa el celular)",
 						lines: `No, por favor nooo...`,
-					}
-				]
+					},
+				],
 			},
 			{
 				log: "",
@@ -540,7 +538,7 @@ const Story = {
 					{
 						name: "Desconocido",
 						lines: `...`,
-					}
+					},
 				],
 			},
 		],
@@ -548,9 +546,7 @@ const Story = {
 	s7: {
 		camera: { position: [-5, 8, 8] },
 		component: <PrimerEscenario />,
-		characters: [
-			<Xander key={1} position={[-11, 1, 0]} />,
-		],
+		characters: [<Xander key={1} position={[-11, 1, 0]} />],
 		currentScenery: "s7",
 		nextScenery: "s8",
 		thereIsMission: true,
@@ -597,7 +593,6 @@ const Story = {
 						name: "Xander",
 						lines: `Como lo suponía, este mundo no funciona igual.`,
 					},
-					
 				],
 			},
 			{
@@ -644,7 +639,7 @@ const Story = {
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenery: "s8",
-		nextScenery: "tapaq",
+		nextScenery: "continuara",
 		thereIsMission: false,
 		levels: [
 			{
