@@ -484,10 +484,9 @@ const Story = {
 		camera: { position: [8, 8, 5] },
 		component: <Muerte />,
 		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />,
+			<Xander key={1} position={[0.2, 1, -0.5]} scale={1.2} />,
 		],
-		currentScenary: "s6",
+		currentScenery: "s6",
 		nextScenery: "intro-9",
 		thereIsMission: false,
 		levels: [
@@ -496,10 +495,47 @@ const Story = {
 				dialogs: [
 					{
 						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						lines: `Vale, he vuelto, creo que ya han pasado... 
 						
-						Un simple recuerdo.`,
+						4 semanas, ese mundo se veía demasiado imponente para mi.`,
 					},
+					{
+						name: "Xander",
+						lines: `No creo haber encontrado nada ahi para ayudar a mi abuela.`,
+					},
+					{
+						name: "Xander",
+						lines: `... Ahora tengo que idear una manera diferente para salvarla...`,
+					},
+					{
+						name: "Xander",
+						lines: `O quizás mañana.`,
+					},
+					{
+						name: "Xander (Mientras el celular suena)",
+						lines: `Solo tengo que...`,
+					},
+					{
+						name: "Xander (Revisa el celular)",
+						lines: `No, por favor nooo...`,
+					}
+				]
+			},
+			{
+				log: "",
+				dialogs: [
+					{
+						name: "Xander (Contesta)",
+						lines: `Por favor no le hagas daño...`,
+					},
+					{
+						name: "Xander",
+						lines: `No me has dado tiempo...`,
+					},
+					{
+						name: "Desconocido",
+						lines: `...`,
+					}
 				],
 			},
 		],
@@ -508,21 +544,88 @@ const Story = {
 		camera: { position: [-5, 8, 8] },
 		component: <PrimerEscenario />,
 		characters: [
-			<Xander key={1} position={[-11, 7, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />,
+			<Xander key={1} position={[-11, 1, 0]} />,
 		],
 		currentScenery: "s7",
 		nextScenery: "s8",
-		thereIsMission: false,
+		thereIsMission: true,
 		levels: [
 			{
-				log: "Debes eliminar esos cubos para poder pasar",
-				showLog: true,
 				log: "",
 				dialogs: [
 					{
-						name: "Raven",
-						lines: `Tu realidad está apunto de cambiar`,
+						name: "Xander",
+						lines: `Bueno... ya tome la decisión.`,
+					},
+					{
+						name: "Xander",
+						lines: `Todo para salvar a mi abuelita.`,
+					},
+					{
+						name: "Xander",
+						lines: `Espero no sea en vano.`,
+					},
+				],
+			},
+			{
+				log: "",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `¿Que tenemos aquí?, ¿Un camino sin salida?.`,
+					},
+					{
+						name: "Xander (Desanimado)",
+						lines: `No pense que mi visita en este mundo fuera tan corta.`,
+					},
+				],
+			},
+			{
+				log: "No todo es lo que parece... Toca los cubos para poder avanzar.",
+				showLog: true,
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `A menos que...`,
+					},
+					{
+						name: "Xander",
+						lines: `Como lo suponía, este mundo no funciona igual.`,
+					},
+					
+				],
+			},
+			{
+				log: "",
+				dialogs: [
+					{
+						name: "Xander",
+						lines: `Y seguramente este muro tampoco tiene colisiones.`,
+					},
+					{
+						name: "Xander",
+						lines: `Eso fue fácil.`,
+					},
+					{
+						name: "Desconocido",
+						lines: `*Sonidos de pasos desvanecerse.`,
+					},
+					{
+						name: "Xander (asustado)",
+						lines: `Creo haber escuchado algo...`,
+					},
+					{
+						name: "Xander (asustado)",
+						lines: `Bueno... 
+						
+						
+						
+						
+						no importa.`,
+					},
+					{
+						name: "Xander (asustado)",
+						lines: `Entre mas rápido nos vayamos de aca, mucho mejor, creo que es por aquí.`,
 					},
 				],
 			},
@@ -535,55 +638,7 @@ const Story = {
 			<Xander key={1} position={[-4, 1, 0]} />,
 			<Raven key={2} position={[6, 1, 0]} />,
 		],
-		currentScenery: "s6",
-		nextScenery: "tapaq",
-		thereIsMission: false,
-		levels: [
-			{
-				log: "",
-				dialogs: [
-					{
-						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
-						
-						Un simple recuerdo.`,
-					},
-				],
-			},
-		],
-	},
-	s10: {
-		camera: { position: [8, 8, 5] },
-		component: <Escoger />,
-		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />,
-		],
-		currentScenary: "s9",
-		nextScenery: "tapaq",
-		thereIsMission: false,
-		levels: [
-			{
-				log: "",
-				dialogs: [
-					{
-						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
-						
-						Un simple recuerdo.`,
-					},
-				],
-			},
-		],
-	},
-	s11: {
-		camera: { position: [8, 8, 5] },
-		component: <Muerte />,
-		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />,
-		],
-		currentScenary: "s9",
+		currentScenery: "s8",
 		nextScenery: "tapaq",
 		thereIsMission: false,
 		levels: [

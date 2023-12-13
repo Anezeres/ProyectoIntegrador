@@ -67,6 +67,7 @@ const Corredor = () => {
 				);
 			}
 		});
+		
 		const sonidoDeFondo = () => {
 			const listener = new AudioListener();
 			//cameraRef.current.add(listener);

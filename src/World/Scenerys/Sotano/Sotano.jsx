@@ -3,7 +3,8 @@ import Objetos from "./Objetos";
 import Escalera from "./Escalera";
 import Pantalla from "./Pantalla";
 import Panel from "./Panel";
-import { OrbitControls, useTexture } from "@react-three/drei";
+import { OrbitControls, useTexture, Sparkles } from "@react-three/drei";
+
 import { Audio, AudioListener, AudioLoader } from "three";
 import { useContext, useEffect } from "react";
 import Iluminacion from "./Iluminacion";
@@ -34,7 +35,7 @@ const Sotano = () => {
 			sound.stop();
 		};
 	}, []);
-	
+
 	const sonidoDeFondo = () => {
 		const listener = new AudioListener();
 		//cameraRef.current.add(listener);
@@ -77,7 +78,17 @@ const Sotano = () => {
 			<Escalera />
 			<Pantalla position={[-3.9, 2, 0]} />
 			<Panel />
-			<Iluminacion/>
+			<Iluminacion />
+			<Sparkles
+				position={[0, 0, 0]}
+				color="gray"
+				count={100}
+				size={2}
+				fade={false}
+				speed={0.5}
+				scale={7}
+				castShadow
+			/>
 		</>
 	);
 };

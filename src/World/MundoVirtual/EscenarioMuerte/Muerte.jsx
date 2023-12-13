@@ -5,6 +5,7 @@ import WallsMuerte from "./WallsMuerte";
 import Computer from "./Computador";
 import SciFiChair from "./SciFiChair";
 import { cameraContext } from "../../../Context/cameraContext";
+import Iluminacion from "./Iluminacion";
 
 const Muerte = () => {
 
@@ -25,6 +26,7 @@ const Muerte = () => {
             <WallsMuerte/>
             <Computer/>
             <SciFiChair/>
+            <Iluminacion/>
         </>
     )
 

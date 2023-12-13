@@ -33,31 +33,28 @@ const CharacterContext = ({ children }) => {
     let [lastPositionRaven, setLastPositionRaven] = useState([new THREE.Vector3(0, 0, 0)]);
 
     let [arrayPositionXander, setArrayPositionXander] = useState([]);
-    let [finalAnimation, setFinalAnimation] = useState('')
-    let [callBack, setCallBack] = useState(null)
     let [arrayPositionAbuela, setArrayPositionAbuela] = useState([]);
     let [arrayPositionRaven, setArrayPositionRaven] = useState([]);
-
+    
     let [moveXander, setMoveXander] = useState(false);
     let [moveAbuela, setMoveAbuela] = useState(false);
     let [moveRaven, setMoveRaven] = useState(false);
-
+    
     let { animations: animationsXander } = xanderModel;
     let { actions: actionsXander } = useAnimations(animationsXander, xanderRef);
     let { animations: animationsAbuela } = abuelaModel;
     let { actions: actionsAbuela } = useAnimations(animationsAbuela, abuelaRef);
     let { animations: animationsRaven } = ravenModel;
     let { actions: actionsRaven } = useAnimations(animationsRaven, ravenRef);
-
-
+    
+    
     const [currentAnimationXander, setCurrentAnimationXander] = useState(null);
     const [currentAnimationAbuela, setCurrentAnimationAbuela] = useState(null);
     const [currentAnimationRaven, setCurrentAnimationRaven] = useState(null);
-
+    
+    let [callBack, setCallBack] = useState(null)
     //Muestra las animaciones de xander
 
-    //console.log(animationsXander)
-    //console.log(animationsAbuela)
     //console.log(animationsRaven)
 
     //Realiza una animación por un tiempo determinado
@@ -119,23 +116,10 @@ const CharacterContext = ({ children }) => {
         }
     };
 
-    // Asegurarse de limpiar cualquier animación en desmontaje del componente
-    useEffect(() => {
-        return () => {
-            if (currentAnimationXander) {
-                currentAnimationXander.fadeOut(0.2)
-            }
-            if (currentAnimationAbuela) {
-                currentAnimationAbuela.fadeOut(0.2)
-            }
-            if (currentAnimationRaven) {
-                currentAnimationRaven.fadeOut(0.2)
-            }
-        };
-    }, [currentAnimationXander, currentAnimationAbuela, currentAnimationRaven]);
+    
 
     //Mueve el personaje (rigidBody)
-    const changePosition = (position, character, animationName, callback) => {
+    const changePosition = (position, character, callback) => {
         if (character == 'Xander') {
             setMoveXander(false)
         } else if (character == 'Abuela') {
@@ -152,7 +136,6 @@ const CharacterContext = ({ children }) => {
                 setMoveXander(true)
                 const newPositionArray = position.slice(1)
                 setArrayPositionXander(newPositionArray)
-                setFinalAnimation(animationName)
                 setCallBack(() => callback)
             } else {
                 setArrayPositionXander([])
@@ -168,12 +151,12 @@ const CharacterContext = ({ children }) => {
                 setMoveAbuela(true)
                 const newPositionArray = position.slice(1)
                 setArrayPositionAbuela(newPositionArray)
+                setCallBack(() => callback)
             } else {
                 setArrayPositionAbuela([])
                 // Llama a la función de callback al final
-                if (callback) {
-                    callback();
-                }
+                callback && callback();
+                setCallBack(null)
             }
         } else if (character == 'Raven') {
             if (position && Array.isArray(position) && position.length > 0) {
@@ -183,12 +166,12 @@ const CharacterContext = ({ children }) => {
                 setMoveRaven(true)
                 const newPositionArray = position.slice(1)
                 setArrayPositionRaven(newPositionArray)
+                setCallBack(() => callback)
             } else {
                 setArrayPositionRaven([])
                 // Llama a la función de callback al final
-                if (callback) {
-                    callback();
-                }
+                callback && callback();
+                setCallBack(null)
             }
         }
 
@@ -240,10 +223,6 @@ const CharacterContext = ({ children }) => {
                 z: currentPos.z + (velocidadMovimiento * direccionZ)
             }, true)
 
-            if (targetAnimation && targetAnimation !== currentAnimation) {
-                playAnimation('Walking', 'Xander', null)
-            }
-
         } else if (character == 'Abuela') {
 
             const currentPos = abuelaBodyRef.current.translation();
@@ -273,9 +252,6 @@ const CharacterContext = ({ children }) => {
                 z: currentPos.z + (velocidadMovimiento * direccionZ)
             }, true)
 
-            if (targetAnimation && targetAnimation !== currentAnimation) {
-                playAnimation('Walking', 'Abuela', null)
-            }
         } else if (character == 'Raven') {
             const currentPos = ravenBodyRef.current.translation();
             let direccionX = 0
@@ -304,9 +280,10 @@ const CharacterContext = ({ children }) => {
                 z: currentPos.z + (velocidadMovimiento * direccionZ)
             }, true)
 
-            if (targetAnimation && targetAnimation !== currentAnimation) {
-                playAnimation('Walking', 'Raven', null)
-            }
+        }
+
+        if (targetAnimation && targetAnimation !== currentAnimation) {
+            playAnimation('Walking', character, null)
         }
     };
 
@@ -445,7 +422,6 @@ const CharacterContext = ({ children }) => {
                     arrayPositionRaven,
                     setArrayPositionRaven,
                     callBack,
-                    finalAnimation
                 }
             }
         >

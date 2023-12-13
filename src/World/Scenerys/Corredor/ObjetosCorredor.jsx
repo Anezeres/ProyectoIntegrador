@@ -37,7 +37,9 @@ const Objetos = (props) => {
 		}
 	}
 
-	const moverCamara = () => {
+	const moverCamara = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			cameraRef,
 			[2.9, 0, -0.8],
@@ -50,7 +52,9 @@ const Objetos = (props) => {
 		updateCount(countObjectsMoved + 1);
 	};
 
-	const moverSalsaTomate = () => {
+	const moverSalsaTomate = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			salsaRef,
 			[3.5, 2, -8.7],
@@ -63,7 +67,9 @@ const Objetos = (props) => {
 		updateCount(countObjectsMoved + 1);
 	};
 
-	const moverSalsaTomate2 = () => {
+	const moverSalsaTomate2 = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			salsaRef2,
 			[3.5, 2, -8.7],
@@ -76,7 +82,9 @@ const Objetos = (props) => {
 		updateCount(countObjectsMoved + 1);
 	};
 
-	const moverSalsaTomate3 = () => {
+	const moverSalsaTomate3 = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			salsaRef3,
 			[3.5, 2, -8.7],
@@ -89,7 +97,9 @@ const Objetos = (props) => {
 		updateCount(countObjectsMoved + 1);
 	};
 
-	const moverDulces = () => {
+	const moverDulces = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			dulcesRef,
 			[2.3, 0.77, -3],
@@ -121,7 +131,7 @@ const Objetos = (props) => {
 					material={materials.Material}
 					rotation={[0, -Math.PI / 2, 0]}
 					ref={cameraRef}
-					onClick={moverCamara}
+					onClick={(e) => moverCamara(e)}
 					scale={1.2}
 				/>
 			</group>
@@ -321,7 +331,7 @@ const Objetos = (props) => {
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
 					position={[14.7, 0.48, -5.5]}
-					onClick={moverSalsaTomate}
+					onClick={(e) => moverSalsaTomate(e)}
 					ref={salsaRef}
 					scale={1.3}
 				/>
@@ -332,7 +342,7 @@ const Objetos = (props) => {
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
 					position={[10, 0.33, -6]}
-					onClick={moverSalsaTomate2}
+					onClick={(e) => moverSalsaTomate2(e)}
 					ref={salsaRef2}
 					scale={1.3}
 				/>
@@ -343,7 +353,7 @@ const Objetos = (props) => {
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
 					position={[8.6, 0.5, -6.7]}
-					onClick={moverSalsaTomate3}
+					onClick={(e) => moverSalsaTomate3(e)}
 					ref={salsaRef3}
 					scale={1.3}
 				/>
@@ -361,7 +371,7 @@ const Objetos = (props) => {
 					geometry={nodes.dish_001.geometry}
 					material={materials.Material}
 					position={[7, 0.22, -3.8]}
-					onClick={moverDulces}
+					onClick={(e) => moverDulces(e)}
 					ref={dulcesRef}
 					scale={1.3}
 				/>

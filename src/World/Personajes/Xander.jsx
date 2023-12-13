@@ -24,7 +24,6 @@ const Xander = ({ position, ...props }) => {
         changePosition,
         moveXander,
         arrayPositionXander,
-        finalAnimation,
         callBack
     } = useContext(characterContext)
 
@@ -40,7 +39,7 @@ const Xander = ({ position, ...props }) => {
                 if (xanderBodyRef.current.translation().x.toFixed(1) != newPositionXander[0].toFixed(1) || xanderBodyRef.current.translation().z.toFixed(1) != newPositionXander[2].toFixed(1)) {
                     moveTo(newPositionXander, 'Walking', 'Xander')
                 } else {
-                    changePosition(arrayPositionXander, 'Xander', finalAnimation, callBack)
+                    changePosition(arrayPositionXander, 'Xander', callBack)
                 }
             }
             //hace que el personaje siempre este bien orientado

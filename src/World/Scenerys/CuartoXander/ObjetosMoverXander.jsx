@@ -29,7 +29,9 @@ const ObjetosMoverXander = (props) => {
 		}
 	};
 	
-	const moverCocaCola = () => {
+	const moverCocaCola = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			cocaColaRef,
 			[4.3, -0.4, -1.1],
@@ -41,7 +43,9 @@ const ObjetosMoverXander = (props) => {
 		);
 		setObjetosMovidos(objetosMovidos + 1);
 	};
-	const moverCocaCola2 = () => {
+	const moverCocaCola2 = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			cocaColaRef2,
 			[4.3, -0.4, -1.1],
@@ -54,7 +58,9 @@ const ObjetosMoverXander = (props) => {
 		setObjetosMovidos(objetosMovidos + 1);
 	};
 
-	const moverToalla = () => {
+	const moverToalla = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			toallaRef,
 			[-8.3, 1.7, -8.5],
@@ -67,7 +73,9 @@ const ObjetosMoverXander = (props) => {
 		setObjetosMovidos(objetosMovidos + 1);
 	};
 
-	const moverToalla2 = () => {
+	const moverToalla2 = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			toallaRef2,
 			[-8.3, 1.7, -8.5],
@@ -80,7 +88,9 @@ const ObjetosMoverXander = (props) => {
 		setObjetosMovidos(objetosMovidos + 1);
 	};
 
-	const moverToalla3 = () => {
+	const moverToalla3 = (e) => {
+		e.stopPropagation()
+
 		moveObjectToPositionSmoothly(
 			toallaRef3,
 			[-8.3, 1.7, -8.5],
@@ -110,7 +120,7 @@ const ObjetosMoverXander = (props) => {
 					material={materials.Material}
 					position={[1.329, -0.131, 1.992]}
 					ref={cocaColaRef}
-					onClick={moverCocaCola}
+					onClick={(e) => {moverCocaCola(e)}}
 				/>
 			</group>
 
@@ -127,7 +137,7 @@ const ObjetosMoverXander = (props) => {
 					material={materials.Material}
 					position={[1.329, -0.131, 1.992]}
 					ref={cocaColaRef2}
-					onClick={moverCocaCola2}
+					onClick={(e) => {moverCocaCola2(e)}}
 				/>
 			</group>
 
@@ -143,7 +153,7 @@ const ObjetosMoverXander = (props) => {
 					material={materials.Material}
 					position={[-12.4, 0.14, -5.8]}
 					ref={toallaRef}
-					onClick={moverToalla}
+					onClick={(e) => {moverToalla(e)}}
 				/>
 			</group>
 
@@ -158,7 +168,7 @@ const ObjetosMoverXander = (props) => {
 					material={materials.Material}
 					position={[-10.7, 0.14, -5]}
 					ref={toallaRef2}
-					onClick={moverToalla2}
+					onClick={(e) => {moverToalla2(e)}}
 				/>
 			</group>
 
@@ -173,7 +183,7 @@ const ObjetosMoverXander = (props) => {
 					material={materials.Material}
 					position={[-7.7, 0.14, -3.7]} /* [-7.7, 0.14, -3.7] */
 					ref={toallaRef3}
-					onClick={moverToalla3}
+					onClick={(e) => {moverToalla3(e)}}
 				/>
 			</group>
 		</group>
