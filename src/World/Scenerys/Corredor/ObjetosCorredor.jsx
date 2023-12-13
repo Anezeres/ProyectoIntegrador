@@ -124,6 +124,8 @@ const Objetos = (props) => {
 			<group scale={2} position={[9, 0.5, -4.9]}>
 				{/* Camara */}
 				<mesh
+					onPointerEnter={() => (document.body.style.cursor = "pointer")}
+					onPointerLeave={() => (document.body.style.cursor = "auto")}
 					castShadow
 					geometry={nodes.camera_001.geometry}
 					material={materials.Material}
@@ -323,6 +325,8 @@ const Objetos = (props) => {
 			<group position={[0, 0, 0]} scale={1}>
 				{/* Salsa de Tomate */}
 				<mesh
+					onPointerEnter={() => (document.body.style.cursor = "pointer")}
+					onPointerLeave={() => (document.body.style.cursor = "auto")}
 					castShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
@@ -332,6 +336,8 @@ const Objetos = (props) => {
 					scale={1.3}
 				/>
 				<mesh
+					onPointerEnter={() => (document.body.style.cursor = "pointer")}
+					onPointerLeave={() => (document.body.style.cursor = "auto")}
 					castShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
@@ -341,6 +347,8 @@ const Objetos = (props) => {
 					scale={1.3}
 				/>
 				<mesh
+					onPointerEnter={() => (document.body.style.cursor = "pointer")}
+					onPointerLeave={() => (document.body.style.cursor = "auto")}
 					castShadow
 					geometry={nodes.ketchup_001.geometry}
 					material={materials.Material}
@@ -352,7 +360,12 @@ const Objetos = (props) => {
 			</group>
 
 			{/* Dulcecitos */}
-			<group scale={1.5} position={[0, 0, 0]}>
+			<group
+				scale={1.5}
+				position={[0, 0, 0]}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
+			>
 				<mesh
 					castShadow
 					geometry={nodes.dish_001.geometry}

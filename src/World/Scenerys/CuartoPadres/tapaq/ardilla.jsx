@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Ardilla(props) {
@@ -6,14 +6,11 @@ export function Ardilla(props) {
 	function clicArdilla() {
 		window.location.href = "/tapaq";
 	}
+
 	return (
 		<group {...props} dispose={null}>
 			<group scale={0.01}>
-				<group
-					position={[53.142, 248.588, 80.844]}
-					onClick={clicArdilla}
-					// onPointerEnter={clicArdilla}
-				>
+				<group position={[53.142, 248.588, 80.844]} onClick={clicArdilla}>
 					<mesh
 						castShadow
 						receiveShadow

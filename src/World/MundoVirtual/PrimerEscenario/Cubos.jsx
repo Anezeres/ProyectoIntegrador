@@ -44,6 +44,8 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 2, -1.6]}
 				scale={1}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 				onClick={(e) => removeComponent(CubosRef, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
@@ -55,6 +57,8 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 2, 1.6]}
 				scale={1}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 				onClick={(e) => removeComponent(CubosRef2, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
@@ -66,6 +70,9 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 5.1, 1.6]}
 				scale={1}
+				
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 				onClick={(e) => removeComponent(CubosRef3, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
@@ -77,6 +84,9 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 5.1, -1.6]}
 				scale={1}
+				
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
 				onClick={(e) => removeComponent(CubosRef4, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />

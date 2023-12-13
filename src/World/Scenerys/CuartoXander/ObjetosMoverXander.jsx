@@ -107,7 +107,11 @@ const ObjetosMoverXander = (props) => {
 
 	return (
 		<group {...props} dispose={null}>
-			<group position={[-11.7, 1.4, -7.7]}>
+			<group
+				position={[-11.7, 1.4, -7.7]}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
+			>
 				{/* Coca Cola */}
 				<mesh
 					castShadow
@@ -120,7 +124,11 @@ const ObjetosMoverXander = (props) => {
 				/>
 			</group>
 
-			<group position={[-11.7, 1.4, -8.7]}>
+			<group
+				position={[-11.7, 1.4, -8.7]}
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
+			>
 				{/* Coca Cola */}
 				<mesh
 					castShadow
@@ -134,7 +142,10 @@ const ObjetosMoverXander = (props) => {
 			</group>
 
 			{/* Toallas */}
-			<group>
+			<group
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
+			>
 				<mesh
 					castShadow
 					receiveShadow
@@ -146,7 +157,10 @@ const ObjetosMoverXander = (props) => {
 				/>
 			</group>
 
-			<group>
+			<group
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
+			>
 				<mesh
 					castShadow
 					receiveShadow
@@ -158,7 +172,10 @@ const ObjetosMoverXander = (props) => {
 				/>
 			</group>
 
-			<group>
+			<group
+				onPointerEnter={() => (document.body.style.cursor = "pointer")}
+				onPointerLeave={() => (document.body.style.cursor = "auto")}
+			>
 				<mesh
 					castShadow
 					receiveShadow
