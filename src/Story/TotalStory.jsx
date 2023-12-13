@@ -423,7 +423,7 @@ const Story = {
 		camera: { position: [8, 8, 5] },
 		component: <Escoger />,
 		characters: [<Xander key={1} position={[-2, 20, 0]} />],
-		currentScenary: "s5",
+		currentScenery: "s5",
 		nextScenery: "tapaq",
 		thereIsMission: true,
 		levels: [
@@ -454,6 +454,11 @@ const Story = {
 						name: "Xander",
 						lines: `Es muy diferente a lo que pense que era...`,
 					},
+				],
+			},
+			{
+				log: "",
+				dialogs: [
 					{
 						name: "Xander (Dudoso)",
 						lines: `Si entro al mundo virtual, no creo poder volver aunque quiera, por amor a mi abuela.`,
@@ -647,9 +652,101 @@ const Story = {
 				dialogs: [
 					{
 						name: "Xander",
-						lines: `No me gusta estar acá abajo, cada vez que vengo recuerdo a mis padres. Me da tristeza saber que lo unico que me queda es eso. 
+						lines: `...`,
+					},
+					{
+						name: "Xander",
+						lines: `El mundo virtual es mas grande de lo que parece.`,
+					},
+					{
+						name: "Xander",
+						lines: `He caminado por mas de 30 mins, pero no veo nada que me pueda ayudar.`,
+					},
+					{
+						name: "Xander (Sorprendido)",
+						lines: `¡Oh mira!, un robot tendero. hoy en dia son 5 veces mas pequeños.`,
+					},
+					{
+						name: "Xander",
+						lines: `Como evoluciona la tecnología.`,
+					},
+					{
+						name: "Xander",
+						lines: `Codigo 538....6, dame un dulce kuchi sin chispas de chocolate.`,
+					},
+					{
+						name: "Codigo 5386",
+						lines: `¿Bip bup?.`,
+					},
+					{
+						name: "Xander",
+						lines: `Creo que no me entiende...`,
+					},
+					{
+						name: "Xander",
+						lines: `Se me olvida que es una version vieja, seguramente funcione diferente.`,
+					},
+					{
+						name: "Xander (Se empujan sin querer)",
+						lines: `¡Hey... que te pasa!.`,
+					},
+					{
+						name: "Xander",
+						lines: `¿No ves por donde andas?`,
+					},
+					{
+						name: "Desconocida",
+						lines: `Perdona, no vi por donde iba.`,
+					},
+					{
+						name: "Xander",
+						lines: `Umm....
 						
-						Un simple recuerdo.`,
+						
+						Esta bien no hay problema
+						`,
+					},
+					{
+						name: "Desconocida (Se va)",
+						lines: `...`,
+					},
+					{
+						name: "Xander",
+						lines: `Bueno en lo que iba.`,
+					},
+					{
+						name: "Xander (Saca la Billetera Virtual)",
+						lines: `Código 5386. dame: kuchi, pago:Diner...`,
+					},
+					{
+						name: "Xander",
+						lines: `Y ...
+						
+						
+						¿mi billetera?.`,
+					},
+					{
+						name: "Xander (Pánico Leve)",
+						lines: `Ya no esta.`,
+					},
+					{
+						name: "Xander",
+						lines: `...
+						
+						
+						No dure ni 1 hora sin que me pasara algo...`,
+					},
+					{
+						name: "Xander",
+						lines: `...`,
+					},
+					{
+						name: "Xander",
+						lines: `¡No importa!
+						
+
+						Seguiré por mi abuela
+						`,
 					},
 				],
 			},

@@ -30,9 +30,9 @@ const PrimerEscenario = () => {
 	}, []);
 
 	useEffect(() => {
-		console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
-		console.log("storyProgress.scenery: ", storyProgress.scenery)
-		console.log("storyProgress.currentStep: ", storyProgress.currentStep)
+		//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
+		//console.log("storyProgress.scenery: ", storyProgress.scenery)
+		//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
 		if (
 			storyProgress.currentStep == 0 &&
 			storyProgress.currentLevel == 3 &&

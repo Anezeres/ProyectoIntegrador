@@ -39,6 +39,7 @@ const TimeLine = (props) => {
                         break;
                     case 2:
                         stopAnimation('Xander')
+                        setIsPaused(true)
                         changePosition([
                             [-15, xanderBodyRef.current.translation().y, -4.8],
                             [-7, xanderBodyRef.current.translation().y, -4.8],
@@ -48,6 +49,7 @@ const TimeLine = (props) => {
                                 stopAnimation('Xander')
                                 rotate(Math.PI / 3, 'Xander')
                                 playAnimation('Idle', 'Xander', null)
+                                setIsPaused(false)
                             }
                         )
                         break;

@@ -10,8 +10,11 @@ import { cameraContext } from "../../../Context/cameraContext";
 import Iluminacion from "./Iluminacion";
 import { Audio, AudioListener, AudioLoader, MathUtils } from "three";
 import { useFrame } from "@react-three/fiber";
+import { refContext } from "../../../Context/refContext";
 const Escoger = () => {
 	const { camera } = useContext(cameraContext);
+	const { storyProgress } = useContext(refContext);
+
 	const [moviendoCamara, setMoviendo] = useState(false);
 	const [target, setTarget] = useState([0, 0, -4]);
 	let [zVelocidad, setZVelocidad] = useState(0.002);
@@ -29,18 +32,25 @@ const Escoger = () => {
 			sonidoDeFondo();
 		}, 1000);
 
-		setTimeout(() => {
-			setMoviendo(true);
-			setTarget([4.2, 0.33, -5]);
-		}, 10000);
-		// setTimeout(() => {
-		// 	setZVelocidad(0.005);
-		// }, 22000);
-
 		return () => {
 			sound.stop();
 		};
 	}, []);
+
+	useEffect(() => {
+		//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
+		//console.log("storyProgress.scenery: ", storyProgress.scenery)
+		//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
+		if (
+			storyProgress.currentStep == 0 &&
+			storyProgress.currentLevel == 1 &&
+			storyProgress.scenery == "s5"
+		) {
+			setMoviendo(true);
+			setTarget([4.2, 0.33, -5]);
+		}
+
+	}, [storyProgress.currentLevel, storyProgress.currentStep]);
 
 	useFrame((state) => {
 		// salsa posicion [13, 0.33, -6]

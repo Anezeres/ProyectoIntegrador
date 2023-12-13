@@ -1,21 +1,38 @@
 import { Center, Html, Text3D, useGLTF } from "@react-three/drei";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { refContext } from "../../../Context/refContext";
 
 
 const TextoEscoger = () => {
 
-    
 
+	const [isActive, setIsActive] = useState(false)
+	const { storyProgress } = useContext(refContext)
 
-    return (
-			<>
-				<Center>
-					<Html
-						position={[2, 1.8, 0]}
-						center
-						distanceFactor={12}
-						visible={false}
-					>
+	useEffect(() => {
+		//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
+		//console.log("storyProgress.scenery: ", storyProgress.scenery)
+		//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
+		if (
+			storyProgress.currentStep == 0 &&
+			storyProgress.currentLevel == 2 &&
+			storyProgress.scenery == "s5"
+		) {
+			setIsActive(true);
+		}
+
+	}, [storyProgress.currentLevel, storyProgress.currentStep]);
+	return (
+		<>
+
+			<Center>
+				<Html
+					position={[2, 1.8, 0]}
+					center
+					distanceFactor={12}
+					visible={false}
+				>
+					{isActive &&
 						<button
 							onClick={() => {
 								window.location.href = "s6";
@@ -24,9 +41,12 @@ const TextoEscoger = () => {
 						>
 							Volver a Casa
 						</button>
-					</Html>
-				</Center>
+					}
+				</Html>
+			</Center>
 
+
+			{isActive &&
 				<Center>
 					<Html
 						position={[8, 1.7, 0.5]}
@@ -44,10 +64,11 @@ const TextoEscoger = () => {
 						</button>
 					</Html>
 				</Center>
-			</>
-		);
+			}
+		</>
+	);
 
-    
+
 }
 
 export default TextoEscoger;
