@@ -259,7 +259,7 @@ const TimeLine = (props) => {
                         setIsPaused(true)
                         setTimeout(() => {
                             teleport({ x: -10, y: 1, z: 0 }, 'Xander')
-                            teleport({ x: -3.3, y: 1, z: -9 }, 'Raven')
+                            teleport({ x: -3.3, y: 1, z: -6 }, 'Raven')
 
                         }, 20)
                         setIsPaused(false)
@@ -304,8 +304,8 @@ const TimeLine = (props) => {
                     case 7:
                         setIsPaused(true)
                         changePosition([
-                            [0, xanderBodyRef.current.translation().y, 0],
-                            [10, xanderBodyRef.current.translation().y, 0]],
+                            [0, xanderBodyRef.current.translation().y, 1],
+                            [4, xanderBodyRef.current.translation().y, 1]],
                             'Xander',
                             () => {
                                 stopAnimation('Xander')

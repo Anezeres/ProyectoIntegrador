@@ -665,7 +665,7 @@ const Story = {
 		component: <SegundoEscenario />,
 		characters: [
 			<Xander key={1} position={[-10, 1, 0]} scale={1.1}/>,
-			<Raven key={2} position={[-3.3, 1, -9]} scale={1.1}/>,
+			<Raven key={2} position={[-3.3, 1, -6]} scale={1.1}/>,
 		],
 		currentScenery: "s8",
 		nextScenery: "continuara",
@@ -769,7 +769,7 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: `Wow, tengo que aprender a hacer eso.`,
+						lines: `¡Wow!, tengo que aprender a hacer eso.`,
 					},
 				]
 			},
