@@ -489,7 +489,7 @@ const Story = {
 		camera: { position: [8, 8, 5] },
 		component: <Muerte />,
 		characters: [
-			<Xander key={1} position={[0.2, 1, -0.5]} scale={1.2} />,
+			<Xander key={1} position={[0.2, 1, 0]} scale={1.2} />,
 		],
 		currentScenery: "s6",
 		nextScenery: "intro-9",
@@ -512,17 +512,30 @@ const Story = {
 						name: "Xander",
 						lines: `... Ahora tengo que idear una manera diferente para salvarla...`,
 					},
+				]
+			},
+			{
+				log: "",
+				dialogs: [
 					{
 						name: "Xander",
 						lines: `O quizás mañana.`,
 					},
 					{
 						name: "Xander (Mientras el celular suena)",
-						lines: `Solo tengo que...`,
+						lines: `Solo tengo que... *Ring *Ring`,
 					},
 					{
 						name: "Xander (Revisa el celular)",
-						lines: `No, por favor nooo...`,
+						lines: `...`,
+					},
+					{
+						name: "Xander (Revisa el celular)",
+						lines: `No, aun es muy pronto...`,
+					},
+					{
+						name: "Xander (Revisa el celular)",
+						lines: `...`,
 					}
 				]
 			},
@@ -532,6 +545,20 @@ const Story = {
 					{
 						name: "Xander (Contesta)",
 						lines: `Por favor no le hagas daño...`,
+					},
+					{
+						name: "Xander",
+						lines: `No tengo manera de detenerte... 
+						
+						pero.`,
+					},
+					{
+						name: "Xander (Contesta)",
+						lines: `Solo no lo hagas... 
+						
+						
+						
+						por favor...`,
 					},
 					{
 						name: "Xander",
@@ -597,7 +624,7 @@ const Story = {
 						name: "Xander",
 						lines: `Como lo suponía, este mundo no funciona igual.`,
 					},
-					
+
 				],
 			},
 			{
@@ -654,6 +681,11 @@ const Story = {
 						name: "Xander",
 						lines: `...`,
 					},
+				]
+			},
+			{
+				log: "",
+				dialogs: [
 					{
 						name: "Xander",
 						lines: `El mundo virtual es mas grande de lo que parece.`,
@@ -662,6 +694,11 @@ const Story = {
 						name: "Xander",
 						lines: `He caminado por mas de 30 mins, pero no veo nada que me pueda ayudar.`,
 					},
+				]
+			},
+			{
+				log: "",
+				dialogs: [
 					{
 						name: "Xander (Sorprendido)",
 						lines: `¡Oh mira!, un robot tendero. hoy en dia son 5 veces mas pequeños.`,
@@ -678,6 +715,11 @@ const Story = {
 						name: "Codigo 5386",
 						lines: `¿Bip bup?.`,
 					},
+				]
+			},
+			{
+				logs: "",
+				dialogs: [
 					{
 						name: "Xander",
 						lines: `Creo que no me entiende...`,
@@ -686,6 +728,11 @@ const Story = {
 						name: "Xander",
 						lines: `Se me olvida que es una version vieja, seguramente funcione diferente.`,
 					},
+				]
+			},
+			{
+				logs: "",
+				dialogs: [
 					{
 						name: "Xander (Se empujan sin querer)",
 						lines: `¡Hey... que te pasa!.`,
@@ -706,6 +753,11 @@ const Story = {
 						Esta bien no hay problema
 						`,
 					},
+				]
+			},
+			{
+				logs: '',
+				dialogs:[
 					{
 						name: "Desconocida (Se va)",
 						lines: `...`,
@@ -736,42 +788,48 @@ const Story = {
 						
 						No dure ni 1 hora sin que me pasara algo...`,
 					},
+				]
+			},
+			{
+				logs:'',
+				dialogs:[
 					{
 						name: "Xander",
 						lines: `...`,
 					},
 					{
 						name: "Xander",
-						lines: `¡No importa!
-						
-
-						Seguiré por mi abuela
-						`,
+						lines: `¡No importa!.`,
 					},
-				],
-			},
+					{
+						name: "Xander",
+						lines: `Seguiré por mi abuela`,
+					},
+
+				]
+			}
 		],
 	},
-	tapaq: {
-		camera: { position: [1, 3, 6] },
-		component: <CuartoPadres />,
+tapaq: {
+	camera: { position: [1, 3, 6] },
+	component: <CuartoPadres />,
 		characters: [<Xander position={[-5, 5, 11.3]} scale={0.2} />],
-		currentScenery: "tapaq",
-		nextScenery: "s2",
-		thereIsMission: false,
-		levels: [
-			{
-				log: "",
-				dialogs: [
-					{
-						name: "Juego",
-						lines: `Bienvenido. 
+			currentScenery: "tapaq",
+				nextScenery: "s2",
+					thereIsMission: false,
+						levels: [
+							{
+								log: "",
+								dialogs: [
+									{
+										name: "Juego",
+										lines: `Bienvenido. 
 						
 						Te presento a los creadores`,
-					},
-				],
-			},
-		],
+									},
+								],
+							},
+						],
 	},
 };
 

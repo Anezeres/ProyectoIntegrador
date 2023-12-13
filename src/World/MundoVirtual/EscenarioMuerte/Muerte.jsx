@@ -8,9 +8,12 @@ import { cameraContext } from "../../../Context/cameraContext";
 import Iluminacion from "./Iluminacion";
 import { Audio, AudioListener, AudioLoader, MathUtils } from "three";
 import { useFrame } from "@react-three/fiber";
+import { refContext } from "../../../Context/refContext";
 
 const Muerte = () => {
 	const { camera } = useContext(cameraContext);
+	const { storyProgress } = useContext(refContext)
+
 	const [moviendoCamara, setMoviendo] = useState(false);
 	const [target, setTarget] = useState([2, 1, 0]);
 	let [zVelocidad, setZVelocidad] = useState(0.002);
@@ -28,10 +31,6 @@ const Muerte = () => {
 			sonidoDeFondo();
 		}, 1000);
 
-		setTimeout(() => {
-			setMoviendo(true);
-			// setTarget([4.2, 0.33, -5]);
-		}, 10000);
 		// setTimeout(() => {
 		// 	setZVelocidad(0.005);
 		// }, 22000);
@@ -40,6 +39,20 @@ const Muerte = () => {
 			sound.stop();
 		};
 	}, []);
+
+	useEffect(() => {
+		console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
+		console.log("storyProgress.scenery: ", storyProgress.scenery)
+		console.log("storyProgress.currentStep: ", storyProgress.currentStep)
+		if (
+			storyProgress.currentStep == 0 &&
+			storyProgress.currentLevel == 1 &&
+			storyProgress.scenery == "s6"
+		) {
+			setMoviendo(true);
+		}
+
+	}, [storyProgress.currentLevel, storyProgress.currentStep]);
 
 	useFrame((state) => {
 		// salsa posicion [13, 0.33, -6]

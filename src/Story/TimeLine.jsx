@@ -79,7 +79,7 @@ const TimeLine = (props) => {
                         rotate(Math.PI / 3, 'Abuela')
                         playAnimation('Idle', 'Abuela', null)
                         playAnimation('Idle', 'Xander', null)
-                        
+
                         setTimeout(() => {
                             stopAnimation('Xander')
                             changePosition([
@@ -178,6 +178,7 @@ const TimeLine = (props) => {
             case "s5":
                 switch (storyProgress.currentLevel) {
                     case 0:
+
                         setIsPaused(false)
                         playAnimation("Idle", "Xander")
                         rotate(Math.PI / 2, 'Xander')
@@ -197,11 +198,20 @@ const TimeLine = (props) => {
             case "s6":
                 switch (storyProgress.currentLevel) {
                     case 0:
+                        setTimeout(() => {
+                            teleport({ x: 0.2, y: 1, z: 0 }, 'Xander')
+                        }, 20)
                         playAnimation("SittingStyle", "Xander")
                         rotate(Math.PI / 2, 'Xander')
                         break;
                     case 1:
-                        playAnimation('Angry', 'Xander')
+                        setIsPaused(true)
+                        setTimeout(() => { setIsPaused(false) }, 10000)
+                        break;
+                    case 2:
+                        teleport({ x: 0.2, y: 1, z: 0}, 'Xander')
+                        stopAnimation('Xander')
+                        playAnimation('Sitting', 'Xander')
                         break;
                 }
                 break;

@@ -16,6 +16,8 @@ import Iluminacion from "./Iluminacion";
 
 const Corredor = () => {
 	const { camera } = useContext(cameraContext);
+	const { storyProgress } = useContext(refContext)
+
 	const [moviendoCamara, setMoviendo] = useState(false);
 	const [target, setTarget] = useState([8, 0, -4]);
     let [zVelocidad, setZVelocidad] = useState(0.0002);
@@ -45,6 +47,21 @@ const Corredor = () => {
 				sound.stop();
 			};
 		}, []);
+
+		useEffect(() => {
+			//console.log("storyProgress.currentLevel: ", storyProgress.currentLevel)
+			//console.log("storyProgress.scenery: ", storyProgress.scenery)
+			//console.log("storyProgress.currentStep: ", storyProgress.currentStep)
+			if (
+				storyProgress.currentStep == 1 &&
+				storyProgress.currentLevel == 1 &&
+				storyProgress.scenery == "s2"
+			) {
+				//movera la camara en "Listo abuela, aqui esta, espero te gusto" o cerca
+				//Cambio de target creo que es
+			}
+	
+		}, [storyProgress.currentLevel, storyProgress.currentStep]);
 
 		useFrame((state) => {
 			// salsa posicion [13, 0.33, -6]
@@ -85,6 +102,7 @@ const Corredor = () => {
 			});
 			sound.setLoop(true);
 		};
+
 
 		return (
 			<>
