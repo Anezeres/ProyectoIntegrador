@@ -116,7 +116,32 @@ const CharacterContext = ({ children }) => {
         }
     };
 
-    
+    // Asegurarse de limpiar cualquier animación en desmontaje del componente
+    useEffect(() => {
+        return () => {
+            if (currentAnimationXander) {
+                currentAnimationXander.fadeOut(0.2)
+            }
+        };
+    }, [currentAnimationXander]);
+
+    // Asegurarse de limpiar cualquier animación en desmontaje del componente
+    useEffect(() => {
+        return () => {
+            if (currentAnimationAbuela) {
+                currentAnimationAbuela.fadeOut(0.2)
+            }
+        };
+    }, [currentAnimationAbuela]);
+
+    // Asegurarse de limpiar cualquier animación en desmontaje del componente
+    useEffect(() => {
+        return () => {
+            if (currentAnimationRaven) {
+                currentAnimationRaven.fadeOut(0.2)
+            }
+        };
+    }, [currentAnimationRaven]);
 
     //Mueve el personaje (rigidBody)
     const changePosition = (position, character, callback) => {
