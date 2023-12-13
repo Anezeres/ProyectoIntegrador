@@ -27,7 +27,7 @@ const WallsEscoger = () => {
     return (
         <>
 
-            <RigidBody type="fixed" debug>
+            <RigidBody type="fixed" >
                 <Floor rotation-x={Math.PI/2}  rotation-z={Math.PI/2} position={[12,4,0]} textures={propsTexture}/>
                 <Floor rotation-x={Math.PI/2} position={[8,4,-4]} textures={propsTexture}/>
 

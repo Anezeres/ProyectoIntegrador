@@ -11,6 +11,7 @@ import SegundoEscenario from "../World/MundoVirtual/SegundoEscenario/SegundoEsce
 import CuartoXander from "../World/Scenerys/CuartoXander/CuartoXander";
 import Muerte from "../World/MundoVirtual/EscenarioMuerte/Muerte"
 import Escoger from "../World/MundoVirtual/EscenarioEscoger/Escoger";
+import { Ardilla } from "../World/Scenerys/CuartoPadres/tapaq/ardilla";
 
 const Story = {
 	s1: {
@@ -116,6 +117,7 @@ const Story = {
 		characters: [
 			<Xander key={1} position={[-7, 1, -3.2]} scale={1.1} />,
 			<Abuela key={2} position={[6, 1, -7]} scale={1} />,
+			<Ardilla key={3} position={[0, 1, -2]} scale={0.1} />,
 		],
 		currentScenery: "s2",
 		nextScenery: "s3",
@@ -418,17 +420,15 @@ const Story = {
 		],
 	},
 	s5: {
-		camera: { position: [8, 8, 5]  },
+		camera: { position: [8, 8, 5] },
 		component: <Escoger />,
-		characters: [
-			<Xander key={1} position={[-2, 20, 0]} />
-		],
+		characters: [<Xander key={1} position={[-2, 20, 0]} />],
 		currentScenary: "s5",
 		nextScenery: "tapaq",
 		thereIsMission: true,
 		levels: [
 			{
-				log: '',
+				log: "",
 				dialogs: [
 					{
 						name: "Xander (Aparece y Cae)",
@@ -466,7 +466,6 @@ const Story = {
 						name: "Xander (Dudoso)",
 						lines: `Pero si me devuelvo podre mirar otras maneras en el mundo real.`,
 					},
-					
 				],
 			},
 			{
@@ -482,18 +481,18 @@ const Story = {
 		],
 	},
 	s6: {
-		camera: { position: [8, 8, 5]  },
+		camera: { position: [8, 8, 5] },
 		component: <Muerte />,
 		characters: [
 			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />
+			<Raven key={2} position={[6, 1, 0]} />,
 		],
 		currentScenary: "s6",
 		nextScenery: "intro-9",
 		thereIsMission: false,
 		levels: [
 			{
-				log: '',
+				log: "",
 				dialogs: [
 					{
 						name: "Xander",
@@ -604,16 +603,16 @@ const Story = {
 	tapaq: {
 		camera: { position: [1, 3, 6] },
 		component: <CuartoPadres />,
-		characters: [<Xander position={[0, 0, 0]} scale={1.5} />],
+		characters: [<Xander position={[-5, 5, 11.3]} scale={0.2} />],
 		currentScenery: "tapaq",
-		nextScenery: "s1",
+		nextScenery: "s2",
 		thereIsMission: false,
 		levels: [
 			{
 				log: "",
 				dialogs: [
 					{
-						name: "Juan David",
+						name: "Juego",
 						lines: `Bienvenido. 
 						
 						Te presento a los creadores`,
