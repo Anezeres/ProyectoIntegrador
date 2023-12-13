@@ -5,6 +5,7 @@ import PlatformSegundoEsc from "./PlatformSegundoEsc";
 import WallsSegundoEsc from "./WallsSegundoEsc";
 import Carrito from "./Carrito";
 import Drone from "./Drone";
+import Iluminacion from "./Iluminacion";
 
 const SegundoEscenario = () => {
 
@@ -26,6 +27,7 @@ const SegundoEscenario = () => {
             <Drone/>
 
             <WallsSegundoEsc/>
+            <Iluminacion/>
 
         </>
     )

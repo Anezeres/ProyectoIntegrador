@@ -9,7 +9,7 @@ const PuertaSciFi = () => {
 
     return (
         <>
-            <mesh ref={PuertaSciFiRef} rotation-y={Math.PI/2} position={[-0.1, 0.2, 0]} scale={2.2} >
+            <mesh ref={PuertaSciFiRef} rotation-y={Math.PI/2} position={[-0.1, 0.2, 0]} scale={2.2}>
                 <primitive object={PuertaSciFiModel.scene} />
             </mesh>
         </>

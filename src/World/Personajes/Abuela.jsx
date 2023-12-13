@@ -1,23 +1,41 @@
 import { useContext, useEffect } from "react";
+import { characterContext } from "../../Context/characterContext";
 import { CylinderCollider, RigidBody } from "@react-three/rapier";
 import { useFrame } from "@react-three/fiber";
-import { characterContext } from "../../Context/characterContext";
 
 
-export function Abuela({ position, ...props }) {
+const Abuela = ({ position, ...props }) => {
     const {
         abuelaRef,
         abuelaModel,
         abuelaBodyRef,
+        moveTo,
+        newPositionAbuela,
         setNewPositionAbuela,
-        setLastPositionAbuela
+        setLastPositionAbuela,
+        changePosition,
+        moveAbuela,
+        arrayPositionAbuela,
+        callBack,
+        playAnimation
     } = useContext(characterContext)
 
     const { nodes, materials } = abuelaModel;
 
+    useEffect(() => {
+        playAnimation('Idle', 'Abuela')
+    }, []);
+
     useFrame(() => {
         if (abuelaBodyRef.current) {
-
+            if (moveAbuela) {
+                if (abuelaBodyRef.current.translation().x.toFixed(1) != newPositionAbuela[0].toFixed(1) || abuelaBodyRef.current.translation().z.toFixed(1) != newPositionAbuela[2].toFixed(1)) {
+                    moveTo(newPositionAbuela, 'Walking', 'Abuela')
+                } else {
+                    changePosition(arrayPositionAbuela, 'Abuela', callBack)
+                }
+            }
+            //hace que el personaje siempre este bien orientado
             abuelaBodyRef.current.setRotation({
                 x: 0,
                 y: 0,
@@ -43,7 +61,11 @@ export function Abuela({ position, ...props }) {
             {...props}
             name="Abuela"
         >
-            <group ref={abuelaRef} scale={1.5} dispose={null}>
+            <group
+                ref={abuelaRef}
+                scale={1.5}
+                dispose={null}
+            >
                 <group name="Scene">
                     <group name="Armature">
                         <skinnedMesh
@@ -142,7 +164,7 @@ export function Abuela({ position, ...props }) {
                             skeleton={nodes.Wolf3D_Teeth.skeleton}
                             morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
                             morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
-                            castShadow  
+                            castShadow
                         />
                         <primitive object={nodes.Hips} />
                         <CylinderCollider args={[0.9, 0.4]} position={[0, 0.6, 0]} />

@@ -1,8 +1,9 @@
 import { Center, Html, useGLTF, useTexture } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { TextureLoader } from "three";
 import useSound from "use-sound";
+import { refContext } from "../../../Context/refContext";
 
 const Cubos = () => {
 	const CubosRef = useRef();
@@ -13,39 +14,24 @@ const Cubos = () => {
 		volume: 0.3,
 	});
 	const PATH = "/assets/Textures/Matrix/";
+	const { updateStoryProgress } = useContext(refContext)
+	const [objetosMovidos, setMovidos] = useState(0);
 
-	const removeComponent1 = () => {
+	const removeComponent = (ref, e) => {
+		e.stopPropagation()
 		playPop();
-		// Verifica que el objeto y su padre existan antes de intentar eliminarlo
-		if (CubosRef.current && CubosRef.current.parent) {
-			CubosRef.current.parent.remove(CubosRef.current);
+		if (ref.current && ref.current.parent) {
+			ref.current.parent.remove(ref.current);
 		}
+		setMovidos((prevMovidos) => prevMovidos + 1);
 	};
 
-	const removeComponent2 = () => {
-		playPop();
-
-		// Verifica que el objeto y su padre existan antes de intentar eliminarlo
-		if (CubosRef2.current && CubosRef2.current.parent) {
-			CubosRef2.current.parent.remove(CubosRef2.current);
+	useEffect(() => {
+		if (objetosMovidos == 4) {
+			updateStoryProgress({ missionDone: true });
 		}
-	};
-	const removeComponent3 = () => {
-		playPop();
+	}, [objetosMovidos])
 
-		// Verifica que el objeto y su padre existan antes de intentar eliminarlo
-		if (CubosRef3.current && CubosRef3.current.parent) {
-			CubosRef3.current.parent.remove(CubosRef3.current);
-		}
-	};
-	const removeComponent4 = () => {
-		playPop();
-
-		// Verifica que el objeto y su padre existan antes de intentar eliminarlo
-		if (CubosRef4.current && CubosRef4.current.parent) {
-			CubosRef4.current.parent.remove(CubosRef4.current);
-		}
-	};
 
 	const propsTexture = useTexture({
 		map: PATH + "Matrix2.png",
@@ -58,7 +44,7 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 2, -1.6]}
 				scale={1}
-				onClick={removeComponent1}
+				onClick={(e) => removeComponent(CubosRef, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
@@ -69,7 +55,7 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 2, 1.6]}
 				scale={1}
-				onClick={removeComponent2}
+				onClick={(e) => removeComponent(CubosRef2, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
@@ -80,7 +66,7 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 5.1, 1.6]}
 				scale={1}
-				onClick={removeComponent3}
+				onClick={(e) => removeComponent(CubosRef3, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />
@@ -91,7 +77,7 @@ const Cubos = () => {
 				rotation-y={Math.PI / 2}
 				position={[-3, 5.1, -1.6]}
 				scale={1}
-				onClick={removeComponent4}
+				onClick={(e) => removeComponent(CubosRef4, e)}
 			>
 				<boxGeometry args={[3, 3, 3]} />
 				<meshBasicMaterial {...propsTexture} />

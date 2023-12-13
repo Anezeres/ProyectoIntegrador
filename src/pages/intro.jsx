@@ -479,56 +479,11 @@ export const introState = [
 			},
 		],
 	},
+	
 	{
 		camera: { position: [-1, 4, 0] },
 		thereIsMission: false,
 		component: <Intro imageId={9} />,
-		characters: [""],
-		nextScenery: "intro-10",
-		levels: [
-			{
-				log: "Dale clic en siguiente para continuar con la historia.",
-				dialogs: [
-					{
-						name: "Xander",
-						lines: `Vale, he vuelto, ese mundo se ve demasiado imponente para mi.`,
-					},
-					{
-						name: "Xander",
-						lines: `No creo haber encontrado nada ahi para ayudar a mi abuela.`,
-					},
-					{
-						name: "Xander",
-						lines: `... Ahora tengo que idear una manera diferente para salvarla`,
-					},
-					{
-						name: "Xander (Mientras el celular suena)",
-						lines: `Solo tengo que...`,
-					},
-					{
-						name: "Xander (Revisa el celular)",
-						lines: `No, por favor nooo...`,
-					},
-					{
-						name: "Xander (Contesta)",
-						lines: `Por favor no le hagas daño...`,
-					},
-					{
-						name: "Xander",
-						lines: `No me has dado tiempo...`,
-					},
-					{
-						name: "Desconocido",
-						lines: `...`,
-					}
-				],
-			},
-		],
-	},
-	{
-		camera: { position: [-1, 4, 0] },
-		thereIsMission: false,
-		component: <Intro imageId={10} />,
 		characters: [""],
 		nextScenery: "gameOver",
 		levels: [
@@ -542,6 +497,14 @@ export const introState = [
 					{
 						name: "Desconocido",
 						lines: `Ya crees que un niñato como tu va a poder pagarme los BitCoins estando en el mundo real.`,
+					},
+					{
+						name: "Desconocido",
+						lines: `Gastando tu tiempo en cosas sin sentido.`,
+					},
+					{
+						name: "Desconocido",
+						lines: `Ya no hay tiempo para rectificar.`,
 					},
 					{
 						name: "Desconocido",

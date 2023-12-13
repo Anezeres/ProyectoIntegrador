@@ -44,7 +44,6 @@ const TimeLine = (props) => {
                             [-7, xanderBodyRef.current.translation().y, -4.8],
                             [-7, xanderBodyRef.current.translation().y, -8]],
                             'Xander',
-                            'Idle',
                             () => {
                                 stopAnimation('Xander')
                                 rotate(Math.PI / 3, 'Xander')
@@ -58,7 +57,6 @@ const TimeLine = (props) => {
                         changePosition([
                             [-7, xanderBodyRef.current.translation().y, -3]],
                             'Xander',
-                            'Idle',
                             () => {
                                 stopAnimation('Xander')
                                 playAnimation('Idle', 'Xander', null)
@@ -79,6 +77,7 @@ const TimeLine = (props) => {
                         rotate(Math.PI / 3, 'Abuela')
                         playAnimation('Idle', 'Abuela', null)
                         playAnimation('Idle', 'Xander', null)
+                        
                         setTimeout(() => {
                             stopAnimation('Xander')
                             changePosition([
@@ -86,7 +85,6 @@ const TimeLine = (props) => {
                                 [8, xanderBodyRef.current.translation().y, -0],
                                 [8, xanderBodyRef.current.translation().y, -6]],
                                 'Xander',
-                                'Idle',
                                 () => {
                                     stopAnimation('Xander')
                                     rotate(Math.PI / 3, 'Xander')
@@ -112,7 +110,6 @@ const TimeLine = (props) => {
                             [9, xanderBodyRef.current.translation().y, 6],
                             [5.3, xanderBodyRef.current.translation().y, 6]],
                             'Xander',
-                            'Idle',
                             () => {
                                 stopAnimation('Xander')
                                 playAnimation("Idle", "Xander")
@@ -142,7 +139,6 @@ const TimeLine = (props) => {
                             [-2, xanderBodyRef.current.translation().y, 0],
                             [-2, xanderBodyRef.current.translation().y, 3]],
                             'Xander',
-                            'Idle',
                             () => {
                                 stopAnimation('Xander')
                                 rotate(-Math.PI / 2, 'Xander')
@@ -157,7 +153,6 @@ const TimeLine = (props) => {
                         changePosition([
                             [-2, xanderBodyRef.current.translation().y, -3]],
                             'Xander',
-                            'Idle',
                             () => {
                                 stopAnimation('Xander')
                                 rotate(Math.PI / 2, 'Xander')
@@ -190,10 +185,58 @@ const TimeLine = (props) => {
                             [4, xanderBodyRef.current.translation().y, 0],
                             [4, xanderBodyRef.current.translation().y, 2]],
                             'Xander',
-                            'Idle',
                             () => {
                                 stopAnimation('Xander')
-                                playAnimation("Idle",'Xander')
+                                playAnimation("Idle", 'Xander')
+                            })
+                        break;
+                }
+                break;
+            case "s6":
+                switch (storyProgress.currentLevel) {
+                    case 0:
+                        playAnimation("SittingStyle", "Xander")
+                        rotate(Math.PI / 2, 'Xander')
+                        break;
+                    case 1:
+                        playAnimation('Angry', 'Xander')
+                        break;
+                }
+                break;
+            case "s7":
+                switch (storyProgress.currentLevel) {
+                    case 0:
+                        setTimeout(() => {
+                            teleport({ x: -11, y: 1, z: 0 }, 'Xander')
+                        }, 20)
+                        rotate(Math.PI / 2, 'Xander')
+                        playAnimation("Idle", "Xander")
+                        break;
+                    case 1:
+                        stopAnimation('Xander')
+                        setIsPaused(true)
+                        changePosition([
+                            [-5.5, xanderBodyRef.current.translation().y, 0],],
+                            'Xander',
+                            () => {
+                                stopAnimation('Xander')
+                                playAnimation('Searching', 'Xander')
+                                setIsPaused(false)
+                            })
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        stopAnimation('Xander')
+                        setIsPaused(true)
+                        changePosition([
+                            [4, xanderBodyRef.current.translation().y, 0],],
+                            'Xander',
+                            () => {
+                                stopAnimation('Xander')
+                                rotate(-Math.PI / 2, 'Xander')
+                                playAnimation('Idle', 'Xander')
+                                setIsPaused(false)
                             })
                         break;
                 }

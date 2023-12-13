@@ -63,6 +63,7 @@ const Raven = ({ position, ...props }) => {
             restitution={0}
             position={position}
             colliders={false}
+            {...props}
             name="raven"
         >
             <group
