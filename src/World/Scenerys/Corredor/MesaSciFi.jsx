@@ -11,13 +11,13 @@ const MesaSciFi = () => {
     
 
 
-    return(
-        <RigidBody debug type="fixed">
-            <mesh ref={MesaSciFiRef} position={[-5.2,0,-3.5]} scale={0.01}>
-                <primitive object={MesaSciFiModel.scene}/>
-            </mesh>
-        </RigidBody>
-    );
+    return (
+			<RigidBody type="fixed">
+				<mesh ref={MesaSciFiRef} position={[-5.2, 0, -3.5]} scale={0.01}>
+					<primitive object={MesaSciFiModel.scene} />
+				</mesh>
+			</RigidBody>
+		);
 
     
 }
