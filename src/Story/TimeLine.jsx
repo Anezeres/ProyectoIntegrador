@@ -209,7 +209,7 @@ const TimeLine = (props) => {
                         setTimeout(() => { setIsPaused(false) }, 10000)
                         break;
                     case 2:
-                        teleport({ x: 0.2, y: 1, z: 0}, 'Xander')
+                        teleport({ x: 0.2, y: 1, z: 0 }, 'Xander')
                         stopAnimation('Xander')
                         playAnimation('Sitting', 'Xander')
                         break;
@@ -256,10 +256,64 @@ const TimeLine = (props) => {
             case "s8":
                 switch (storyProgress.currentLevel) {
                     case 0:
+                        setIsPaused(true)
+                        setTimeout(() => {
+                            teleport({ x: -10, y: 1, z: 0 }, 'Xander')
+                            teleport({ x: -3.3, y: 1, z: -9 }, 'Raven')
+
+                        }, 20)
                         setIsPaused(false)
+                        rotate(Math.PI / 2, 'Xander')
                         playAnimation("Idle", "Xander")
                         break;
                     case 1:
+                        setIsPaused(true)
+                        changePosition([
+                            [-2, xanderBodyRef.current.translation().y, 0],
+                            [0, xanderBodyRef.current.translation().y, 2]],
+                            'Xander',
+                            () => {
+                                stopAnimation('Xander')
+                                playAnimation('Idle', 'Xander')
+                                setIsPaused(false)
+                            })
+                        break;
+                    case 2:
+                        setIsPaused(true)
+                        changePosition([
+                            [0, xanderBodyRef.current.translation().y, 0],
+                            [0, xanderBodyRef.current.translation().y, -3]],
+                            'Xander',
+                            () => {
+                                stopAnimation('Xander')
+                                playAnimation('Idle', 'Xander')
+                                setIsPaused(false)
+                            })
+                        break;
+                    case 4:
+                        rotate(Math.PI, 'Xander')
+                        teleport({ x: 0, y: 0.5, z: -1.5 }, 'Raven')
+                        rotate(Math.PI, 'Raven')
+                        break;
+                    case 5:
+                        teleport({ x: 0, y: -20, z: -1.5 }, 'Raven')
+                        break;
+                    case 6:
+                        rotate(Math.PI, 'Xander')
+                        break;
+                    case 7:
+                        setIsPaused(true)
+                        changePosition([
+                            [0, xanderBodyRef.current.translation().y, 0],
+                            [10, xanderBodyRef.current.translation().y, 0]],
+                            'Xander',
+                            () => {
+                                stopAnimation('Xander')
+                                playAnimation('Idle', 'Xander')
+                                rotate(-Math.PI/2, 'Raven')
+
+                                setIsPaused(false)
+                            })
                         break;
                 }
                 break;

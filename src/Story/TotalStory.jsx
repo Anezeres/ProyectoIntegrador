@@ -667,11 +667,11 @@ const Story = {
 		camera: { position: [5, 8, 5] },
 		component: <SegundoEscenario />,
 		characters: [
-			<Xander key={1} position={[-4, 1, 0]} />,
-			<Raven key={2} position={[6, 1, 0]} />,
+			<Xander key={1} position={[-10, 1, 0]} scale={1.1}/>,
+			<Raven key={2} position={[-3.3, 1, -9]} scale={1.1}/>,
 		],
 		currentScenery: "s8",
-		nextScenery: "tapaq",
+		nextScenery: "Continuara",
 		thereIsMission: false,
 		levels: [
 			{
@@ -692,7 +692,7 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: `He caminado por mas de 30 mins, pero no veo nada que me pueda ayudar.`,
+						lines: `He caminado por mas de 30 minutos, pero no veo nada que me pueda ayudar.`,
 					},
 				]
 			},
@@ -709,7 +709,7 @@ const Story = {
 					},
 					{
 						name: "Xander",
-						lines: `Codigo 538....6, dame un dulce kuchi sin chispas de chocolate.`,
+						lines: `Codigo 538....6, dame un dulce Kuchi sin chispas de chocolate.`,
 					},
 					{
 						name: "Codigo 5386",
@@ -734,12 +734,20 @@ const Story = {
 				logs: "",
 				dialogs: [
 					{
-						name: "Xander (Se empujan sin querer)",
+						name: "Xander (Le empujan)",
 						lines: `¡Hey... que te pasa!.`,
 					},
 					{
 						name: "Xander",
 						lines: `¿No ves por donde andas?`,
+					},
+					{
+						name: "Xander",
+						lines: `¿Espera no estabas enfrente hace un momento?`,
+					},
+					{
+						name: "Desconocida",
+						lines: `...`,
 					},
 					{
 						name: "Desconocida",
@@ -750,7 +758,7 @@ const Story = {
 						lines: `Umm....
 						
 						
-						Esta bien no hay problema
+						Esta bien no hay problema.
 						`,
 					},
 				]
@@ -759,16 +767,25 @@ const Story = {
 				logs: '',
 				dialogs:[
 					{
-						name: "Desconocida (Se va)",
-						lines: `...`,
+						name: "Desconocida",
+						lines: `*Se desvanece.`,
 					},
+					{
+						name: "Xander",
+						lines: `Wow, tengo que aprender a hacer eso.`,
+					},
+				]
+			},
+			{
+				logs: '',
+				dialogs:[
 					{
 						name: "Xander",
 						lines: `Bueno en lo que iba.`,
 					},
 					{
 						name: "Xander (Saca la Billetera Virtual)",
-						lines: `Código 5386. dame: kuchi, pago:Diner...`,
+						lines: `Código 5386. dame: Kuchi, pago:Diner...`,
 					},
 					{
 						name: "Xander",
@@ -782,11 +799,16 @@ const Story = {
 						lines: `Ya no esta.`,
 					},
 					{
+						name: "Codigo 5386",
+						lines: `¿Bip bup?.`,
+					},
+					{
 						name: "Xander",
-						lines: `...
-						
-						
-						No dure ni 1 hora sin que me pasara algo...`,
+						lines: `...`,
+					},
+					{
+						name: "Xander",
+						lines: `No dure ni 1 hora sin que me pasara algo...`,
 					},
 				]
 			},
@@ -795,15 +817,11 @@ const Story = {
 				dialogs:[
 					{
 						name: "Xander",
-						lines: `...`,
-					},
-					{
-						name: "Xander",
 						lines: `¡No importa!.`,
 					},
 					{
 						name: "Xander",
-						lines: `Seguiré por mi abuela`,
+						lines: `Seguiré por mi abuela.`,
 					},
 
 				]
