@@ -63,13 +63,7 @@ const CuartoPadres = () => {
 	return (
 		<>
 			<ambientLight />
-			<OrbitControls
-				enableRotate={false}
-				enablePan={false}
-				enableZoom={false}
-				makeDefault
-				target={[-8, 0, 8]}
-			/>
+			<OrbitControls makeDefault target={[-8, 0, 8]} />
 			<ObjetosPadres position={[0, 0, 0]} scale={1.3} />
 			<PlatformPadres />
 			<Juanda position={[-8, 0.3, 8]} scale={1.6} />
